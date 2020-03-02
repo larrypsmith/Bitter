@@ -10,6 +10,7 @@ class CreateBeers < ActiveRecord::Migration[5.2]
       t.string :description, null: false
       t.timestamps
     end
+    add_index :beers, :brewery_id
     add_index :beers, [:brewery_id, :name], unique: true
   end
 end
