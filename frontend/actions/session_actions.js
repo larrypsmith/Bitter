@@ -18,7 +18,7 @@ const receiveErrors = errors => ({
   errors
 })
 
-export const createNewUser = (user) => dispatch => (APIUtil.signUp(user))
+export const signUp = (user) => dispatch => (APIUtil.signUp(user))
   .then(user => dispatch(receiveCurrentUser(user)));
 
 export const login = user => dispatch => (APIUtil.login(user))
