@@ -19,10 +19,12 @@ const receiveErrors = errors => ({
 })
 
 export const signUp = (user) => dispatch => (APIUtil.signUp(user))
-  .then(user => dispatch(receiveCurrentUser(user)));
+  .then(user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON)));
 
 export const login = user => dispatch => (APIUtil.login(user))
-  .then(user => dispatch(receiveCurrentUser(user)));
+  .then(user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON)));
 
 export const logout = () => dispatch => (APIUtil.logout())
   .then(() => dispatch(logoutCurrentUser()));
