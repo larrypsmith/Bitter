@@ -30,11 +30,11 @@ export default class SessionForm extends React.Component {
   }
 
   getOtherFormPath() {
-    return (this.props.formType === 'signup' ? '/login' : '/signup')
+    return (this.props.formType === 'Sign Up' ? '/login' : '/signup')
   }
 
   getOtherFormName() {
-    return (this.props.formType === 'login' ? 'Sign Up' : 'Log In')
+    return (this.props.formType === 'Log In' ? 'Sign Up' : 'Log In')
   }
 
   renderErrors() {

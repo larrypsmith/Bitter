@@ -4,7 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 import * as SessionAPIUtil from './util/session_api_util';
-import { login } from './actions/session_actions'
+import { login, logout } from './actions/session_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState
   window.dispatch = store.dispatch
   window.login = login
+  window.logout = logout
   //TESTING END
 
   

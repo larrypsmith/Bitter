@@ -4,7 +4,7 @@ import SessionForm from './session_form';
 
 const mSTP = state => ({
   errors: state.errors.session,
-  formType: 'login'
+  formType: 'Log In'
 })
 
 const mDTP = dispatch => ({
