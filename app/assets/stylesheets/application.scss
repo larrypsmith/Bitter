@@ -10,10 +10,19 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
- * {
-   border: 1px solid red;
- }
+@import "base/reset.scss";
+
+@import "base/colors.scss";
+@import "base/fonts.scss";
+
+@import "components/_splash.scss";
+
+ 
+
+// * {
+//   border: 1px solid red !important;
+// }
+
+

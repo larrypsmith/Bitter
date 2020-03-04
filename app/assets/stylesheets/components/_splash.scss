@@ -1,0 +1,62 @@
+.splash {
+  position: relative;
+  height: 700px;
+  width: 100%;
+}
+
+.splash .bg-img {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+.splash .bg-img-opacity {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.splash-header {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.splash-header-btn {
+  // height: 50px;
+  color: white;
+  padding: 16px;
+  background-color: black;
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif; 
+  text-transform: uppercase;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.session-link {
+  box-sizing: border-box;
+  border: 2px solid white;
+}
+
+.session-link:hover {
+  color: black;
+  background-color: white;
+  transition: background-color .1s;
+}
+
+.demo-btn {
+  background-color: $yellow;
+  color: black
+}
+
+.demo-btn:hover {
+  background-color: #F7DC6F;
+  transition: background-color .1s;
+}
