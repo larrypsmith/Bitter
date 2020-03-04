@@ -34,7 +34,7 @@ export default class SessionForm extends React.Component {
   }
 
   getOtherFormName() {
-    return (this.props.formType === 'login' ? 'Log In' : 'Sign Up')
+    return (this.props.formType === 'login' ? 'Sign Up' : 'Log In')
   }
 
   renderErrors() {
@@ -53,6 +53,7 @@ export default class SessionForm extends React.Component {
     return (
       <div>
         <h1>{this.props.formType}</h1>
+        <Link to={`${this.getOtherFormPath()}`}>{this.getOtherFormName()}</Link>
         <form onSubmit={this.handleSubmit}>
           <label>Username:
             <input type="text" value={this.state.username} onChange={this.update('username')} />
