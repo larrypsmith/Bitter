@@ -19,7 +19,6 @@ export default class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    this.props.history.push('/')
   }
 
   update(field) {
@@ -64,7 +63,6 @@ export default class SessionForm extends React.Component {
           <button>Submit</button>
         </form>
         {this.renderErrors()}
-        <Link to={this.getOtherFormPath()}>{this.getOtherFormName()}</Link>
       </div>
     )
   }
