@@ -52,20 +52,22 @@ export default class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="session-page">
+      <div>
         <AuthBackground />
-        <form onSubmit={this.handleSubmit} className="session-form">
-          <h1>{this.props.formType}</h1>
-          <label>Username:
-            <input type="text" value={this.state.username} onChange={this.update('username')} />
-          </label>
-          <label>Password:
-            <input type="password" value={this.state.password} onChange={this.update('password')} />
-          </label>
-          <button>Submit</button>
-          {this.renderErrors()}
-          <Link to={`${this.getOtherFormPath()}`}>{this.getOtherFormName()}</Link>
-        </form>
+        <div className="session-page">
+          <form onSubmit={this.handleSubmit} className="session-form">
+            {/* <h1>{this.props.formType}</h1> */}
+            <label>Username:
+              <input type="text" value={this.state.username} onChange={this.update('username')}/>
+            </label>
+            <label>Password:
+              <input type="password" value={this.state.password} onChange={this.update('password')} />
+            </label>
+            <button>Submit</button>
+            {this.renderErrors()}
+            <Link to={`${this.getOtherFormPath()}`}>{this.getOtherFormName()}</Link>
+          </form>
+        </div>
       </div>
     )
   }

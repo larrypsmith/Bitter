@@ -9,9 +9,10 @@
     <%= javascript_include_tag 'application' %>
     <script type="text/javascript">
       window.beerBackgroundURL = "<%= image_url('beer-glasses-splash-page.jpg') %>";
-      window.mobileAppViewURL = "<%= image_url('masthead-img-main.png') %>"
+      window.mobileAppViewURL = "<%= image_url('masthead-img-main.png') %>";
+      window.logoBottlesURL = "<%= image_url('untappd-logo-light.png') %>";
     </script>
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap" rel="stylesheet">  </head>
 
   <body>
     <%= yield %>

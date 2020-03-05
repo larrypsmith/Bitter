@@ -14,7 +14,8 @@ export default ({ loginDemoUser }) => (
     </header>
 
     <main>
-      <div className="greeting-text">
+      <div className="greeting">
+        <img className="logo-bottles-img" src={window.logoBottlesURL} alt="untappd logo bottles"/>
         <h1>BITTER</h1>
         <h3>Drink Socially</h3>
         <h2>Discover and share your favorite beer.</h2>
