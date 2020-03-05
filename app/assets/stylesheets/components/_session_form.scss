@@ -9,8 +9,8 @@
 .session-form {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 565px;
+  justify-content: space-between;
+  padding: 25px 50px 25px 50px;
   background-color: white;
   text-align: center;
   font-family: $sans-serif;
@@ -19,4 +19,52 @@
 .session-form input {
   border: 1px solid #dddddd;
   border-radius: 3px;
+  text-align: left;
+  display: inline-block;
+  height: 32px;
+  padding: 0px 3px;
+  margin: 5px 0px;
+}
+
+.session-form h1 {
+  margin: none;
+  font-size: 60px;
+  font-family: 'Amaranth', $sans-serif;
+  color: #3F4040;
+}
+
+.session-form h3 {
+  font-family: 'Amaranth' $sans-serif;
+  color: #8d8c8c;
+  margin-bottom: 10px;
+}
+
+.session-form button {
+  color: white;
+  background-color: $yellow;
+  font-size: 18px;
+  padding: 10px 0px;
+  border-radius: 4px;
+  margin: 10px 0px;
+}
+
+.session-form button:hover {
+  color: white;
+  background-color: #F4B800;
+  font-size: 18px;
+  padding: 10px 0px;
+  border-radius: 4px;
+}
+
+.session-form p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.session-form strong {
+  text-decoration: underline;
+}
+
+.errors {
+  color: red;
 }

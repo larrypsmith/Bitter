@@ -9,10 +9,10 @@ export default class SessionForm extends React.Component {
       username: "",
       password: ""
     }
+    this.getOtherFormInfo = this.getOtherFormInfo.bind(this)
+    this.otherForm = this.getOtherFormInfo();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.getOtherFormPath = this.getOtherFormPath.bind(this);
-    this.getOtherFormName = this.getOtherFormName.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
@@ -30,17 +30,21 @@ export default class SessionForm extends React.Component {
     }
   }
 
-  getOtherFormPath() {
-    return (this.props.formType === 'Sign Up' ? '/login' : '/signup')
-  }
-
-  getOtherFormName() {
-    return (this.props.formType === 'Log In' ? 'Sign Up' : 'Log In')
+  getOtherFormInfo() {
+    return (this.props.formType === 'Sign Up') ? {
+      path: '/login',
+      name: 'Log In!',
+      text: 'Already have an account? '
+    } : {
+      path: '/signup',
+      name: 'Sign Up!',
+      text: 'New around here? '
+    }
   }
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors">
         {this.props.errors.map((error, i) => {
           return (
             <li key={i}>{error}</li>
@@ -50,22 +54,34 @@ export default class SessionForm extends React.Component {
     )
   }
 
+  componentWillUnmount() {
+    if (this.props.errors.length !== 0) {
+      this.props.removeErrors();
+    }
+  }
+
   render() {
     return (
       <div>
         <AuthBackground />
         <div className="session-page">
           <form onSubmit={this.handleSubmit} className="session-form">
-            {/* <h1>{this.props.formType}</h1> */}
+            <h1>BITTER</h1>
+            <h3>DRINK SOCIALLY</h3>
             <label>Username:
               <input type="text" value={this.state.username} onChange={this.update('username')}/>
             </label>
             <label>Password:
               <input type="password" value={this.state.password} onChange={this.update('password')} />
             </label>
-            <button>Submit</button>
             {this.renderErrors()}
-            <Link to={`${this.getOtherFormPath()}`}>{this.getOtherFormName()}</Link>
+            <button>{this.props.formType}</button>
+            <p>
+              {this.otherForm.text}
+              <Link to={`${this.otherForm.path}`}>
+                <strong>{this.otherForm.name}</strong>
+              </Link>
+            </p>
           </form>
         </div>
       </div>
