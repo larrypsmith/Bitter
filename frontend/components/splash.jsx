@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default ({ loginDemoUser }) => (
   <div className="splash">
-    <img className="bg-img" src="/assets/beer-glasses-splash-page.jpg" alt="beers"/>
+    <img className="bg-img" src={window.beerURL} alt="beers"/>
     <div className="bg-img-opacity"></div>
 
     <header className="splash-header">
@@ -16,6 +16,6 @@ export default ({ loginDemoUser }) => (
       <h1>BITTER</h1>
       <h2>Drink Socially</h2>
     </main>
-    
+
   </div>
 )
