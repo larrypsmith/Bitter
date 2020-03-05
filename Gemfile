@@ -52,7 +52,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'bcrypt'
+  gem 'bcrypt', '3.1.7'
   gem 'annotate'
 end
 
