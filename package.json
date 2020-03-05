@@ -21,7 +21,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -39,5 +40,9 @@
     "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6",
     "webpack-cli": "^3.3.11"
+  },
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.4"
   }
 }
