@@ -12,17 +12,19 @@
  *
  */
 
+// Reset
 @import "base/reset.scss";
 
+// Global Variables
 @import "base/colors.scss";
 @import "base/fonts.scss";
 
-@import "components/_splash.scss";
+// Components
+@import "components/*";
 
  
-
-// * {
-//   border: 1px solid red !important;
-// }
+* {
+  border: 1px solid red !important;
+}
 
 

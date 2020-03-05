@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default ({ loginDemoUser }) => (
   <div className="splash">
-    <img className="bg-img" src={window.beerURL} alt="beers"/>
+    <img className="bg-img" src={window.beerBackgroundURL} alt="beers"/>
     <div className="bg-img-opacity"></div>
 
     <header className="splash-header">
@@ -13,8 +13,13 @@ export default ({ loginDemoUser }) => (
     </header>
 
     <main>
-      <h1>BITTER</h1>
-      <h2>Drink Socially</h2>
+      <div className="greeting-text">
+        <h1>BITTER</h1>
+        <h3>Drink Socially</h3>
+        <h2>Discover and share your favorite beer.</h2>
+      </div>
+
+        <img className="mobile-img" src={window.mobileAppViewURL} alt="mobile app view"/>
     </main>
 
   </div>
