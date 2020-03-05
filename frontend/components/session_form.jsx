@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import AuthBackground from './auth_background';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -51,10 +52,10 @@ export default class SessionForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.formType}</h1>
-        <Link to={`${this.getOtherFormPath()}`}>{this.getOtherFormName()}</Link>
-        <form onSubmit={this.handleSubmit}>
+      <div className="session-page">
+        <AuthBackground />
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <h1>{this.props.formType}</h1>
           <label>Username:
             <input type="text" value={this.state.username} onChange={this.update('username')} />
           </label>
@@ -62,8 +63,9 @@ export default class SessionForm extends React.Component {
             <input type="password" value={this.state.password} onChange={this.update('password')} />
           </label>
           <button>Submit</button>
+          {this.renderErrors()}
+          <Link to={`${this.getOtherFormPath()}`}>{this.getOtherFormName()}</Link>
         </form>
-        {this.renderErrors()}
       </div>
     )
   }

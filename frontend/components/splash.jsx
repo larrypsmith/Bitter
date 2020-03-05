@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import AuthBackground from './auth_background';
+
 export default ({ loginDemoUser }) => (
   <div className="splash">
-    <img className="bg-img" src={window.beerBackgroundURL} alt="beers"/>
-    <div className="bg-img-opacity"></div>
+    <AuthBackground />
 
     <header className="splash-header">
       <button onClick={loginDemoUser} className="splash-header-btn demo-btn">Log In as Demo User</button>
@@ -19,7 +20,7 @@ export default ({ loginDemoUser }) => (
         <h2>Discover and share your favorite beer.</h2>
       </div>
 
-        <img className="mobile-img" src={window.mobileAppViewURL} alt="mobile app view"/>
+      <img className="mobile-img" src={window.mobileAppViewURL} alt="mobile app view"/>
     </main>
 
   </div>
