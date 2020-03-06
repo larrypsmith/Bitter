@@ -5,24 +5,3 @@
 .user-logo-container:hover {
   cursor: pointer;
 }
-
-.user-logo-dropdown {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 33px;
-  right: 0px;
-  width: 200px;
-  background-color: #2a2a2a;
-  color: white;
-}
-
-.user-logo-dropdown button {
-  border-bottom: 1px solid white;
-  font-family: $sans-serif;
-  padding: 10px 0px 10px 10px;
-}
-
-.user-logo-dropdown button:hover {
-  background-color: #525252;
-}
