@@ -1,24 +1,8 @@
 .nav-bar {
-  // border: 5px solid green !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $yellow;
+  height: 50px;
 }
 
-.link-feed {
-  // border: 5px solid blue !important;
-  // display: inline;
-}
-
-// .link-feed div {
-//   display: inline;
-// }
-
-.user-logo-container {
-  display: inline;
-}
-
-.user-logo {
-  position: relative;
-}
-
-.user-logo-nav {
-  position: absolute;
-}

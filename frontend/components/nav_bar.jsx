@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserLogo from './user_logo';
-import UserLogoNavContainer from './user_logo_nav_container';
 
 export default class NavBar extends React.Component {
   constructor(props) {
@@ -21,11 +20,13 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <nav className="nav-bar">
-        <Link to="/feed" className="link-feed">BITTER</Link>
+        {/* <button className="bitter-logo-btn"> */}
+          <Link to="/home" className="bitter-logo">BITTER</Link>
+        {/* </button> */}
+
         <div className="user-logo-container" onClick={this.toggleDropdown}>
-          <UserLogo />
+          <UserLogo hidden={this.state.dropdownHidden} />
         </div>
-        <UserLogoNavContainer hidden={this.state.dropdownHidden} /> 
       </nav>
     )
   }
