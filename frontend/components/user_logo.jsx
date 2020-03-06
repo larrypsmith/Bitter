@@ -7,4 +7,3 @@ export default ({ hidden }) => (
     <UserLogoNavContainer hidden={hidden} /> 
   </div>
 )
-
