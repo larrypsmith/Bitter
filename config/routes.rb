@@ -2,6 +2,8 @@
 #
 #                    Prefix Verb   URI Pattern                                                                              Controller#Action
 #                 api_users POST   /api/users(.:format)                                                                     api/users#create {:format=>:json}
+#             api_breweries GET    /api/breweries(.:format)                                                                 api/breweries#index {:format=>:json}
+#               api_brewery GET    /api/breweries/:id(.:format)                                                             api/breweries#show {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
@@ -14,6 +16,7 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do 
     resources :users, only: :create
+    resources :breweries, only: [:index, :show]
     resource :session, only: [:create, :destroy]
   end
 
