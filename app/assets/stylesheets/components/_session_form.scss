@@ -11,19 +11,34 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 25px 50px 25px 50px;
+  width: 400px;
+  box-sizing: border-box;
   background-color: white;
   text-align: center;
   font-family: $sans-serif;
 }
 
-.session-form input {
+.input-field {
+  display: flex;
+  align-items: center;
   border: 1px solid #dddddd;
   border-radius: 3px;
   text-align: left;
-  display: inline-block;
   height: 32px;
-  padding: 0px 3px;
+  padding: 0px 5px 0px 5px;
   margin: 5px 0px;
+}
+
+.input-field input {
+  // border: 1px solid green !important;
+  box-sizing: border-box;
+  padding-left: 5px;
+}
+
+.session-form .input-field i {
+  border-right: 1px solid #dddddd;
+  padding: 0px 5px 0px 0px;
+  color: $light-gray;
 }
 
 .session-form h1 {
@@ -45,7 +60,8 @@
   font-size: 18px;
   padding: 10px 0px;
   border-radius: 4px;
-  margin: 10px 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .session-form button:hover {
@@ -57,14 +73,22 @@
 }
 
 .session-form p {
-  font-size: 14px;
+  border-top: 1px solid $light-gray;
+  padding-top: 20px;
+  font-size: 16px;
   margin-top: 8px;
 }
 
 .session-form strong {
   text-decoration: underline;
+  color: $yellow;
+}
+
+.session-form input::placeholder {
+  color: $light-gray;
 }
 
 .errors {
   color: red;
 }
+

@@ -66,14 +66,18 @@ export default class SessionForm extends React.Component {
         <AuthBackground />
         <div className="session-page">
           <form onSubmit={this.handleSubmit} className="session-form">
-            <h1>BITTER</h1>
-            <h3>DRINK SOCIALLY</h3>
-            <label>Username:
-              <input type="text" value={this.state.username} onChange={this.update('username')}/>
-            </label>
-            <label>Password:
-              <input type="password" value={this.state.password} onChange={this.update('password')} />
-            </label>
+            <Link to="/">
+              <h1>BITTER</h1>
+              <h3>DRINK SOCIALLY</h3>
+            </Link>
+            <div className="input-field">
+              <i className="far fa-user"></i>
+              <input type="text" placeholder="username" value={this.state.username} onChange={this.update('username')}/>
+            </div>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input type="password" placeholder="password" value={this.state.password} onChange={this.update('password')} />
+            </div>
             {this.renderErrors()}
             <button>{this.props.formType}</button>
             <p>
