@@ -4,11 +4,11 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './login_form_container'
 import SignupFormContainer from './signup_form_container'
 import SplashContainer from './splash_container';
-import NavBarContainer from './nav_bar_container';
+import NavBar from './nav_bar';
 
 const App = () => (
   <div>
-    <ProtectedRoute path="/" component={NavBarContainer} />
+    <ProtectedRoute path="/" component={NavBar} />
 
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />

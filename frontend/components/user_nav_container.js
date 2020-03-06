@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import NavBar from './nav_bar';
 import { logout } from '../actions/session_actions';
+
+import UserNav from './user_nav';
 
 const mDTP = dispatch => ({
   logout: () => dispatch(logout())
 })
 
-export default connect(null, mDTP)(NavBar);
+export default connect(null, mDTP)(UserNav);
