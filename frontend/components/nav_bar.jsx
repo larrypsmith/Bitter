@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import UserLogo from './user_logo';
 
 export default class NavBar extends React.Component {
@@ -20,9 +20,11 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <nav className="nav-bar">
-        {/* <button className="bitter-logo-btn"> */}
-          <Link to="/home" className="bitter-logo">BITTER</Link>
-        {/* </button> */}
+        <Link to="/home" className="bitter-logo">BITTER</Link>
+
+        <div className="nav-links">
+          <NavLink to="/breweries" className="nav-link" activeClassName="active-nav-link">Breweries</NavLink>
+        </div>
 
         <div className="user-logo-container" onClick={this.toggleDropdown}>
           <UserLogo hidden={this.state.dropdownHidden} />

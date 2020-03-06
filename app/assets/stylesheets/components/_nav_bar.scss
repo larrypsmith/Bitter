@@ -1,8 +1,31 @@
 .nav-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: $yellow;
   height: 50px;
 }
 
+.nav-bar .bitter-logo {
+  font-family: $bitter-logo;
+  // margin-left: 100px;
+  font-size: 40px;
+  color: white;
+}
+
+.nav-bar .user-logo-container {
+    // margin-right: 100px;
+}
+
+.nav-links {
+  font-family: $sans-serif;
+  font-size: 20px;
+}
+
+.nav-links:hover {
+  color: white;
+}
+
+.active-nav-link {
+  color: white;
+}
