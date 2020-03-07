@@ -10,7 +10,7 @@ export default class BreweryIndex extends React.Component {
   }
 
   render() {
-    return (
+    return !this.props.breweries ? null : (
       <div>Brewery Index</div>
     )
   }
