@@ -6,6 +6,9 @@ import configureStore from './store/store';
 import * as SessionAPIUtil from './util/session_api_util';
 import { login, logout } from './actions/session_actions'
 
+import * as BreweryAPIUtil from './util/brewery_api_util';
+import { fetchBreweries, fetchBrewery } from './actions/brewery_actions'
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -23,10 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //TESTING START
   window.SessionAPIUtil = SessionAPIUtil;
-  window.getState = store.getState
-  window.dispatch = store.dispatch
-  window.login = login
-  window.logout = logout
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.login = login;
+  window.logout = logout;
+  window.BreweryAPIUtil = BreweryAPIUtil;
+  window.fetchBreweries = fetchBreweries;
+  window.fetchBrewery = fetchBrewery;
   //TESTING END
 
   
