@@ -6,6 +6,7 @@ import SignupFormContainer from './signup_form_container'
 import SplashContainer from './splash_container';
 import NavBar from './nav_bar';
 import BreweryIndexContainer from './brewery_index_container';
+import BreweryShowContainer from './brewery_show_container';
 
 const App = () => (
   <div>
@@ -19,7 +20,8 @@ const App = () => (
     <ProtectedRoute path="/" component={NavBar} />
 
     <Switch>
-      <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
+      <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
+      <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
       <ProtectedRoute path="/" component={() => <Redirect to="/breweries" />} />
     </Switch>
