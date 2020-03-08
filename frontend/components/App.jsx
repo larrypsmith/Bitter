@@ -19,7 +19,7 @@ const App = () => (
     <ProtectedRoute path="/" component={NavBar} />
 
     <Switch>
-      <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
+      <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
       <ProtectedRoute path="/" component={() => <Redirect to="/breweries" />} />
     </Switch>

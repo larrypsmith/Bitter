@@ -1,4 +1,5 @@
 import React from 'react'
+import BreweryIndexItemContainer from './brewery_index_item_container';
 
 export default class BreweryIndex extends React.Component {
   constructor(props) {
@@ -11,7 +12,15 @@ export default class BreweryIndex extends React.Component {
 
   render() {
     return !this.props.breweries ? null : (
-      <div>Brewery Index</div>
+      <div className="brewery-index">
+        {this.props.breweries.map((brewery, idx) =>
+          (<BreweryIndexItemContainer
+            brewery={brewery}
+            key={idx} />)
+          )
+        }
+      </div>
     )
   }
+
 }
