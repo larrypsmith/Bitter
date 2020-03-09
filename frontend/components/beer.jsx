@@ -1,9 +1,6 @@
-import React from 'react';
+// import React from 'react';
+// import Tile from './tile';
 
-export default class Beer extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+// export default props = (
 
-  
-}
+// )

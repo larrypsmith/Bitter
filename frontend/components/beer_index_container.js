@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import BeerIndex from './beer_index';
 
-const mSTP = state ({
+const mSTP = state => ({
   beers: Object.values(state.entities.beers)
 })
 

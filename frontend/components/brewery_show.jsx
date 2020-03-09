@@ -1,5 +1,6 @@
 import React from 'react';
 import Brewery from './brewery';
+import BeerIndexContainer from './beer_index_container';
 
 export default class BreweryShow extends React.Component {
 
@@ -12,6 +13,7 @@ export default class BreweryShow extends React.Component {
     return (
       <div className="brewery-show">
         <Brewery brewery={this.props.brewery} />
+        <BeerIndexContainer />
       </div>
     )
   }
