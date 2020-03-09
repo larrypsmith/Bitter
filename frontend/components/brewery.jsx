@@ -11,7 +11,6 @@ export default class Brewery extends React.Component {
     }
     this.changeDescriptionLength = this.changeDescriptionLength.bind(this);
     this.renderShowMoreButton = this.renderShowMoreButton.bind(this);
-    this.renderViewBeersButton = this.renderViewBeersButton.bind(this);
   }
 
   changeDescriptionLength(e) {
@@ -37,17 +36,8 @@ export default class Brewery extends React.Component {
     }
   }
 
-  renderViewBeersButton() {
-    if (this.props.viewBeersButton) {
-      return (
-        <Link to={`breweries/${this.props.brewery.id}`}>View Beers</Link>
-      )
-    }
-  }
-
-
   render() {
-    const { brewery: { id, name, city, state, country, profilePictureUrl } } = this.props;
+    const { brewery: { id, name, city, state, country, profilePictureUrl }, viewBeersButton } = this.props;
     const { description } = this.state;
 
     return (
@@ -62,7 +52,7 @@ export default class Brewery extends React.Component {
             <div className="brewery-location">{city}, {state} {country}</div>
           </div>
 
-          {this.renderViewBeersButton()}
+          {viewBeersButton}
         </div>
 
         <div className="brewery-body">
