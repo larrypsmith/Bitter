@@ -13,7 +13,9 @@ class BreweryShow extends React.Component {
   render() {
     if (!this.props.brewery) return null;
     return (
-      <Brewery brewery={this.props.brewery} />
+      <div className="brewery-show">
+        <Brewery brewery={this.props.brewery} />
+      </div>
     )
   }
 
