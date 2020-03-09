@@ -8,13 +8,13 @@ const receiveBreweries = breweries => ({
   breweries
 })
 
-const receiveBrewery = brewery => ({
+const receiveBrewery = payload => ({
   type: RECEIVE_BREWERY,
-  brewery
+  payload
 })
 
 export const fetchBreweries = () => dispatch => (BreweryAPIUtil.fetchBreweries())
   .then(breweries => dispatch(receiveBreweries(breweries)))
 
 export const fetchBrewery = breweryId => dispatch => (BreweryAPIUtil.fetchBrewery(breweryId))
-  .then(brewery => dispatch(receiveBrewery(brewery)))
+  .then(payload => dispatch(receiveBrewery(payload)))
