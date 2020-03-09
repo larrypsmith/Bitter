@@ -10,18 +10,14 @@ import BreweryShowContainer from './brewery_show_container';
 
 const App = () => (
   <div>
+    <ProtectedRoute path="/" component={NavBar} />
+
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/" component={SplashContainer} />
-      <AuthRoute path="/" component={() => <Redirect to='/' />} />
-    </Switch>
-
-    <ProtectedRoute path="/" component={NavBar} />
-
-    <Switch>
-      <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
-      <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
+      <ProtectedRoute exact path="/breweries/:id" component={BreweryShowContainer} />
+      <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
       <ProtectedRoute path="/" component={() => <Redirect to="/breweries" />} />
     </Switch>

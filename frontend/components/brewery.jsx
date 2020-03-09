@@ -7,6 +7,7 @@ export default class Brewery extends React.Component {
     this.descriptionCutoffLength = 120;
     this.state = {
       show: 'More',
+      description: this.props.brewery.description.slice(0, this.descriptionCutoffLength)
     }
     this.changeDescriptionLength = this.changeDescriptionLength.bind(this);
     this.renderShowMoreButton = this.renderShowMoreButton.bind(this);
@@ -44,31 +45,23 @@ export default class Brewery extends React.Component {
     }
   }
 
-  componentDidMount() {
-    if (!this.props.brewery) {
-      this.props.fetchBrewery(this.props.match.params.id);
-    } else {
-    this.setState({ description: this.props.brewery.description.slice(0, this.descriptionCutoffLength) })
-    }
-  }
-
-  componentDidUpdate() {
-  }
 
   render() {
-    if (!this.props.brewery) return null;
     const { brewery: { id, name, city, state, country, profilePictureUrl } } = this.props;
     const { description } = this.state;
+
     return (
       <div className="brewery">
         <div className="brewery-header">
           <Link to={`breweries/${id}`}>
             <img src={profilePictureUrl} alt={name}/>
           </Link>
+
           <div className="brewery-header-text">
             <h1 className="brewery-name">{name}</h1>
             <div className="brewery-location">{city}, {state} {country}</div>
           </div>
+
           {this.renderViewBeersButton()}
         </div>
 
