@@ -51,6 +51,22 @@ ksa = Beer.create!(brewery_id: fort_point.id, name: "KSA", beer_type: "Kolsch", 
 anchor_steam = Beer.create!(brewery_id: anchor.id, name: "Anchor Steam Beer", beer_type: "California Common", abv: 4.8, ibu: 35, description: "San Francisco's famous Anchor Steam®, the classic of American brewing tradition since 1896, is virtually handmade, with an exceptional respect for the ancient art of brewing. The deep amber color, thick creamy head, and rich flavor all testify to our traditional brewing methods. Anchor Steam is unique, for our brewing process has evolved over many decades and is like no other in the world. Anchor Steam derives its unusual name from the 19th century when \"steam\" seems to have been a nickname for beer brewed on the West Coast of America under primitive conditions and without ice. The brewing methods of those days are a mystery and, although there are many theories, no one can say with certainty why the word \"steam\" came to be associated with beer. For many decades Anchor alone has used this quaint name for its unique beer. In modern times, \"Steam\" has become a trademark of Anchor Brewing.")
 liberty_ale = Beer.create!(brewery_id: anchor.id, name: "Liberty Ale", beer_type: "IPA", subtype: "American", abv: 5.9, ibu: 47, description: "San Francisco's famouse Liberty Ale was first brewed on the 18th of April, 1975 to celebrate the 200th anniversary of Paul Revere's historic ride. It is virtually handmade by the brewers of Anchor Steam Beer in one of the smallest and most traditional breweries in the world. Liberty Ale is made with the finest barley malt, fresh, whole hops, top fermenting yeast, pure water and the simple natural methods which reflect our exceptional respect for the ancient art of brewing.")
 
+a_little_sumpin_sumpin_ale_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/a_little_sumpin_sumpin_ale.jpeg")
+ipa_img                        = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/ipa.jpeg")
+pliny_the_elder_img            = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/pliny_the_elder.jpeg")
+pliny_the_younger_img          = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/pliny_the_younger.jpeg")
+racer_5_img                    = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/racer_5.jpeg")
+villager_img                   = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/villager.jpeg")
+ksa_img                        = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/ksa.jpeg")
+anchor_steam_img               = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/anchor_steam.jpeg")
+liberty_ale_img                = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/beers/liberty_ale.jpg")
 
-
-
+a_little_sumpin_sumpin_ale.profile_picture.attach(io: a_little_sumpin_sumpin_ale_img, filename: "a_little_sumpin_sumpin_ale.jpeg")
+ipa.profile_picture.attach(io: ipa_img, filename: "ipa.jpeg")
+pliny_the_elder.profile_picture.attach(io: pliny_the_elder_img, filename: "pliny_the_elder.jpeg")
+pliny_the_younger.profile_picture.attach(io: pliny_the_younger_img, filename: "pliny_the_younger.jpeg")
+racer_5.profile_picture.attach(io: racer_5_img, filename: "racer_5.jpeg")
+villager.profile_picture.attach(io: villager_img, filename: "villager.jpeg")
+ksa.profile_picture.attach(io: ksa_img, filename: "ksa.jpeg")
+anchor_steam.profile_picture.attach(io: anchor_steam_img, filename: "anchor_steam.jpeg")
+liberty_ale.profile_picture.attach(io: liberty_ale_img, filename: "liberty_ale.jpg")
