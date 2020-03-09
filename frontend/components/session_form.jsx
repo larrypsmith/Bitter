@@ -78,8 +78,8 @@ export default class SessionForm extends React.Component {
               <i className="fas fa-lock"></i>
               <input type="password" placeholder="password" value={this.state.password} onChange={this.update('password')} />
             </div>
-            {this.renderErrors()}
             <button>{this.props.formType}</button>
+            {this.renderErrors()}
             <p>
               {this.otherForm.text}
               <Link to={`${this.otherForm.path}`}>
