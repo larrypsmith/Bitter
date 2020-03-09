@@ -3,4 +3,7 @@ class Brewery < ApplicationRecord
   validates :city, :country, :description, presence: true
 
   has_one_attached :profile_picture
+
+  has_many :beers
+
 end
