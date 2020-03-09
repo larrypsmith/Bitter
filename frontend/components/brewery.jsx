@@ -43,13 +43,15 @@ export default class Brewery extends React.Component {
     return (
       <div className="brewery">
         <div className="brewery-header">
-          <Link to={`breweries/${id}`}>
-            <img src={profilePictureUrl} alt={name}/>
-          </Link>
+          <div className="brewery-header-left">
+            <Link to={`breweries/${id}`}>
+              <img src={profilePictureUrl} alt={name}/>
+            </Link>
 
-          <div className="brewery-header-text">
-            <h1 className="brewery-name">{name}</h1>
-            <div className="brewery-location">{city}, {state} {country}</div>
+            <div className="brewery-header-text">
+              <h1 className="brewery-name">{name}</h1>
+              <div className="brewery-location">{city}, {state} {country}</div>
+            </div>
           </div>
 
           {viewBeersButton}

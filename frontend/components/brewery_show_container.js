@@ -13,7 +13,7 @@ class BreweryShow extends React.Component {
   render() {
     if (!this.props.brewery) return null;
     return (
-      <Brewery brewery={this.props.brewery} viewBeersButton={this.props.viewBeersButton}/>
+      <Brewery brewery={this.props.brewery} />
     )
   }
 
@@ -22,7 +22,6 @@ class BreweryShow extends React.Component {
 const mSTP = (state, ownProps) => {
   return ({
     brewery: state.entities.breweries[ownProps.match.params.id],
-    viewBeersButton: false
   })
 }
 

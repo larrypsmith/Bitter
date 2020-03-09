@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import Brewery from './brewery';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const mSTP = (state, ownProps) => ({
   brewery: ownProps.brewery,
   viewBeersButton: (
-    <Link to={`breweries/${ownProps.brewery.id}`}>View Beers</Link>
+    <Link to={`breweries/${ownProps.brewery.id}`} className="view-beers-button">View Beers</Link>
   )
 })
 
