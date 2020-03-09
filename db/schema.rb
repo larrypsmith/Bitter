@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_003850) do
+ActiveRecord::Schema.define(version: 2020_03_09_054250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_003850) do
   create_table "beers", force: :cascade do |t|
     t.integer "brewery_id", null: false
     t.string "name", null: false
-    t.string "type", null: false
+    t.string "beer_type", null: false
     t.string "subtype", null: false
     t.integer "abv", null: false
     t.integer "ibu", null: false
