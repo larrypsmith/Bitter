@@ -1,5 +1,6 @@
 import React from 'react'
-import BreweryIndexItemContainer from './brewery_index_item_container';
+import Brewery from './brewery';
+import { Link } from 'react-router-dom'
 
 export default class BreweryIndex extends React.Component {
   constructor(props) {
@@ -14,13 +15,15 @@ export default class BreweryIndex extends React.Component {
     return !this.props.breweries ? null : (
       <div className="brewery-index">
         {this.props.breweries.map((brewery, idx) =>
-          (<BreweryIndexItemContainer
+          (<Brewery
             brewery={brewery}
-            key={idx} />)
-          )
-        }
+            key={idx}
+            viewBeersButton={
+              <Link to={`breweries/${brewery.id}`} className="view-beers-button">View Beers</Link>
+            }
+          />)
+        )}
       </div>
     )
   }
-
 }
