@@ -47,7 +47,7 @@ export default class SessionForm extends React.Component {
       <ul className="errors">
         {this.props.errors.map((error, i) => {
           return (
-            <li key={i}>{error}</li>
+            <li key={i}>{error}!</li>
           )
         })}
       </ul>

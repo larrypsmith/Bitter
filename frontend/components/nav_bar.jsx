@@ -18,6 +18,8 @@ export default class NavBar extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
+    if (!currentUser) return null;
     return (
       <nav className="nav-bar">
         <Link to="/home" className="bitter-logo">BITTER</Link>

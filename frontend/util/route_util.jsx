@@ -22,6 +22,18 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
   />
 );
 
+const Session = ({ loggedIn }) => {
+  if (loggedIn) {
+    return (
+      <Redirect to="/" />
+    )
+  } else {
+    return (
+      <Redirect to="/breweries" />
+    )
+  }
+}
+
 const mSTP = state => ({
   loggedIn: Boolean(state.session.id)
 });
@@ -39,3 +51,5 @@ export const ProtectedRoute = withRouter(
     null
   )(Protected)
 )
+
+export const SessionRedirect = connect(mSTP)(Session)
