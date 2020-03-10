@@ -21,6 +21,22 @@ casey_smith        = User.create!(username: "casey_smith",        password: "cas
 lauren_andrews     = User.create!(username: "lauren_andrews",     password: "laurenlovesbeer")
 taylor_miller      = User.create!(username: "taylor_miller",      password: "taylor_loves_beer")
 
+demo_user_img          = open("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
+# beer_lover12_img       = open("")
+# the_beer_snob_img      = open("")
+# cider_rules_img        = open("")
+# bay_area_beer_luvr_img = open("")
+# i_love_beer_img        = open("")
+# alex_stevens_img       = open("")
+# jeff_lubinski_img      = open("")
+# casey_smith_img        = open("")
+# lauren_andrews_img     = open("")
+# taylor_miller_img      = open("")
+
+demo_user.profile_picture.attach(io: demo_user_img, filename: 'demo_user.jpeg')
+
+
+
 Brewery.delete_all
 lagunitas     = Brewery.create!(name: "Lagunitas Brewing Company",     city: "Petaluma",      state: "CA", country: "United States", description: "From points distant and beyond we all converged on Petaluma in 1993 and ’94 with an unenunciated desire to be more than we were before. The core of Lagunitas came from Chicago, St Louis, Memphis, Walker Creek, and the highlands of Quincy. The Chicago contingent initiated the brewing and the gravitational effect of its suchness did the rest. We all loved the beer but the mission was larger than the ordinary joy of a hoppy-sweet quaff. It was driven unseen by an urge to communicate with people, to find our diasporidic tribe, and to connect with other souls adrift on a culture that had lost its center and spun its inhabitants to the four winds to wander lost and bereft with a longing to re-enter the light. Beer, we have learned, has always been a good lubricant for social intercourse! The Lagunitas Brewing Co. was not so much an act of ordinary ‘foundling’ as it was willed into being by the unspoken desire of supportive beer-lovers in Northern California after which they continued to nurture their creation and urged us forward to fulfill the unifying needs of that same beer-loving diaspora from coast to coast and beyond. It is good to have friends!")
 russian_river = Brewery.create!(name: "Russian River Brewing Company", city: "Windsor",       state: "CA", country: "United States", description: "Russian River Brewing Company (RRBC) was originally owned by Korbel Champagne Cellars in Guerneville, California and was founded on their historic and beautiful property amidst vineyards and redwoods near the Russian River. When Korbel decided to get out of the beer business in 2003, they generously offered the brewmaster, Vinnie Cilurzo and his wife Natalie the rights to the brand. Russian River Brewing might be something completely different now if it weren't for this incredible opportunity. In the early days on the Korbel property, Vinnie not only brewed the beer, but made the sales calls and deliveries as well. Eventually they hired a sales/delivery guy to help with all of that so he could focus on brewing! Korbel planted a small hop field where Vinnie received a \"field\" education on growing and brewing with \"wet\" hops. It was from those amazingly fresh hops, grown just a few yards away, that he made his first wet hops brew, \"Hop-Time Harvest Ale\". As it turns out, demand is still greater than the supply, but they prefer to grow their business organically while focusing on efficiencies and quality. For now, it is easier to make better beer than it is to make more beer! The history of Russian River Brewing Company would be incomplete without a little background on the people who own it, operate it, and are passionate about their brewery and craft beer in general!")
