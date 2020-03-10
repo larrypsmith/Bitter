@@ -11,3 +11,4 @@ json.beers do
     end
   end
 end
+

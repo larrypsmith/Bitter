@@ -9,6 +9,10 @@ import { login, logout } from './actions/session_actions'
 import * as BreweryAPIUtil from './util/brewery_api_util';
 import { fetchBreweries, fetchBrewery } from './actions/brewery_actions'
 
+import * as UserAPIUtil from './util/user_api_util';
+import { fetchUser } from './actions/user_actions';
+
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -33,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.BreweryAPIUtil = BreweryAPIUtil;
   window.fetchBreweries = fetchBreweries;
   window.fetchBrewery = fetchBrewery;
+  window.UserAPIUtil = UserAPIUtil;
+  window.fetchUser = fetchUser
   //TESTING END
 
   
