@@ -4,7 +4,6 @@
   border-bottom: 2px solid rgb(216, 216, 216);
   box-sizing: border-box;
   padding: 25px;
-
 }
 
 .tile .header {
@@ -14,6 +13,7 @@
 
 .tile .header .left {
   display: flex;
+  max-width: 85%
 }
 
 .tile img {
@@ -38,10 +38,11 @@
 
 .tile .header .nav-button {
   align-self: center;
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
   color: white;
   background-color: $yellow;
+  margin-left: 10px;
 }
 
 .tile .header .nav-button:hover {

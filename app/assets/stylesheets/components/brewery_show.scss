@@ -1,10 +1,10 @@
 .brewery-show {
-  background-color: $manila;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .brewery-show > * {
-  width: 50%;
+  margin-top: 15px;
 }

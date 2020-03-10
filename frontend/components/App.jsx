@@ -12,15 +12,17 @@ const App = () => (
   <div>
     <NavBarContainer />
 
-    <Switch>
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/" component={SplashContainer} />
-      <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
-      <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
-      <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
-      <SessionRedirect />
-    </Switch>
+    <main className="app-main">
+      <Switch>
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} />
+        <AuthRoute exact path="/" component={SplashContainer} />
+        <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
+        <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
+        <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
+        <SessionRedirect />
+      </Switch>
+    </main>
   </div>
 )
 
