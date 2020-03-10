@@ -1,0 +1,63 @@
+.tile {
+  font-family: $sans-serif;
+  background-color: white;
+  border-bottom: 2px solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  padding: 25px;
+
+}
+
+.tile .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tile .header .left {
+  display: flex;
+}
+
+.tile img {
+  width: 80px;
+  margin: 0px 10px 10px 0px;
+}
+
+.tile hgroup h1 {
+  color: black;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.tile hgroup h2 {
+  color: $light-gray;
+  font-size: 16px;
+}
+
+.tile .description > * {
+  display: inline;
+}
+
+.tile .header .nav-button {
+  align-self: center;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  background-color: $yellow;
+}
+
+.tile .header .nav-button:hover {
+  background-color: rgb(230, 172, 0);
+}
+
+.tile .description button {
+  color: $brown;
+  margin-left: 5px;
+}
+
+.tile .description button:hover {
+  color: $dark-yellow;
+}
+
+.tile p {
+  color: $light-gray;
+}
+
