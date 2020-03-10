@@ -22,6 +22,7 @@ lauren_andrews     = User.create!(username: "lauren_andrews",     password: "lau
 taylor_miller      = User.create!(username: "taylor_miller",      password: "taylor_loves_beer")
 
 demo_user_img          = open("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
+demo_user_cover_photo  = open("https://untappd.akamaized.net/site/assets/v3/images/cover_default.jpg")
 # beer_lover12_img       = open("")
 # the_beer_snob_img      = open("")
 # cider_rules_img        = open("")
@@ -34,6 +35,7 @@ demo_user_img          = open("https://images.pexels.com/photos/220453/pexels-ph
 # taylor_miller_img      = open("")
 
 demo_user.profile_picture.attach(io: demo_user_img, filename: 'demo_user.jpeg')
+demo_user.cover_photo.attach(io: demo_user_cover_photo, filename: 'demo_user_cover.jpeg')
 
 
 
