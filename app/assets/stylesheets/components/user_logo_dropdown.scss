@@ -9,12 +9,12 @@
   color: white;
 }
 
-.user-logo-dropdown button {
+.user-logo-dropdown > * {
   border-bottom: 1px solid white;
   font-family: $sans-serif;
   padding: 10px 0px 10px 10px;
 }
 
-.user-logo-dropdown button:hover {
+.user-logo-dropdown > *:hover {
   background-color: #525252;
 }

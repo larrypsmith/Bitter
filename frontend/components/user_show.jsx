@@ -6,7 +6,7 @@ export default class UserShow extends React.Component {
   }
 
   render() {
-    const { user } = props.user;
+    const { user } = this.props;
     return (
     <h1>{user.username}'s Show Page</h1>
     )
