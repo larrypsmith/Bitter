@@ -25,11 +25,11 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 const Session = ({ loggedIn }) => {
   if (loggedIn) {
     return (
-      <Redirect to="/" />
+      <Redirect to="/breweries" />
     )
   } else {
     return (
-      <Redirect to="/breweries" />
+      <Redirect to="/" />
     )
   }
 }
