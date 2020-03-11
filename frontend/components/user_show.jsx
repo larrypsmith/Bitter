@@ -6,8 +6,19 @@ export default class UserShow extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.match.params.id)
+  }
+
+  componentDidUpdate() {
+    if (!this.props.user) {
+      this.props.fetchUser(this.props.match.params.id)
+    }
+  }
+
   render() {
     const { user, fetchUser } = this.props;
+    if (!user) return null;
     return (
     <div className="user-show">
       <UserBanner
