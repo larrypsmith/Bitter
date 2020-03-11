@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TextBody from './text_body';
 
 export default class Tile extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ export default class Tile extends React.Component {
     const { description } = this.state;
 
     return (
-      <div className="tile">
+      <div className="tile brewery-beer">
         <div className="header">
           <div className="left">
             <Link to={`/${index}/${id}`}>
@@ -57,10 +58,7 @@ export default class Tile extends React.Component {
           {navButton}
         </div>
 
-        <div className="description">
-          <p>{description}</p>
-          {this.renderShowMoreButton()}
-        </div>
+        <TextBody body={this.props.component.description} cutoffLength={130} />
       </div>
     )
   }

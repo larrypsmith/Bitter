@@ -1,4 +1,9 @@
 .user-show {
   display: flex;
+  flex-direction: column;
   width: 50%;
+}
+
+.user-show ul > * {
+  margin-top: 10px;
 }

@@ -1,6 +1,4 @@
 import React from 'react';
-import UserProfilePicture from './user_profile_picture';
-
 
 export default class UserBanner extends React.Component {
   constructor(props) {
@@ -17,7 +15,7 @@ export default class UserBanner extends React.Component {
     return (
       <div className="user-banner">
         <div className="profile-elements">
-          <UserProfilePicture user={user} />
+          <img src={user.profilePictureUrl} alt={`${user.username}`} className="user-profile-picture"/>
           <h1 className="username">
             {user.username}
           </h1>

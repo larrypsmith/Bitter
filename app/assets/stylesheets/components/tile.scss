@@ -6,14 +6,8 @@
   padding: 25px;
 }
 
-.tile .header {
+.tile header {
   display: flex;
-  justify-content: space-between;
-}
-
-.tile .header .left {
-  display: flex;
-  max-width: 70%
 }
 
 .tile img {
@@ -21,22 +15,18 @@
   margin: 0px 10px 10px 0px;
 }
 
-.tile hgroup h1 {
+.tile h1 {
   color: black;
   font-size: 26px;
   margin-bottom: 5px;
 }
 
-.tile hgroup h2 {
+.tile h2, p {
   color: $light-gray;
   font-size: 16px;
 }
 
-.tile .description > * {
-  display: inline;
-}
-
-.tile .header .nav-button {
+.tile .nav-button {
   align-self: center;
   padding: 10px;
   border-radius: 5px;
@@ -46,20 +36,18 @@
   border-bottom: 2px solid $light-gray;
 }
 
-.tile .header .nav-button:hover {
+.tile .nav-button:hover {
   background-color: rgb(230, 172, 0);
 }
 
-.tile .description button {
-  color: $brown;
-  margin-left: 5px;
+.tile .link {
+  color: $brown
 }
 
-.tile .description button:hover {
+.tile .link:hover {
   color: $dark-yellow;
 }
 
-.tile p {
-  color: $light-gray;
+.tile .orange {
+  color: $brown
 }
-
