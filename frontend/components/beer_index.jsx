@@ -1,5 +1,5 @@
 import React from 'react';
-import BeerContainer from './beer';
+import Beer from './beer';
 
 export default props => (
   <div className="beer-index">
@@ -7,7 +7,7 @@ export default props => (
     <ul className="beer-list">
       {props.beers.map((beer, idx) => (
         <li key={idx}>
-          <BeerContainer beer={beer} />
+          <Beer beer={beer} />
         </li>
       ))}
     </ul>
