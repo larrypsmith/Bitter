@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch } from 'react-router-dom'
-import { AuthRoute, ProtectedRoute, SessionRedirect } from '../util/route_util';
+import { Switch, Redirect } from 'react-router-dom'
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './login_form_container'
 import SignupFormContainer from './signup_form_container'
 import SplashContainer from './splash_container';
@@ -21,7 +21,7 @@ const App = ({ loggedIn }) => {
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
             <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
             <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
-            <SessionRedirect />
+            <Redirect to="/breweries" />
           </Switch>
         </main>
       </div>
@@ -33,7 +33,7 @@ const App = ({ loggedIn }) => {
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/" component={SplashContainer} />
-            <SessionRedirect />
+            <Redirect to="/" />
           </Switch>
       </div>
     )
