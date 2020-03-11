@@ -6,6 +6,7 @@ import { fetchBrewery } from '../actions/brewery_actions'
 const mSTP = (state, ownProps) => {
   return ({
     brewery: state.entities.breweries[ownProps.match.params.id],
+    beers: Object.values(state.entities.beers)
   })
 }
 
