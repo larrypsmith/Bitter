@@ -26,7 +26,7 @@ export default class UserShow extends React.Component {
         user={user}
         fetchUser={fetchUser}
       />
-      
+
       <ul className="checkin-index">
         {
           checkins.map((checkin, idx) => {

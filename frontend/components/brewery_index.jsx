@@ -20,7 +20,7 @@ export default class BreweryIndex extends React.Component {
           (<Brewery
             brewery={brewery}
             navButton={
-              <Link to={`breweries/${brewery.id}`} className="nav-button">View Beers</Link>
+              <Link to={`breweries/${brewery.id}`} className="nav-button">View Brewery</Link>
             }
             key={idx}
           />)

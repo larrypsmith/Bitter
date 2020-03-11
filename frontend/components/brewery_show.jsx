@@ -5,26 +5,30 @@ import BeerIndex from './beer_index';
 export default class BreweryShow extends React.Component {
   constructor(props) {
     super(props)
+    debugger
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchBrewery(this.props.match.params.id)
+    debugger
   }
 
-  componentDidUpdate() {
-    if (!this.props.brewery) {
+  componentDidUpdate(prevProps) {
+    debugger
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchBrewery(this.props.match.params.id)
     }
+    debugger
   }
 
-
   render() {
-    const { brewery, beers } = this.props
-
+    debugger
+    const { brewery, beers } = this.props;
     if (!brewery) {
       return null;
     }
-
+    debugger
     return (
       <div className="brewery-show">
         <Brewery brewery={brewery} />

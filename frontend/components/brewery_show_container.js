@@ -1,12 +1,21 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import BreweryShow from './brewery_show';
 import { fetchBrewery } from '../actions/brewery_actions'
+import { getBeersByBrewery } from '../reducers/selectors';
+import BreweryShow from './brewery_show';
 
 const mSTP = (state, ownProps) => {
+  const brewery = state.entities.breweries[ownProps.match.params.id];
+  let beers
+  if (!brewery) {
+    beers = null;
+  } else {
+    beers = getBeersByBrewery(state, brewery)
+  }
+  
   return ({
-    brewery: state.entities.breweries[ownProps.match.params.id],
-    beers: Object.values(state.entities.beers)
+    brewery: brewery,
+    beers: beers
   })
 }
 
