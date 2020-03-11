@@ -1,0 +1,1 @@
+json.extract! checkin, :id, :user_id, :beer_id, :rating, :body
