@@ -8,7 +8,8 @@ const mSTP = (state, ownProps) => {
   return ({
     user: user,
     checkins: Object.values(state.entities.checkins),
-    beers: state.entities.beers
+    beers: state.entities.beers,
+    breweries: state.entities.breweries
   })
 }
 

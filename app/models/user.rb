@@ -15,6 +15,10 @@ class User < ApplicationRecord
   through: :checkins,
   source: :beer
 
+  has_many :sampled_breweries,
+  through: :sampled_beers,
+  source: :brewery
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

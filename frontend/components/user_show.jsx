@@ -18,7 +18,7 @@ export default class UserShow extends React.Component {
   }
 
   render() {
-    const { user, checkins, beers, fetchUser } = this.props;
+    const { user, checkins, beers, breweries, fetchUser } = this.props;
     if (!user) return null;
     return (
     <div className="user-show">
@@ -26,16 +26,22 @@ export default class UserShow extends React.Component {
         user={user}
         fetchUser={fetchUser}
       />
-      <ul>
+      
+      <ul className="checkin-index">
         {
-          checkins.map((checkin, idx) => (
-            <Checkin
-              checkin={checkin}
-              user={user}
-              beer={beers[checkin.beer_id]}
-              key={idx}
-            />
-          ))
+          checkins.map((checkin, idx) => {
+            const beer = beers[checkin.beer_id];
+            const brewery = breweries[beer.brewery_id]
+            return(
+              <Checkin
+                checkin={checkin}
+                user={user}
+                beer={beer}
+                brewery={brewery}
+                key={idx}
+              />
+            )
+          })
         }
       </ul>
     </div>
