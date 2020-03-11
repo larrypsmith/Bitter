@@ -9,20 +9,19 @@
 require 'open-uri'
 
 User.delete_all
-demo_user          = User.create!(username: "demo",               password: "password")
+demo_user          = User.create!(username: "demo_user",          password: "password")
 beer_lover12       = User.create!(username: "beer_lover12",       password: "beerislife")
 the_beer_snob      = User.create!(username: "the_beer_snob",      password: "beersnoblol")
 cider_rules        = User.create!(username: "cider_rules",        password: "ciderisking")
 bay_area_beer_luvr = User.create!(username: "bay_area_beer_luvr", password: "baybeer125")
 i_love_beer        = User.create!(username: "i_love_beer",        password: "beeeeeer")
-alex_stevens       = User.create!(username: "alex_stevens",       password: "alexlovesbeer")
-jeff_lubinski      = User.create!(username: "jeff_lubinski",      password: "jefflovesbeer")
-casey_smith        = User.create!(username: "casey_smith",        password: "caseylovesbeer")
-lauren_andrews     = User.create!(username: "lauren_andrews",     password: "laurenlovesbeer")
-taylor_miller      = User.create!(username: "taylor_miller",      password: "taylor_loves_beer")
+warriors_fan22     = User.create!(username: "warriors_fan22",     password: "warriors_fan22")
+lagunitas_or_die   = User.create!(username: "lagunitas_or_die",   password: "lagunitas_or_die")
+the_home_brewer    = User.create!(username: "the_home_brewer",    password: "the_home_brewer")
+bird_dog423        = User.create!(username: "bird_dog423",        password: "bird_dog423")
+beer_a_day         = User.create!(username: "beer_a_day",         password: "beer_a_day")
 
-demo_user_img          = open("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
-demo_user_cover_photo  = open("https://untappd.akamaized.net/site/assets/v3/images/cover_default.jpg")
+demo_user_img          = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/demo.jpeg")
 # beer_lover12_img       = open("")
 # the_beer_snob_img      = open("")
 # cider_rules_img        = open("")
@@ -35,8 +34,9 @@ demo_user_cover_photo  = open("https://untappd.akamaized.net/site/assets/v3/imag
 # taylor_miller_img      = open("")
 
 demo_user.profile_picture.attach(io: demo_user_img, filename: 'demo_user.jpeg')
-demo_user.cover_photo.attach(io: demo_user_cover_photo, filename: 'demo_user_cover.jpeg')
 
+demo_user_cover_photo  = open("https://untappd.akamaized.net/site/assets/v3/images/cover_default.jpg")
+demo_user.cover_photo.attach(io: demo_user_cover_photo, filename: 'demo_user_cover.jpeg')
 
 
 Brewery.delete_all
