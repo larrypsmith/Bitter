@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     if @user
       render 'api/users/show'
     else
-      render @user.errors.full_messages, status: 404
+      render json: ['Invalid userId'], status: 404
     end
   end
 
