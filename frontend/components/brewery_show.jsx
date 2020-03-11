@@ -11,9 +11,20 @@ export default class BreweryShow extends React.Component {
     this.props.fetchBrewery(this.props.match.params.id)
   }
 
+  componentDidUpdate() {
+    if (!this.props.brewery) {
+      this.props.fetchBrewery(this.props.match.params.id)
+    }
+  }
+
+
   render() {
     const { brewery, beers } = this.props
-    if (!brewery) return null;
+
+    if (!brewery) {
+      return null;
+    }
+
     return (
       <div className="brewery-show">
         <Brewery brewery={brewery} />
