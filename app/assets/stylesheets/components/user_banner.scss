@@ -1,0 +1,28 @@
+.user-banner {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  width: 100%;
+  background-image: url("https://untappd.akamaized.net/site/assets/v3/images/cover_default.jpg");
+  background-size: fit;
+  height: 260px;
+}
+
+.user-banner * {
+  font-family: $sans-serif;
+  color: white;
+}
+
+.user-banner .profile-elements {
+  width: 100%;
+  display: flex;
+}
+
+.user-banner .user-profile-picture {
+  margin: 0% 2% 2% 2%;
+}
+
+.user-banner .username {
+  align-self: flex-start;
+  font-size: 40px;
+}

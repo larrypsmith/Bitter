@@ -16,4 +16,3 @@ export default connect(
   mSTP,
   mDTP
 )(SessionForm)
-

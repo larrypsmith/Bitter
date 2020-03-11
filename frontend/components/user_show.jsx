@@ -1,4 +1,5 @@
 import React from 'react';
+import UserBanner from './user_banner';
 
 export default class UserShow extends React.Component {
   constructor(props) {
@@ -6,9 +7,14 @@ export default class UserShow extends React.Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, fetchUser } = this.props;
     return (
-    <h1>{user.username}'s Show Page</h1>
+    <div className="user-show">
+      <UserBanner
+        user={user}
+        fetchUser={fetchUser}
+      />
+    </div>
     )
   }
 }
