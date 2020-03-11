@@ -7,10 +7,14 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :checkins
   has_one_attached :profile_picture
   has_one_attached :cover_photo
 
-  has_many :checkins
+  has_many :sampled_beers,
+  through: :checkins,
+  source: :beer
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
