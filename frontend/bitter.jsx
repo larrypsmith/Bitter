@@ -12,6 +12,8 @@ import { fetchBreweries, fetchBrewery } from './actions/brewery_actions'
 import * as UserAPIUtil from './util/user_api_util';
 import { fetchUser } from './actions/user_actions';
 
+import * as CheckinAPIUtil from './util/checkin_api_util';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchBrewery = fetchBrewery;
   window.UserAPIUtil = UserAPIUtil;
   window.fetchUser = fetchUser
+  window.CheckinAPIUtil = CheckinAPIUtil;
   //TESTING END
 
   

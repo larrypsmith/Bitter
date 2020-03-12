@@ -7,6 +7,7 @@
 #               api_brewery GET    /api/breweries/:id(.:format)                                                             api/breweries#show {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#              api_checkins GET    /api/checkins(.:format)                                                                  api/checkins#index {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :breweries, only: [:index, :show]
     resource :session, only: [:create, :destroy]
+    resources :checkins, only: :index
   end
 
   root "static_pages#root"
