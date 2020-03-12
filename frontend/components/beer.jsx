@@ -1,15 +1,26 @@
-import Tile from './tile';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import TextBody from './text_body';
 
-export default props => (
-  <Tile
-    component={props.beer}
-    index={'beers'}
-    subtitle={`${props.beer.beer_type} - ${props.beer.subtype}`}
-    navButton={
+export default ({ beer: { id, name, description, type, subtype, profilePictureUrl } }) => (
+  <div className="tile brewery-beer">
+    <div className="header">
+      <div className="left">
+        <Link to={`/beers/${id}`}>
+          <img src={profilePictureUrl} alt={name} />
+        </Link>
+
+        <hgroup className="text">
+          <h1 className="name">{name}</h1>
+          <h2 className="subtitle">{type} - {subtype}</h2>
+        </hgroup>
+      </div>
+
       <button className="nav-button">
         Check in beer
       </button>
-    }
-  />
+    </div>
+
+    <TextBody body={description} cutoffLength={130} />
+  </div>
 )
