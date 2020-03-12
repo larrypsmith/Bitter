@@ -5,7 +5,9 @@
   width: 100%;
   background-image: url("https://untappd.akamaized.net/site/assets/v3/images/cover_default.jpg");
   background-size: fit;
+  box-sizing: border-box;
   height: 260px;
+  padding: 10px;
 }
 
 .banner * {
@@ -13,16 +15,12 @@
   color: white;
 }
 
-.banner .profile-elements {
-  width: 100%;
-  display: flex;
-}
-
 .banner .user-profile-picture {
-  margin: 0% 2% 2% 2%;
+  height: 40%;
+  width: auto;
+  margin-right: 10px;
 }
 
 .banner .username {
-  align-self: flex-start;
   font-size: 40px;
 }

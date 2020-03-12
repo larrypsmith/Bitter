@@ -14,13 +14,10 @@ export default class Banner extends React.Component {
     if (!user) return null;
     return (
       <div className="banner">
-        <div className="profile-elements">
-          <img src={user.profilePictureUrl} alt={`${user.username}`} className="user-profile-picture"/>
-          <h1 className="username">
-            {user.username}
-          </h1>
-        </div>
-
+        <img src={user.profilePictureUrl} alt={`${user.username}`} className="user-profile-picture"/>
+        <h1 className="username">
+          {user.username}
+        </h1>
       </div>
     )
   }
