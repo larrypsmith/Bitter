@@ -40,6 +40,7 @@ export default class NavBar extends React.Component {
             currentUser={currentUser}
             logout={logout}
             hidden={dropdownHidden}
+            toggleDropdown={this.toggleDropdown}
           />
         </div>
       </nav>

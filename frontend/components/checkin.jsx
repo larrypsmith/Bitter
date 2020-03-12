@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Rating from './rating';
 
 export default ({ user, beer, brewery, checkin }) => (
   <li className="tile">
@@ -16,11 +17,15 @@ export default ({ user, beer, brewery, checkin }) => (
           {brewery.name}
         </Link>
       </h1>
-      <img src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
+      <img src={beer.profilePictureUrl} alt={`${beer.name}.jpg`} className="user-profile-picture"/>
     </header>
+
+    <ul className="stat-bar">
+      <Rating rating={checkin.rating} />
+    </ul>
+
     <p>
       {checkin.body}
     </p>
-    {checkin.rating}
   </li>
 )
