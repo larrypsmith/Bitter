@@ -1,5 +1,12 @@
 .dropdown-parent {
+  display: flex;
+  align-items: center;
   position: relative;
   height: 100%;
-  border: 1px solid green !important;
+  // border: 1px solid green !important;
+}
+
+.dropdown-parent .user-profile-picture {
+  height: 80%;
+  width: auto
 }
