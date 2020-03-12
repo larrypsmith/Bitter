@@ -27,23 +27,27 @@ export default class UserShow extends React.Component {
         fetchUser={fetchUser}
       />
 
-      <ul className="checkin-index">
-        {
-          checkins.map((checkin, idx) => {
-            const beer = beers[checkin.beer_id];
-            const brewery = breweries[beer.brewery_id]
-            return(
-              <Checkin
+      <div className="index">
+        <h1>Recent Checkins</h1>
+
+        <ul>
+          {
+            checkins.map((checkin, idx) => {
+              const beer = beers[checkin.beer_id];
+              const brewery = breweries[beer.brewery_id]
+              return(
+                <Checkin
                 checkin={checkin}
                 user={user}
                 beer={beer}
                 brewery={brewery}
                 key={idx}
-              />
-            )
-          })
-        }
-      </ul>
+                />
+                )
+              })
+            }
+        </ul>
+      </div>
     </div>
     )
   }
