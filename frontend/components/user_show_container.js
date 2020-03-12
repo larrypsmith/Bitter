@@ -18,9 +18,7 @@ const mSTP = (state, { match: { params: { id } } }) => {
     checkins = getCheckinsByUser(state, user);
     beers = getBeersByCheckins(state, checkins);
     breweries = getBreweriesByBeers(state, beers);
-    debugger
   }
-  debugger
   return ({
     user: user,
     checkins: checkins,

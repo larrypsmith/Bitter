@@ -1,6 +1,7 @@
 import { RECEIVE_BREWERIES, RECEIVE_BREWERY } from '../actions/brewery_actions';
 import { RECEIVE_USER } from '../actions/user_actions'
 import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CHECKINS } from '../actions/checkin_actions';
 
 const breweriesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,6 +14,8 @@ const breweriesReducer = (state = {}, action) => {
       return {};
     case RECEIVE_USER:
       return Object.assign({}, state, action.payload.breweries);
+    case RECEIVE_CHECKINS:
+      return Object.assign(action.payload.breweries)
     default:
       return state;
   }

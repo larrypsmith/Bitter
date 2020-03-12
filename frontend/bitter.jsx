@@ -13,6 +13,7 @@ import * as UserAPIUtil from './util/user_api_util';
 import { fetchUser } from './actions/user_actions';
 
 import * as CheckinAPIUtil from './util/checkin_api_util';
+import { fetchCheckins } from './actions/checkin_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.UserAPIUtil = UserAPIUtil;
   window.fetchUser = fetchUser
   window.CheckinAPIUtil = CheckinAPIUtil;
+  window.fetchCheckins = fetchCheckins;
   //TESTING END
 
   

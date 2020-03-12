@@ -8,6 +8,7 @@ import NavBarContainer from './nav_bar_container';
 import BreweryIndexContainer from './brewery_index_container';
 import BreweryShowContainer from './brewery_show_container';
 import UserShowContainer from './user_show_container';
+import CheckinIndexContainer from './checkin_index_container';
 
 const App = ({ loggedIn }) => {
   if (loggedIn) {
@@ -20,7 +21,7 @@ const App = ({ loggedIn }) => {
             <ProtectedRoute path="/users/:id" component={UserShowContainer} />
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
             <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
-            <ProtectedRoute path="/home" component={() => <div>HOME COMPONENT</div>} />
+            <ProtectedRoute path="/home" component={CheckinIndexContainer} />
             <Redirect to="/breweries" />
           </Switch>
         </main>

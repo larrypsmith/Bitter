@@ -3,3 +3,9 @@ export const fetchCheckins = () => (
     url: 'api/checkins'
   })
 )
+
+export const fetchCheckin = checkinId => (
+  $.ajax({
+    url: `api/checkins/${checkinId}`
+  })
+)

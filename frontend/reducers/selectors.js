@@ -19,7 +19,6 @@ export const getBeersByCheckins = (state, checkins) => {
 }
 
 export const getBreweriesByBeers = (state, beers) => {
-  debugger
   let breweries = {};
   let brewery
   Object.values(beers).forEach(beer => {

@@ -5,4 +5,8 @@ class Checkin < ApplicationRecord
 
   belongs_to :user
   belongs_to :beer
+
+  has_one :brewery,
+  through: :beer,
+  source: :brewery
 end

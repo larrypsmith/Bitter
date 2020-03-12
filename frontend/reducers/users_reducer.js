@@ -1,5 +1,6 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_USER } from '../actions/user_actions';
+import { RECEIVE_CHECKINS}  from '../actions/checkin_actions'
 
 
 const usersReducer = (state = {}, action) => {
@@ -10,7 +11,9 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return Object.assign({}, state, action.payload.users )
     case LOGOUT_CURRENT_USER:
-      return {}
+      return {};
+    case RECEIVE_CHECKINS:
+      return action.payload.users;
     default:
       return state;
   }
