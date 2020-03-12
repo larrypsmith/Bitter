@@ -17,7 +17,7 @@ export default ({ user, beer, brewery, checkin }) => (
           {brewery.name}
         </Link>
       </h1>
-      <img src={beer.profilePictureUrl} alt={`${beer.name}.jpg`} className="user-profile-picture"/>
+      <img src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
     </header>
 
     <ul className="stat-bar">
