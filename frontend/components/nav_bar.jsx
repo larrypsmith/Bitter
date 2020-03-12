@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import UserLogo from './user_logo';
+import Dropdown from './dropdown';
 
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       dropdownHidden: true
     }
-
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
@@ -18,7 +16,8 @@ export default class NavBar extends React.Component {
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, logout } = this.props;
+    const { dropdownHidden } = this.state;
     if (!currentUser) return null;
     return (
       <nav className="nav-bar">
@@ -28,8 +27,18 @@ export default class NavBar extends React.Component {
           <NavLink to="/breweries" className="nav-link" activeClassName="active-nav-link">Breweries</NavLink>
         </div>
 
-        <div className="user-logo-container" onClick={this.toggleDropdown}>
-          <UserLogo hidden={this.state.dropdownHidden} />
+        <div className="dropdown-parent">
+          <img
+            className="user-profile-picture"
+            onClick={this.toggleDropdown}
+            src={currentUser.profilePictureUrl}
+            alt={currentUser.username}
+          />
+          <Dropdown
+            currentUser={currentUser}
+            logout={logout}
+            hidden={dropdownHidden}
+          />
         </div>
       </nav>
     )

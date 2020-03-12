@@ -1,5 +1,5 @@
 import React from 'react';
-import UserBanner from './user_banner';
+import Banner from './banner';
 import Checkin from './checkin';
 
 export default class UserShow extends React.Component {
@@ -22,7 +22,7 @@ export default class UserShow extends React.Component {
     if (!user) return null;
     return (
     <div className="user-show">
-      <UserBanner
+      <Banner
         user={user}
         fetchUser={fetchUser}
       />
