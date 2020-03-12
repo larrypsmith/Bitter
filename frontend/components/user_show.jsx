@@ -8,18 +8,23 @@ export default class UserShow extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchUser(this.props.match.params.id)
   }
 
   componentDidUpdate() {
+    debugger
     if (!this.props.user) {
       this.props.fetchUser(this.props.match.params.id)
     }
+    debugger
   }
 
   render() {
+    debugger
     const { user, checkins, beers, breweries, fetchUser } = this.props;
     if (!user) return null;
+    debugger
     return (
     <div className="user-show">
       <Banner
@@ -30,6 +35,7 @@ export default class UserShow extends React.Component {
       <ul className="checkin-index">
         {
           checkins.map((checkin, idx) => {
+            debugger;
             const beer = beers[checkin.beer_id];
             const brewery = breweries[beer.brewery_id]
             return(

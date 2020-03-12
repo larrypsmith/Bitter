@@ -2,11 +2,28 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import { fetchUser } from '../actions/user_actions';
 import UserShow from './user_show';
+import { getCheckinsByUser, getBeersByCheckins, getBreweriesByBeers } from '../reducers/selectors';
 
-const mSTP = ({ entities: { users, beers, breweries, checkins } }, { match: { params: { id } } }) => {
+debugger
+
+const mSTP = (state, { match: { params: { id } } }) => {
+  const user = state.entities.users[id];
+  let checkins;
+  let beers;
+  let breweries;
+  if (!user) {
+    checkins = null;
+    beers = null;
+    breweries = null;
+  } else {
+    checkins = getCheckinsByUser(state, user);
+    beers = getBeersByCheckins(state, checkins);
+    breweries = getBreweriesByBeers(state, beers)
+  }
+  debugger
   return ({
-    user: users[id],
-    checkins: Object.values(checkins),
+    user: user,
+    checkins: checkins,
     beers: beers,
     breweries: breweries
   })

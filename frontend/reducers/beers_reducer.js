@@ -7,7 +7,7 @@ const beersReducer = (state = {}, action) => {
     case RECEIVE_BREWERY:
       return Object.assign({}, state, action.payload.beers);
     case RECEIVE_USER:
-      return action.payload.beers;
+      return Object.assign({}, state, action.payload.beers);
     default:
       return state;
   }
