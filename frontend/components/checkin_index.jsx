@@ -13,7 +13,7 @@ export default class CheckinIndex extends React.Component {
   render() {
 
     return(
-      <div className="index">
+      <div className="checkin-index index">
         <h1>Recent Checkins</h1>
 
         <ul>

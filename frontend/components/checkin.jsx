@@ -20,7 +20,10 @@ export default class Checkin extends React.Component {
     return (
       <li className="tile">
         <header>
-          <img src={user.profilePictureUrl} alt="" className="user-profile-picture" />
+          <Link to={`users/${user.id}`}>
+            <img src={user.profilePictureUrl} alt="" className="user-profile-picture" />
+          </Link>
+
           <h1>
             <Link
               to={`/users/${user.id}`}
@@ -32,6 +35,7 @@ export default class Checkin extends React.Component {
               {brewery.name}
             </Link>
           </h1>
+          
           <img src={beer.profilePictureUrl} alt={`${beer.name}.jpg`} className="beer-profile-picture" />
         </header>
 

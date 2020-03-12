@@ -22,7 +22,7 @@ const App = ({ loggedIn }) => {
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
             <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
             <ProtectedRoute path="/home" component={CheckinIndexContainer} />
-            <Redirect to="/breweries" />
+            <Redirect to="/home" />
           </Switch>
         </main>
       </div>

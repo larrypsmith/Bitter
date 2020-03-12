@@ -21,6 +21,6 @@ export default ({ brewery: { id, name, city, state, country, description, profil
       </Link>
     </div>
 
-    <TextBody body={description} cutoffLength={130} />
+    <TextBody body={description} cutoffLength={120} />
   </div>
 )

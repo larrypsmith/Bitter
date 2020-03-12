@@ -14,7 +14,11 @@ export default class BreweryIndex extends React.Component {
     return (!this.props.breweries)
     ? null
     : (
-      <div className="brewery-index">
+      <div className="brewery-index index">
+        <h1>
+          Breweries
+        </h1>
+        
         {this.props.breweries.map((brewery, idx) =>
           (<Brewery
             brewery={brewery}
