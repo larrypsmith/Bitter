@@ -13,7 +13,7 @@ export default class Banner extends React.Component {
     const { user } = this.props;
     if (!user) return null;
     return (
-      <div className="user-banner">
+      <div className="banner">
         <div className="profile-elements">
           <img src={user.profilePictureUrl} alt={`${user.username}`} className="user-profile-picture"/>
           <h1 className="username">

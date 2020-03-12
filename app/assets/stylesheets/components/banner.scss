@@ -1,4 +1,4 @@
-.user-banner {
+.banner {
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -8,21 +8,21 @@
   height: 260px;
 }
 
-.user-banner * {
+.banner * {
   font-family: $sans-serif;
   color: white;
 }
 
-.user-banner .profile-elements {
+.banner .profile-elements {
   width: 100%;
   display: flex;
 }
 
-.user-banner .user-profile-picture {
+.banner .user-profile-picture {
   margin: 0% 2% 2% 2%;
 }
 
-.user-banner .username {
+.banner .username {
   align-self: flex-start;
   font-size: 40px;
 }
