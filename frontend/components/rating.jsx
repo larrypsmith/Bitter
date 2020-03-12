@@ -21,7 +21,7 @@ export default class RatingBar extends React.Component {
     return (
       <li className="rating">
         <p>
-          Rating:
+          Rating: &nbsp;
         </p>
         {this.capsArray()}
       </li>

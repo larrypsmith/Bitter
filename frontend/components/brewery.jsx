@@ -7,7 +7,7 @@ export default ({ brewery: { id, name, city, state, country, description, profil
     <div className="header">
       <div className="left">
         <Link to={`/breweries/${id}`}>
-          <img src={profilePictureUrl} alt={name} />
+          <img src={profilePictureUrl} alt={name} className="brewery-profile-picture" />
         </Link>
 
         <hgroup className="text">

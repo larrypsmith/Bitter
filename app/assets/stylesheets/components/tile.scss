@@ -14,9 +14,9 @@
   flex-shrink: 2;
 }
 
-.tile img {
+.tile img[class*=profile-picture] {
   width: 80px;
-  height: 80px;
+  height: auto;
   margin: 0px 10px 10px 0px;
 }
 
