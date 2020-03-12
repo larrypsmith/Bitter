@@ -4,7 +4,6 @@ import { fetchUser } from '../actions/user_actions';
 import UserShow from './user_show';
 import { getCheckinsByUser, getBeersByCheckins, getBreweriesByBeers } from '../reducers/selectors';
 
-debugger
 
 const mSTP = (state, { match: { params: { id } } }) => {
   const user = state.entities.users[id];
@@ -18,7 +17,8 @@ const mSTP = (state, { match: { params: { id } } }) => {
   } else {
     checkins = getCheckinsByUser(state, user);
     beers = getBeersByCheckins(state, checkins);
-    breweries = getBreweriesByBeers(state, beers)
+    breweries = getBreweriesByBeers(state, beers);
+    debugger
   }
   debugger
   return ({

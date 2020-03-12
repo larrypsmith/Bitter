@@ -12,7 +12,7 @@ const breweriesReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     case RECEIVE_USER:
-      return action.payload.breweries;
+      return Object.assign({}, state, action.payload.breweries);
     default:
       return state;
   }

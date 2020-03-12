@@ -19,11 +19,12 @@ export const getBeersByCheckins = (state, checkins) => {
 }
 
 export const getBreweriesByBeers = (state, beers) => {
-  let breweries = [];
+  debugger
+  let breweries = {};
   let brewery
-  beers.forEach(beer => {
+  Object.values(beers).forEach(beer => {
     brewery = state.entities.breweries[beer.brewery_id];
-    if (!breweries.includes(brewery)) breweries.push(brewery);
+    breweries[brewery.id] = brewery;
   })
   return breweries;
 }
