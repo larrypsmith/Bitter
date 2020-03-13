@@ -7,11 +7,13 @@ export default class CheckinIndex extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchCheckins();
   }
 
   render() {
-
+    debugger
+    if (!this.props.checkins) return null;
     return(
       <div className="checkin-index index">
         <h1>Recent Checkins</h1>
