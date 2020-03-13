@@ -3,7 +3,7 @@
 # Bitter 
 
 Bitter is a clone of [Untappd](https://untappd.com/), a social media app where users review and discuss beer.
-When drinking a beer, a user posts a `checkin` rates the beer between one and five points.
+When drinking a beer, a user posts a `checkin` and rates the beer between one and five points.
 
 ## Technologies 
 
