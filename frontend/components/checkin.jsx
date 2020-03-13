@@ -17,7 +17,6 @@ export default class Checkin extends React.Component {
 
   render() {
     const { user, beer, brewery, checkin } = this.props;
-    debugger
     return (
       <li className="tile">
         <header>
