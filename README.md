@@ -39,11 +39,11 @@ for (let i = rating + 1; i <= 5; i++ ) {
 
 ### Toggle-able Description Length
 
-Each brewery and beer has a description. Many descriptions exceed 1000 characters. To reduce the amount of space it occupies on the page, each description is initially rendered as only its first 120 characters. A `...Show More` button can be clicked to expand the description to it's full length:
+Each brewery and beer has a description. Many descriptions exceed 1000 characters. To reduce the amount of space it occupies on the page, each description is initially rendered as only its first 120 characters. A `'...Show More'` button can be clicked to expand the description to it's full length:
 
 ![description](https://user-images.githubusercontent.com/55966501/76646151-b8f5ef80-6517-11ea-99ec-29c634a91e6b.png)
 
-Once the full description is rendered, a `...Show Less` button can be clicked to shorten it again:
+Once the full description is rendered, a `'...Show Less'` button can be clicked to shorten it again:
 
 ![description-long](https://user-images.githubusercontent.com/55966501/76646470-40dbf980-6518-11ea-9757-61893fc13deb.png)
 
