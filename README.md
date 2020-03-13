@@ -1,24 +1,28 @@
-# README
+[Bitter Home Page](https://bitterapp.herokuapp.com/#/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Bitter 
 
-Things you may want to cover:
+Bitter is a clone of [Untappd](https://untappd.com/), a social media app where users review and discuss beer.
+Users post `checkins` describing the beers they are drinking and give them scores.
 
-* Ruby version
+## Technologies 
 
-* System dependencies
+### Back End
+* **Ruby**
+* **Rails**: server-side framework
+* **PostgreSQL**: database management
 
-* Configuration
+### Front End
+* **JavaScript**
+* **React**: UI framework
+* **Redux**: application state management
 
-* Database creation
+## Feature Highlights
 
-* Database initialization
+### 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## TODO
+* Users can create, edit, and delete checkins
+* Each beer displays its average rating and checkin quantity
+* Each beer has a show page displaying its stats and checkins
+* Users can search for beers from the home page
