@@ -7,14 +7,6 @@ export default class Checkin extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    // this.props.fetchCheckin(this.props.checkin.id)
-  }
-
-  componentDidUpdate() {
-
-  }
-
   render() {
     const { user, beer, brewery, checkin } = this.props;
     return (
@@ -36,7 +28,7 @@ export default class Checkin extends React.Component {
             </Link>
           </h1>
 
-          <img src={beer.profilePictureUrl} alt={`${beer.name}.jpg`} className="beer-profile-picture" />
+          <img className="beer-profile-picture" src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
         </header>
 
         <ul className="stat-bar">
