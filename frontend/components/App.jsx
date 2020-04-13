@@ -9,11 +9,13 @@ import BreweryIndexContainer from './brewery_index_container';
 import BreweryShowContainer from './brewery_show_container';
 import UserShowContainer from './user_show_container';
 import CheckinIndexContainer from './checkin_index_container';
+import Modal from './modal';
 
 const App = ({ loggedIn }) => {
   if (loggedIn) {
     return (
       <div>
+        <Modal />
         <NavBarContainer />
 
         <main className="app-main">

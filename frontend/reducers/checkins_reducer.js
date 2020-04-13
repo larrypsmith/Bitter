@@ -2,7 +2,7 @@ import { RECEIVE_USER } from '../actions/user_actions';
 import { RECEIVE_CHECKINS, RECEIVE_CHECKIN } from '../actions/checkin_actions';
 import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
-const checkinsReducer =  (state = {}, action) => {
+const checkinsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_USER:

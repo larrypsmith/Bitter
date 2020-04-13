@@ -15,7 +15,6 @@ export default class CheckinIndex extends React.Component {
     return(
       <div className="checkin-index index">
         <h1>Recent Checkins</h1>
-
         <ul>
           {
             Object.values(this.props.checkins).map((checkin, idx) => (
