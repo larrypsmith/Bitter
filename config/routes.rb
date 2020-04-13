@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :breweries, only: [:index, :show]
     resource :session, only: [:create, :destroy]
-    resources :checkins, only: [:index, :show]
+    resources :checkins, only: [:index, :show, :create]
   end
 
   root "static_pages#root"
