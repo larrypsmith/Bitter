@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default ({ initalRating = 0 }) => {
   const [rating, setRating] = useState(initalRating);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }
 
   return (
     <form className="checkin-form">
@@ -16,6 +21,7 @@ export default ({ initalRating = 0 }) => {
         min="0"
         max="5"
         value={rating}
+        onChange={handleChange}
       />
       <input type="submit"/>
     </form>
