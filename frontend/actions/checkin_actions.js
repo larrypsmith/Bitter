@@ -21,3 +21,6 @@ export const fetchCheckin = checkinId => dispatch => (CheckinAPIUtil.fetchChecki
 
 export const createCheckin = checkin => dispatch => (CheckinAPIUtil.createCheckin(checkin))
   .then(payload => dispatch(receiveCheckin(payload)));
+
+export const updateCheckin = checkin => dispatch => (CheckinAPIUtil.updateCheckin(checkin))
+  .then(payload => dispatch(receiveCheckin(payload)));

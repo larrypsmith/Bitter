@@ -6,7 +6,8 @@ export default ({
   initalRating = 0,
   initialBody = "",
   beerId,
-  submitAction
+  submitAction,
+  checkinId
 }) => {
   const [rating, setRating] = useState(initalRating);
   const [body, setBody] = useState(initialBody);
@@ -33,7 +34,8 @@ export default ({
     const checkin = {
       rating,
       body,
-      beer_id: beerId
+      beer_id: beerId,
+      id: checkinId
     }
     dispatch(submitAction(checkin));
     dispatch(closeModal());

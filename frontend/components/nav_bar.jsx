@@ -19,8 +19,9 @@ export default class NavBar extends React.Component {
     const { currentUser, logout } = this.props;
     const { dropdownHidden } = this.state;
 
+    debugger
     if (!currentUser) return null;
-    
+    debugger
     return (
       <nav className="nav-bar">
         <Link to="/home" className="bitter-logo">BITTER</Link>

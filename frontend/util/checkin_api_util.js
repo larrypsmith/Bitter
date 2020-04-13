@@ -17,3 +17,11 @@ export const createCheckin = checkin => (
     data: { checkin }
   })
 )
+
+export const updateCheckin = checkin => (
+  $.ajax({
+    url: `api/checkins/${checkin.id}`,
+    method: 'PATCH',
+    data: { checkin }
+  })
+)
