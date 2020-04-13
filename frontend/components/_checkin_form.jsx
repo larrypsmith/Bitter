@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createCheckin } from '../actions/checkin_actions';
 import { closeModal } from '../actions/modal_actions';
 
-export default ({ initalRating = 0, initialBody = "", beerId }) => {
+export default ({
+  initalRating = 0,
+  initialBody = "",
+  beerId,
+  submitAction
+}) => {
   const [rating, setRating] = useState(initalRating);
   const [body, setBody] = useState(initialBody);
   const dispatch = useDispatch();
@@ -31,7 +35,7 @@ export default ({ initalRating = 0, initialBody = "", beerId }) => {
       body,
       beer_id: beerId
     }
-    dispatch(createCheckin(checkin));
+    dispatch(submitAction(checkin));
     dispatch(closeModal());
   }
 

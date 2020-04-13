@@ -1,46 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Rating from './rating';
+import { openModal } from '../actions/modal_actions'
+import { useDispatch } from 'react-redux';
 
-export default class Checkin extends React.Component {
-  constructor(props) {
-    super(props);
+export default ({ user, beer, brewery, checkin }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(openModal('editCheckinForm', { checkinId: checkin.id }));
   }
 
-  render() {
-    const { user, beer, brewery, checkin } = this.props;
-    return (
-      <li className="tile">
-        <header>
-          <Link to={`users/${user.id}`}>
-            <img src={user.profilePictureUrl} alt="" className="user-profile-picture" />
+  return (
+    <li className="tile">
+      <header>
+        <Link to={`users/${user.id}`}>
+          <img src={user.profilePictureUrl} alt="" className="user-profile-picture" />
+        </Link>
+
+        <h1>
+          <Link
+            to={`/users/${user.id}`}
+            className="link">
+            {user.username}
+          </Link> is drinking a {beer.name} from <Link
+            to={`/breweries/${brewery.id}`}
+            className="link">
+            {brewery.name}
           </Link>
+        </h1>
 
-          <h1>
-            <Link
-              to={`/users/${user.id}`}
-              className="link">
-              {user.username}
-            </Link> is drinking a {beer.name} from <Link
-              to={`/breweries/${brewery.id}`}
-              className="link">
-              {brewery.name}
-            </Link>
-          </h1>
+        <img className="beer-profile-picture" src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
+      </header>
 
-          <img className="beer-profile-picture" src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
-        </header>
+      <ul className="stat-bar">
+        <Rating rating={checkin.rating} />
+      </ul>
 
-        <ul className="stat-bar">
-          <Rating rating={checkin.rating} />
-        </ul>
+      <p>
+        {/* {checkin.body} */}
+      </p>
 
-        <p>
-          {/* {checkin.body} */}
-        </p>
-
-        <button>Edit checkin</button>
-      </li>
-    )
-  }
+      <button onClick={handleClick}>Edit checkin</button>
+    </li>
+  )
 }
