@@ -37,11 +37,11 @@ export default class UserShow extends React.Component {
               const brewery = breweries[beer.brewery_id]
               return(
                 <Checkin
-                checkin={checkin}
-                user={user}
-                beer={beer}
-                brewery={brewery}
-                key={idx}
+                  checkin={checkin}
+                  user={user}
+                  beer={beer}
+                  brewery={brewery}
+                  key={idx}
                 />
                 )
               })

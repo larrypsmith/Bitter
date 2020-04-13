@@ -38,6 +38,8 @@ export default class Checkin extends React.Component {
         <p>
           {/* {checkin.body} */}
         </p>
+
+        <button>Edit checkin</button>
       </li>
     )
   }

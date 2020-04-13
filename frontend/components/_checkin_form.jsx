@@ -31,9 +31,8 @@ export default ({ initalRating = 0, initialBody = "", beerId }) => {
       body,
       beer_id: beerId
     }
-    debugger
     dispatch(createCheckin(checkin));
-    dispatch(closeModal);
+    dispatch(closeModal());
   }
 
   return (
