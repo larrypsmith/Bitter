@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
+import Slider from './slider';
+import Textarea from './textarea';
+import Toolbar from './toolbar';
 
 export default ({
   initialRating = 0,
@@ -13,10 +16,11 @@ export default ({
   const [body, setBody] = useState(initialBody);
   const dispatch = useDispatch();
 
-  const handleChange = (e, input) => {
+  const handleChange = (e, field) => {
     e.preventDefault();
     e.stopPropagation();
-    switch (input) {
+
+    switch (field) {
       case 'body':
         setBody(e.currentTarget.value)
         break;
@@ -26,39 +30,47 @@ export default ({
       default:
         return null;
     }
+
   }
 
   const handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
+
     const checkin = {
       rating,
       body,
       beer_id: beerId,
       id: checkinId
     }
+
     dispatch(submitAction(checkin));
     dispatch(closeModal());
   }
 
-  return (
-    <form className="checkin-form" onSubmit={handleSubmit}>
-      <textarea
-        name="body"
-        cols="30"
-        rows="10"
-        placeholder="What did you think?"
-        value={body}
-        onChange={e => handleChange(e, 'body')}
-      />
-      <input
-        type="range"
-        min="0"
-        max="5"
-        value={rating}
-        onChange={e => handleChange(e, 'rating')}
-      />
-      <input type="submit"/>
-    </form>
+  const handleClick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(closeModal());
+  }
+
+  return(
+    <div className="checkin-form">
+      <Toolbar>
+        <h3>Check In</h3>
+        <button onClick={handleClick}>
+          <i className="fas fa-times"/>
+        </button>
+      </Toolbar>
+      <form onSubmit={handleSubmit}>
+        <Textarea
+          placeholder="What did you think?"
+          value={body}
+          handleChange={e => handleChange(e, 'body')}
+          />
+        <Slider rating={rating} handleChange={e => handleChange(e, 'rating')} />
+        <button onClick={handleSubmit}>Confirm</button>
+      </form>
+    </div>
   )
 }
