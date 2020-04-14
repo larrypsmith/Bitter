@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
 
 export default ({
-  initalRating = 0,
+  initialRating = 0,
   initialBody = "",
   beerId,
   submitAction,
   checkinId
 }) => {
-  const [rating, setRating] = useState(initalRating);
+  const [rating, setRating] = useState(initialRating);
   const [body, setBody] = useState(initialBody);
   const dispatch = useDispatch();
 

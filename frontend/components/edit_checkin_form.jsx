@@ -6,7 +6,7 @@ import { updateCheckin } from '../actions/checkin_actions';
 export default ({ checkinId }) => {
   const checkin = useSelector(state => state.entities.checkins[checkinId]);
   const { beer_id: beerId, rating, body } = checkin;
-
+  
   return(
     <CheckinForm
       beerId={beerId}
