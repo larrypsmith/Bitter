@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './login_form_container'
 import SignupFormContainer from './signup_form_container'
 import SplashContainer from './splash_container';
-import NavBarContainer from './nav_bar_container';
+import NavBar from './nav_bar';
 import BreweryIndexContainer from './brewery_index_container';
 import BreweryShowContainer from './brewery_show_container';
 import UserShowContainer from './user_show_container';
@@ -16,7 +16,7 @@ const App = ({ loggedIn }) => {
     return (
       <div>
         <Modal />
-        <NavBarContainer />
+        <NavBar />
 
         <main className="app-main">
           <Switch>
