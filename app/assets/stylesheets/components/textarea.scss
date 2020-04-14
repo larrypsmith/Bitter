@@ -1,0 +1,10 @@
+.Textarea {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+.Textarea:focus {
+  border: 2px solid rgb(0, 130, 251);
+  box-shadow: 0 0 3px inset;
+}

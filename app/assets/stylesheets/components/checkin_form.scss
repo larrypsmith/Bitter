@@ -1,9 +1,40 @@
 .checkin-form {
   position: fixed;
   z-index: 101;
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  left: 50%;
+  width: 100%;
   background-color: white;
+  font-family: $sans-serif;
+}
+
+.checkin-form form {
+  padding: 20px;
+}
+
+.checkin-form form > * {
+  margin-bottom: 1em;
+}
+
+.checkin-form form > *:last-child {
+  margin-bottom: 0;
+}
+
+.checkin-form form > button {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #ffcc00;
+  color: white;
+  text-align: center;
+  padding: .5em 0;
+  border-radius: .2em;
+  font-size: 18px;
+}
+
+.checkin-form form > button:hover {
+  background-color: #f4b800;
+}
+
+@media only screen and (min-width: 520px) {
+  .checkin-form { 
+    width: auto;
+  }
 }
