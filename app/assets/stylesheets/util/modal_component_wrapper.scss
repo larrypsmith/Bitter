@@ -1,0 +1,13 @@
+.modal-component-wrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 101;
+  align-self: center;
+  top: 35vh;
+}
+
+@media only screen and (min-width: 520px) {
+  .modal-component-wrapper { 
+    width: auto;
+  }
+}

@@ -22,7 +22,7 @@ export default () => {
   return(
     <React.Fragment>
       <Backdrop isHidden={!component}/>
-      {component}
+      <div className="modal-component-wrapper">{component}</div>
     </React.Fragment>
   )
 }

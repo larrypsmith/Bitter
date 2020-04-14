@@ -14,7 +14,7 @@ import Modal from './modal';
 const App = ({ loggedIn }) => {
   if (loggedIn) {
     return (
-      <div>
+      <div className="App">
         <Modal />
         <NavBar />
 
