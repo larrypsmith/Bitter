@@ -1,15 +1,15 @@
 import React from 'react';
-import CheckinForm from './checkin_form';
+import NewCheckinForm from './new_checkin_form';
 import Backdrop from './backdrop';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default () => {
-  const modalType = useSelector(state => state.ui.modal);
+  let component = useSelector(state => state.ui.modal.component);
+  const beer = useSelector(state => state.ui.modal.data);
 
-  let component;
-  switch (modalType) {
+  switch (component) {
     case 'checkinForm':
-      component = <CheckinForm />
+      component = <NewCheckinForm beerId={beer.id} />
       break;
     default:
       component = null;

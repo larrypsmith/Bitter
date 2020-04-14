@@ -10,7 +10,7 @@ export default ({ beer: { id, name, description, beer_type, subtype, profilePict
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal('checkinForm'));
+    dispatch(openModal('checkinForm', { id }));
   }
 
   return( 
