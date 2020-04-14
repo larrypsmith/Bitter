@@ -10,7 +10,6 @@ const checkinsReducer = (state = {}, action) => {
     case RECEIVE_CHECKINS:
       return action.payload.checkins;
     case RECEIVE_CHECKIN: 
-      debugger
       return Object.assign({}, state, action.payload.checkins)
     case LOGOUT_CURRENT_USER:
       return {};

@@ -20,4 +20,4 @@ export const fetchCheckin = checkinId => dispatch => (CheckinAPIUtil.fetchChecki
   .then(payload => dispatch(receiveCheckin(payload)));
 
 export const createCheckin = checkin => dispatch => (CheckinAPIUtil.createCheckin(checkin))
-  .then(payload => {debugger; dispatch(receiveCheckin(payload))});
+  .then(payload => dispatch(receiveCheckin(payload)));

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Dropdown from './dropdown';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUser } from '../actions/user_actions';
 
 export default () => {
   const [dropdownHidden, setDropdownHidden] = useState(true);
-  const currentUser = useSelector(state => state.entities.users[state.session.id])
+  const currentUserId = useSelector(state => state.session.id);
+  const currentUser = useSelector(state => state.entities.users[currentUserId]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser(currentUserId))
+  }, [currentUserId]);
 
   const toggleDropdown = e => {
+    e.preventDefault();
+    e.stopPropagation();
     setDropdownHidden(!dropdownHidden)
   }
 
@@ -29,12 +38,10 @@ export default () => {
         />
         <Dropdown
           currentUser={currentUser}
-          hidden={dropdownHidden}
+          isHidden={dropdownHidden}
           toggleDropdown={toggleDropdown}
         />
       </div>
     </nav>
   )
-  }
-
 }
