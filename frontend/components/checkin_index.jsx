@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import Checkin from './checkin';
+import Index from './index';
+import IndexItem from './index_item';
+import IndexTitle from './index_title';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCheckins } from '../actions/checkin_actions';
 
@@ -13,16 +16,20 @@ const CheckinIndex = () => {
 
   if (!checkins) return null;
   return(
-    <div className="checkin-index index">
-      <h1>Recent Checkins</h1>
-      <ul>
+    <React.Fragment>
+      <IndexTitle>
+        Recent Checkins
+      </IndexTitle>
+      <Index>
         {
           Object.values(checkins).map((checkin, idx) => (
-            <Checkin checkin={checkin} key={idx} />
+            <IndexItem key={idx}>
+              <Checkin checkin={checkin} />
+            </IndexItem>
           ))
         }
-      </ul>
-    </div>
+      </Index>
+    </React.Fragment>
   )
 };
 

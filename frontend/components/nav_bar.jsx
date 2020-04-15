@@ -3,21 +3,22 @@ import { Link, NavLink } from 'react-router-dom';
 import Dropdown from './dropdown';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUser } from '../actions/user_actions';
+import Avatar from './avatar';
 
-export default () => {
-  const [dropdownHidden, setDropdownHidden] = useState(true);
+const NavBar = () => {
+  const [isDropdownHidden, setDropdownHidden] = useState(true);
   const currentUserId = useSelector(state => state.session.id);
   const currentUser = useSelector(state => state.entities.users[currentUserId]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUser(currentUserId))
-  }, [currentUserId]);
+  }, [dispatch, currentUserId]);
 
   const toggleDropdown = e => {
     e.preventDefault();
     e.stopPropagation();
-    setDropdownHidden(!dropdownHidden)
+    setDropdownHidden(!isDropdownHidden)
   }
 
   if (!currentUser) return null;
@@ -30,18 +31,20 @@ export default () => {
       </div>
 
       <div className="dropdown-parent">
-        <img
-          className="user-profile-picture"
+        <Avatar
+          size={40}
           onClick={toggleDropdown}
           src={currentUser.profilePictureUrl}
           alt={currentUser.username}
         />
         <Dropdown
           currentUser={currentUser}
-          isHidden={dropdownHidden}
+          isHidden={isDropdownHidden}
           toggleDropdown={toggleDropdown}
         />
       </div>
     </nav>
   )
 }
+
+export default NavBar;

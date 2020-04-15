@@ -1,4 +1,5 @@
 import React from 'react';
+import Avatar from './avatar';
 
 export default class Banner extends React.Component {
   constructor(props) {
@@ -14,7 +15,10 @@ export default class Banner extends React.Component {
     if (!user) return null;
     return (
       <div className="banner">
-        <img src={user.profilePictureUrl} alt={`${user.username}`} className="user-profile-picture"/>
+        <Avatar
+          src={user.profilePictureUrl}
+          alt={`${user.username}.jpg`}
+        />
         <h1 className="username">
           {user.username}
         </h1>

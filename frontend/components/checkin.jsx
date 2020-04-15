@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Rating from './rating';
 import { openModal } from '../actions/modal_actions'
 import { useDispatch, useSelector } from 'react-redux';
+import Avatar from './avatar';
 
 const Checkin = ({ checkin }) => {
   const user = useSelector(state => state.entities.users[checkin.user_id]);
@@ -17,14 +18,10 @@ const Checkin = ({ checkin }) => {
   }
 
   return (
-    <li className="tile">
+    <div className="tile">
       <header>
-        <Link to={`users/${user.id}`}>
-          <img
-            src={user.profilePictureUrl}
-            alt=""
-            className="user-profile-picture"
-          />
+        <Link to={`/users/${user.id}`}>
+          <Avatar src={user.profilePictureUrl} alt={`${user.username}.jpg`}/>
         </Link>
 
         <h1>
@@ -39,10 +36,10 @@ const Checkin = ({ checkin }) => {
           </Link>
         </h1>
 
-        <img
-          className="beer-profile-picture"
+        <Avatar
           src={beer.profilePictureUrl}
           alt={`${beer.name}.jpg`}
+          square
         />
       </header>
 
@@ -57,7 +54,7 @@ const Checkin = ({ checkin }) => {
       <button onClick={handleClick} className="link">
         Edit checkin
       </button>
-    </li>
+    </div>
   )
 }
 
