@@ -20,7 +20,11 @@ export default ({ checkin }) => {
     <li className="tile">
       <header>
         <Link to={`users/${user.id}`}>
-          <img src={user.profilePictureUrl} alt="" className="user-profile-picture" />
+          <img
+            src={user.profilePictureUrl}
+            alt=""
+            className="user-profile-picture"
+          />
         </Link>
 
         <h1>
@@ -35,7 +39,11 @@ export default ({ checkin }) => {
           </Link>
         </h1>
 
-        <img className="beer-profile-picture" src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
+        <img
+          className="beer-profile-picture"
+          src={beer.profilePictureUrl}
+          alt={`${beer.name}.jpg`}
+        />
       </header>
 
       <ul className="stat-bar">
@@ -46,7 +54,9 @@ export default ({ checkin }) => {
         {/* {checkin.body} */}
       </p>
 
-      <button onClick={handleClick} className="link">Edit checkin</button>
+      <button onClick={handleClick} className="link">
+        Edit checkin
+      </button>
     </li>
   )
 }
