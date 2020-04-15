@@ -1,8 +1,9 @@
 import React from 'react';
 
-
-export default ({ children }) => (
+const Index = ({ children }) => (
   <ul className="Index">
     {children}
   </ul>
 )
+
+export default Index;

@@ -4,7 +4,7 @@ import Rating from './rating';
 import { openModal } from '../actions/modal_actions'
 import { useDispatch, useSelector } from 'react-redux';
 
-export default ({ checkin }) => {
+const Checkin = ({ checkin }) => {
   const user = useSelector(state => state.entities.users[checkin.user_id]);
   const beer = useSelector(state => state.entities.beers[checkin.beer_id]);
   const brewery = useSelector(state => state.entities.breweries[beer.brewery_id]);
@@ -60,3 +60,5 @@ export default ({ checkin }) => {
     </li>
   )
 }
+
+export default Checkin;

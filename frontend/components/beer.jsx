@@ -4,7 +4,7 @@ import TextBody from './text_body';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../actions/modal_actions';
 
-export default ({ beer: { id, name, description, beer_type, subtype, profilePictureUrl } }) => {
+const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictureUrl } }) => {
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
@@ -36,3 +36,5 @@ export default ({ beer: { id, name, description, beer_type, subtype, profilePict
     </div>
   )
 }
+
+export default Beer;
