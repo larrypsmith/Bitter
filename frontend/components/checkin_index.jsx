@@ -9,7 +9,7 @@ const CheckinIndex = () => {
 
   useEffect(() => {
     dispatch(fetchCheckins());
-  }, []);
+  }, [dispatch]);
 
   if (!checkins) return null;
   return(
