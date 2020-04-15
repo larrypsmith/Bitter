@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckinContainer from './checkin_container'
+import Checkin from './checkin';
 
 export default class CheckinIndex extends React.Component {
   constructor(props) {
@@ -18,12 +18,9 @@ export default class CheckinIndex extends React.Component {
         <ul>
           {
             Object.values(this.props.checkins).map((checkin, idx) => (
-              <CheckinContainer
-                checkin={checkin}
-                key={idx}
-              />
-              ))
-            }
+              <Checkin checkin={checkin} key={idx} />
+            ))
+          }
         </ul>
       </div>
     )

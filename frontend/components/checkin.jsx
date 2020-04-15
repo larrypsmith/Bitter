@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import Rating from './rating';
 import { openModal } from '../actions/modal_actions'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default ({ user, beer, brewery, checkin }) => {
+export default ({ checkin }) => {
+  const user = useSelector(state => state.entities.users[checkin.user_id]);
+  const beer = useSelector(state => state.entities.beers[checkin.beer_id]);
+  const brewery = useSelector(state => state.entities.breweries[beer.brewery_id]);
   const dispatch = useDispatch();
 
   const handleClick = e => {
