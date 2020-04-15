@@ -1,5 +1,4 @@
 .tile {
-  font-family: $sans-serif;
   background-color: white;
   border-bottom: 2px solid rgb(216, 216, 216);
   box-sizing: border-box;
@@ -47,14 +46,6 @@
 
 .tile .nav-button:hover {
   background-color: rgb(230, 172, 0);
-}
-
-.tile .link {
-  color: $brown
-}
-
-.tile .link:hover {
-  color: $dark-yellow;
 }
 
 .tile .orange {

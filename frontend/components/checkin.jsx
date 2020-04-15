@@ -43,7 +43,7 @@ export default ({ user, beer, brewery, checkin }) => {
         {/* {checkin.body} */}
       </p>
 
-      <button onClick={handleClick}>Edit checkin</button>
+      <button onClick={handleClick} className="link">Edit checkin</button>
     </li>
   )
 }
