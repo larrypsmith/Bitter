@@ -18,7 +18,7 @@ const Checkin = ({ checkin }) => {
   }
 
   return (
-    <div className="tile">
+    <div className="Checkin">
       <header>
         <Link to={`/users/${user.id}`}>
           <Avatar src={user.profilePictureUrl} alt={`${user.username}.jpg`}/>
