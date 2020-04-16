@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ placeholder, value, handleChange }) => (
+const TextArea = ({ placeholder, value, handleChange }) => (
   <textarea
     cols="30"
     rows="3"
@@ -11,3 +11,5 @@ export default ({ placeholder, value, handleChange }) => (
     maxLength={255}
   />
 );
+
+export default TextArea;

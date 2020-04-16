@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from './banner';
 import Checkin from './checkin';
+import { useSelector, useDispatch } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { getCheckinsByUser, getBeersByCheckins, getBreweriesByBeers} from '../reducers/selectors';
+import { fetchUser } from '../actions/user_actions';
 
-export default class UserShow extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const UserShow = ({ match: { params: { id }}}) => {
+  const user = useSelector(state => state.entities.users[id]);
+  const checkins = useSelector(state => getCheckinsByUser(state, user));
+  const beers = useSelector(state => getBeersByCheckins(state, checkins));
+  const breweries = useSelector(state => getBreweriesByBeers(state, beers));
 
-  componentDidMount() {
-    this.props.fetchUser(this.props.match.params.id)
-  }
+  const dispatch = useDispatch();
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.props.fetchUser(this.props.match.params.id)
-    }
-  }
+  useEffect(() => {
+    dispatch(fetchUser(id))
+  }, [dispatch, id])
 
-  render() {
-    const { user, checkins, beers, breweries, fetchUser } = this.props;
-    if (!user) return null;
-    return (
+  if (!user) return null;
+  return(
     <div className="user-show">
       <Banner
         user={user}
@@ -49,6 +48,7 @@ export default class UserShow extends React.Component {
         </ul>
       </div>
     </div>
-    )
-  }
-}
+  )
+};
+
+export default withRouter(UserShow);
