@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import TextBody from './text_body';
 import Avatar from './avatar';
+import Button from './button';
+import TextBody from './text_body';
 import Typography from './typography';
+import { Link } from 'react-router-dom';
 
 const Brewery = ({ brewery:
   { id, name, city, state, country, description, profilePictureUrl } }) => (
@@ -23,9 +24,9 @@ const Brewery = ({ brewery:
     </div>
 
     <Link to={`/breweries/${id}`}>
-      <button className="nav-button">
+      <Button>
         View Brewery
-      </button>
+      </Button>
     </Link>
   </div>
 );
