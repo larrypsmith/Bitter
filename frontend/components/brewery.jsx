@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TextBody from './text_body';
 
-export default ({ brewery: { id, name, city, state, country, description, profilePictureUrl } }) => (
+const Brewery = ({ brewery:
+  { id, name, city, state, country, description, profilePictureUrl } }) => (
   <div className="tile brewery-beer">
     <div className="header">
       <div className="left">
@@ -23,4 +24,6 @@ export default ({ brewery: { id, name, city, state, country, description, profil
 
     <TextBody body={description} cutoffLength={120} />
   </div>
-)
+);
+
+export default Brewery;
