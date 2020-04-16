@@ -27,3 +27,9 @@ export const getBreweriesByBeers = (state, beers) => {
   })
   return breweries;
 }
+
+export const stateFilter = (state, key1, key2, value) => {
+  const entities = state.entities[key1];
+  return Object.values(entities)
+    .filter(entity => JSON.stringify(entity[key2]) === value)
+}

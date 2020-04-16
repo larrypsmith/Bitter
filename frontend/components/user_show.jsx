@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import Banner from './banner';
 import Checkin from './checkin';
+import Container from './container';
 import List from './list';
 import ListItem from './list_item';
 import ListTitle from './list_title';
+import Tile from './tile';
 import Typography from './typography';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getCheckinsByUser } from '../reducers/selectors';
+import { stateFilter } from '../reducers/selectors';
 import { fetchUser } from '../actions/user_actions';
 
 const UserShow = ({ match: { params: { id } } }) => {
   const user = useSelector(state => state.entities.users[id]);
-  const checkins = useSelector(state => getCheckinsByUser(state, user));
+  const checkins = useSelector(state => stateFilter(state, 'checkins', 'user_id', id))
 
   const dispatch = useDispatch();
 
@@ -22,25 +24,26 @@ const UserShow = ({ match: { params: { id } } }) => {
 
   if (!user) return null;
   return(
-    <div className="UserShow">
+    <Container maxWidth="lg">
       <Banner user={user} />
-
-      <ListTitle>
-        <Typography size="lg">
-          Recent Checkins
-        </Typography>
-      </ListTitle>
-      
-      <List>
-        {
-          checkins.map((checkin, idx) => (
-            <ListItem key={idx}>
-              <Checkin checkin={checkin} />
-            </ListItem>
-          ))
-        }
-      </List>
-    </div>
+      <Tile>
+        <ListTitle>
+          <Typography size="lg">
+            Recent Checkins
+          </Typography>
+        </ListTitle>
+        
+        <List>
+          {
+            checkins.map((checkin, idx) => (
+              <ListItem key={idx}>
+                <Checkin checkin={checkin} />
+              </ListItem>
+            ))
+          }
+        </List>
+      </Tile>
+    </Container>
   )
 };
 

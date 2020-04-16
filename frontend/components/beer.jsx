@@ -32,7 +32,7 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
         </button>
       </div>
 
-      <TextBody body={description} cutoffLength={130} />
+      <TextBody initialBody={description} cutoffLength={130} />
     </div>
   )
 }

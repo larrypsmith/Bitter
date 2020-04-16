@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Checkin from './checkin';
-import List from './list';
+import Container from './container';
+import Tile from './tile';
 import ListItem from './list_item';
 import ListTitle from './list_title';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,13 +18,13 @@ const CheckinIndex = () => {
 
   if (!checkins) return null;
   return(
-    <div className="CheckinIndex">
-      <ListTitle>
-        <Typography size="lg">
-          Recent Checkins
-        </Typography>
-      </ListTitle>
-      <List>
+    <Container maxWidth="lg">
+      <Tile>
+        <ListTitle>
+          <Typography size="lg">
+            Recent Checkins
+          </Typography>
+        </ListTitle>
         {
           Object.values(checkins).map((checkin, idx) => (
             <ListItem key={idx}>
@@ -31,8 +32,8 @@ const CheckinIndex = () => {
             </ListItem>
           ))
         }
-      </List>
-    </div>
+      </Tile>
+    </Container>
   )
 };
 

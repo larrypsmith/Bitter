@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import Typography from './typography';
 
 const TextBody = ({ cutoffLength = 120, initialBody }) => {
   const shortenedBody = initialBody.slice(0, cutoffLength);
@@ -6,6 +7,10 @@ const TextBody = ({ cutoffLength = 120, initialBody }) => {
   const [body, setBody] = useState(shortenedBody);
   const [buttonText, setButtonText] = useState('...Show More');
 
+  useEffect(() => {
+    if (initialBody.length <= cutoffLength) setButtonText("");
+  }, [cutoffLength, initialBody.length]);
+  
   const toggleLength = e => {
     e.preventDefault();
     e.stopPropagation();
@@ -17,16 +22,18 @@ const TextBody = ({ cutoffLength = 120, initialBody }) => {
       setButtonText('...Show More');
       setBody(shortenedBody);
     }
-  }
+  };
 
   return (
     <div className="text-body">
-      <p>
-        {body}
+      <div>
+        <Typography color="lightGray">
+          {body}
+        </Typography>
         <button className="link" onClick={toggleLength}>
           {buttonText}
         </button>
-      </p>
+      </div>
     </div>
   );
 };

@@ -1,28 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TextBody from './text_body';
+import Avatar from './avatar';
+import Typography from './typography';
 
 const Brewery = ({ brewery:
   { id, name, city, state, country, description, profilePictureUrl } }) => (
-  <div className="tile brewery-beer">
-    <div className="header">
-      <div className="left">
-        <Link to={`/breweries/${id}`}>
-          <img src={profilePictureUrl} alt={name} className="brewery-profile-picture" />
-        </Link>
+  <div className="Brewery">
+    <Link to={`/breweries/${id}`}>
+      <Avatar
+        src={profilePictureUrl}
+        alt={name}
+        square
+        size={100}
+      />
+    </Link>
 
-        <hgroup className="text">
-          <h1 className="name">{name}</h1>
-          <h2 className="subtitle">{city}, {state} {country}</h2>
-        </hgroup>
-      </div>
-
-      <Link to={`/breweries/${id}`} className="nav-button">
-        View Brewery
-      </Link>
+    <div>
+      <Typography size="xxl">{name}</Typography>
+      <Typography size="md" color="lightGray">{city}, {state} {country}</Typography>
+      <TextBody initialBody={description} cutoffLength={85} />
     </div>
 
-    <TextBody body={description} cutoffLength={120} />
+    <Link to={`/breweries/${id}`}>
+      <button className="nav-button">
+        View Brewery
+      </button>
+    </Link>
   </div>
 );
 
