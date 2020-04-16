@@ -4,6 +4,8 @@ import Rating from './rating';
 import { openModal } from '../actions/modal_actions'
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from './avatar';
+import Typography from './typography';
+import SpeechBalloon from './speech_balloon';
 
 const Checkin = ({ checkin }) => {
   const user = useSelector(state => state.entities.users[checkin.user_id]);
@@ -19,41 +21,44 @@ const Checkin = ({ checkin }) => {
 
   return (
     <div className="Checkin">
-      <header>
-        <Link to={`/users/${user.id}`}>
-          <Avatar src={user.profilePictureUrl} alt={`${user.username}.jpg`}/>
-        </Link>
+      <Link to={`/users/${user.id}`}>
+        <Avatar src={user.profilePictureUrl} alt={`${user.username}.jpg`}/>
+      </Link>
 
-        <h1>
+      <div>
+        <Typography size="lg">
           <Link
             to={`/users/${user.id}`}
             className="link">
             {user.username}
-          </Link> is drinking a {beer.name} from <Link
+          </Link>
+          &nbsp;
+          is drinking a {beer.name} from
+          &nbsp;
+          <Link
             to={`/breweries/${brewery.id}`}
             className="link">
             {brewery.name}
           </Link>
-        </h1>
+        </Typography>
 
-        <Avatar
-          src={beer.profilePictureUrl}
-          alt={`${beer.name}.jpg`}
-          square
-        />
-      </header>
+        <SpeechBalloon>
+          <Rating rating={checkin.rating} />
+          <p>{checkin.body}</p>
+        </SpeechBalloon>
 
-      <ul className="stat-bar">
-        <Rating rating={checkin.rating} />
-      </ul>
+        <Typography size="xs">
+          <button onClick={handleClick} className="link">
+            Edit checkin
+          </button>
+        </Typography>
+      </div>
 
-      <p>
-        {/* {checkin.body} */}
-      </p>
-
-      <button onClick={handleClick} className="link">
-        Edit checkin
-      </button>
+      <Avatar
+        src={beer.profilePictureUrl}
+        alt={`${beer.name}.jpg`}
+        square
+      />
     </div>
   )
 }

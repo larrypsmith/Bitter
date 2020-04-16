@@ -1,12 +1,7 @@
 import React from 'react';
 
-export default class RatingBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  capsArray () {
-    const { rating } = this.props;
+const RatingBar = ({ rating }) => {
+  const capsArray = () => {
     let caps = [];
     for (let i = 1; i <= rating; i++) {
       caps.push(<img className="cap" src="cap-100.png" alt="cap-0" key={i}/>)
@@ -17,14 +12,14 @@ export default class RatingBar extends React.Component {
     return caps;
   }
 
-  render() {
-    return (
-      <li className="rating">
-        <p>
-          Rating: &nbsp;
-        </p>
-        {this.capsArray()}
-      </li>
-    )
-  }
-}
+  return (
+    <div className="rating">
+      <p>
+        Rating: &nbsp;
+      </p>
+      {capsArray()}
+    </div>
+  )
+};
+
+export default RatingBar;

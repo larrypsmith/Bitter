@@ -1,34 +1,17 @@
 import React from 'react';
 
-const Typography = ({ children, color, size = 14 }) => {
+const Typography = ({ children, color, size, bold = false }) => {
+  const colors = ['black', 'brown', 'lightGray', 'darkGray', 'white', 'orange'];
+  const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl'];
 
-  let style = {
-    fontSize: size
-  };
+  color = colors.includes(color) ? color : 'black';
+  size = sizes.includes(size) ? size : 'sm';
 
-  let className = "Typography";
-  switch (color) {
-    case 'black':
-      className += 'black'
-      break;
-    case 'brown':
-      className += 'brown'
-      break;
-    case 'lightGray':
-      className += 'light-gray'
-      break;
-    case 'darkGray':
-      className += 'dark-gray'
-      break;
-    case 'white':
-      className += 'white'
-      break;
-    default:
-      className += "black"
-  }
+  let classes = ['Typography', size, color];
+  if (bold) classes.push('bold');
 
   return(
-    <div className={className} style={style}>
+    <div className={classes.join(' ')}>
       {children}
     </div>
   )

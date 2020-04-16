@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getCheckinsByUser } from '../reducers/selectors';
 import { fetchUser } from '../actions/user_actions';
+import Typography from './typography';
 
 const UserShow = ({ match: { params: { id } } }) => {
   const user = useSelector(state => state.entities.users[id]);
@@ -25,7 +26,9 @@ const UserShow = ({ match: { params: { id } } }) => {
       <Banner user={user} />
 
       <ListTitle>
-        Recent Checkins
+        <Typography size="lg">
+          Recent Checkins
+        </Typography>
       </ListTitle>
       
       <List>
