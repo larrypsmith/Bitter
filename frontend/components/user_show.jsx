@@ -4,11 +4,11 @@ import Checkin from './checkin';
 import List from './list';
 import ListItem from './list_item';
 import ListTitle from './list_title';
+import Typography from './typography';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getCheckinsByUser } from '../reducers/selectors';
 import { fetchUser } from '../actions/user_actions';
-import Typography from './typography';
 
 const UserShow = ({ match: { params: { id } } }) => {
   const user = useSelector(state => state.entities.users[id]);

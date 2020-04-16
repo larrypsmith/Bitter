@@ -5,6 +5,7 @@ import ListItem from './list_item';
 import ListTitle from './list_title';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCheckins } from '../actions/checkin_actions';
+import Typography from './typography';
 
 const CheckinIndex = () => {
   const checkins = useSelector(state => state.entities.checkins);
@@ -16,9 +17,11 @@ const CheckinIndex = () => {
 
   if (!checkins) return null;
   return(
-    <React.Fragment>
+    <div className="CheckinIndex">
       <ListTitle>
-        Recent Checkins
+        <Typography size="lg">
+          Recent Checkins
+        </Typography>
       </ListTitle>
       <List>
         {
@@ -29,7 +32,7 @@ const CheckinIndex = () => {
           ))
         }
       </List>
-    </React.Fragment>
+    </div>
   )
 };
 
