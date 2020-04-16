@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import Banner from './banner';
 import Checkin from './checkin';
-import { useSelector, useDispatch } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import { getCheckinsByUser, getBeersByCheckins, getBreweriesByBeers} from '../reducers/selectors';
+import List from './list';
+import ListItem from './list_item';
+import ListTitle from './list_title';
+import { useSelector, useDispatch } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { getCheckinsByUser } from '../reducers/selectors';
 import { fetchUser } from '../actions/user_actions';
 
-const UserShow = ({ match: { params: { id }}}) => {
+const UserShow = ({ match: { params: { id } } }) => {
   const user = useSelector(state => state.entities.users[id]);
   const checkins = useSelector(state => getCheckinsByUser(state, user));
-  const beers = useSelector(state => getBeersByCheckins(state, checkins));
-  const breweries = useSelector(state => getBreweriesByBeers(state, beers));
 
   const dispatch = useDispatch();
 
@@ -20,33 +21,22 @@ const UserShow = ({ match: { params: { id }}}) => {
 
   if (!user) return null;
   return(
-    <div className="user-show">
-      <Banner
-        user={user}
-        fetchUser={fetchUser}
-      />
+    <div className="UserShow">
+      <Banner user={user} />
 
-      <div className="index">
-        <h1>Recent Checkins</h1>
-
-        <ul>
-          {
-            checkins.map((checkin, idx) => {
-              const beer = beers[checkin.beer_id];
-              const brewery = breweries[beer.brewery_id]
-              return(
-                <Checkin
-                  checkin={checkin}
-                  user={user}
-                  beer={beer}
-                  brewery={brewery}
-                  key={idx}
-                />
-                )
-              })
-            }
-        </ul>
-      </div>
+      <ListTitle>
+        Recent Checkins
+      </ListTitle>
+      
+      <List>
+        {
+          checkins.map((checkin, idx) => (
+            <ListItem key={idx}>
+              <Checkin checkin={checkin} />
+            </ListItem>
+          ))
+        }
+      </List>
     </div>
   )
 };
