@@ -1,12 +1,18 @@
 .Checkin {
   display: flex;
   justify-content: space-between;
-  box-sizing: border-box;
-  padding: 1em;
 }
 
 .Checkin > div {
   flex: 1;
+}
+
+.Checkin > div > * {
+  margin-bottom: 1em;
+}
+
+.Checkin > div > *:last-child {
+  margin-bottom: 0;
 }
 
 .Checkin > * {

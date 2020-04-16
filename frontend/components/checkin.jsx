@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Avatar from './avatar';
 import Typography from './typography';
 import SpeechBalloon from './speech_balloon';
+import Authorized from './authorized';
 
 const Checkin = ({ checkin }) => {
   const user = useSelector(state => state.entities.users[checkin.user_id]);
@@ -26,7 +27,7 @@ const Checkin = ({ checkin }) => {
       </Link>
 
       <div>
-        <Typography size="lg">
+        <Typography size="md">
           <Link
             to={`/users/${user.id}`}
             className="link">
@@ -44,14 +45,16 @@ const Checkin = ({ checkin }) => {
 
         <SpeechBalloon>
           <Rating rating={checkin.rating} />
-          <p>{checkin.body}</p>
+          <Typography size="lg">{checkin.body}</Typography>
         </SpeechBalloon>
 
-        <Typography size="xs">
-          <button onClick={handleClick} className="link">
-            Edit checkin
-          </button>
-        </Typography>
+        <Authorized userId={user.id}>
+          <Typography size="xs">
+            <button className="link" onClick={handleClick}>
+              Edit Checkin
+            </button>
+          </Typography>
+        </Authorized>
       </div>
 
       <Avatar

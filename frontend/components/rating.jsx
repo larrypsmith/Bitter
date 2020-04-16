@@ -14,9 +14,6 @@ const RatingBar = ({ rating }) => {
 
   return (
     <div className="rating">
-      <p>
-        Rating: &nbsp;
-      </p>
       {capsArray()}
     </div>
   )
