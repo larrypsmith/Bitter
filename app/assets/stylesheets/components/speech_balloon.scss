@@ -1,0 +1,13 @@
+.SpeechBalloon {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.SpeechBalloon > * {
+  margin-bottom: 1em;
+}
+
+.SpeechBalloon > *:last-child {
+  margin-bottom: 0;
+}

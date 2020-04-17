@@ -7,17 +7,14 @@
   background-size: fit;
   box-sizing: border-box;
   height: 260px;
-  padding: 10px;
+  padding: .5em;
 }
 
 .banner * {
-  font-family: $sans-serif;
   color: white;
 }
 
-.banner .user-profile-picture {
-  height: 40%;
-  width: auto;
+.banner .Avatar {
   margin-right: 10px;
 }
 

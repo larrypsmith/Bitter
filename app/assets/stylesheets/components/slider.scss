@@ -1,0 +1,25 @@
+.Slider {
+  display: flex;
+}
+
+.Slider input {
+  margin-right: 1rem;
+}
+
+.Slider .readout {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  background-color: #a0a0a0;;
+  padding: .2em;
+  border-radius: .3em;
+  text-align: center;
+}
+
+.Slider .readout .rating {
+  font-size: 20px;
+}
+
+.Slider .readout .word {
+  font-size: 11px;
+}

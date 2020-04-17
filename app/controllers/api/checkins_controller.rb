@@ -23,6 +23,28 @@ class Api::CheckinsController < ApplicationController
     end
   end
 
+  def update
+    @checkin = Checkin.find_by(id: params[:id])
+
+    if @checkin.update(checkin_params)
+      render :show
+    else
+      render json: @checkin.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def destroy 
+    @checkin = Checkin.find_by(id: params[:id])
+
+    if @checkin.destroy
+      render :show
+    else
+      render json: @checkin.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+  
+  private
+
   def checkin_params
     params.require(:checkin).permit(:beer_id, :rating, :body)
   end

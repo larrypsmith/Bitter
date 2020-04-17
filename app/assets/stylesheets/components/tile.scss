@@ -1,62 +1,7 @@
-.tile {
-  font-family: $sans-serif;
-  background-color: white;
-  border-bottom: 2px solid rgb(216, 216, 216);
+.Tile {
   box-sizing: border-box;
-  padding: 25px;
-}
-
-.tile header {
-  display: flex;
-}
-
-.tile header h1 {
-  flex-shrink: 2;
-}
-
-.tile img[class*=profile-picture] {
-  width: 80px;
-  height: auto;
-  margin: 0px 10px 10px 0px;
-}
-
-.tile img.beer-profile-picture {
-  margin-left: 10px;
-}
-
-.tile h1 {
-  color: black;
-  font-size: 26px;
-  margin-bottom: 5px;
-}
-
-.tile h2, p {
-  color: $light-gray;
-  font-size: 18px;
-}
-
-.tile .nav-button {
-  align-self: center;
-  padding: 10px;
-  border-radius: 5px;
-  color: white;
-  background-color: $yellow;
-  margin-left: 10px;
-  border-bottom: 2px solid $light-gray;
-}
-
-.tile .nav-button:hover {
-  background-color: rgb(230, 172, 0);
-}
-
-.tile .link {
-  color: $brown
-}
-
-.tile .link:hover {
-  color: $dark-yellow;
-}
-
-.tile .orange {
-  color: $brown
+  background-color: white;
+  padding: 1em;
+  width: 100%;
+  box-shadow: 0 2px 2px -2px $light-gray;
 }

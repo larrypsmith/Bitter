@@ -1,41 +1,41 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Typography from './typography';
 
-export default class TextBody extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      body: this.props.body.slice(0, this.props.cutoffLength),
-      buttonText: '...Show More',
-    }
-    this.toggleLength = this.toggleLength.bind(this);
-  }
+const TextBody = ({ cutoffLength = 120, initialBody }) => {
+  const shortenedBody = initialBody.slice(0, cutoffLength);
 
-  toggleLength(e) {
-    if (this.state.buttonText === '...Show More') {
-      this.setState({
-        buttonText: '...Show Less',
-        body: this.props.body
-      })
+  const [body, setBody] = useState(shortenedBody);
+  const [buttonText, setButtonText] = useState('...Show More');
+
+  useEffect(() => {
+    if (initialBody.length <= cutoffLength) setButtonText("");
+  }, [cutoffLength, initialBody.length]);
+  
+  const toggleLength = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (buttonText === '...Show More') {
+      setButtonText('...Show Less');
+      setBody(initialBody);
     } else {
-      this.setState({
-        buttonText: '...Show More',
-        body: this.props.body.slice(0, this.props.cutoffLength)
-      })
+      setButtonText('...Show More');
+      setBody(shortenedBody);
     }
-  }
+  };
 
-  render() {
-    const { buttonText, body } = this.state;
-
-    return (
-      <div className="text-body">
-        <p>
+  return (
+    <div className="text-body">
+      <div>
+        <Typography color="lightGray">
           {body}
-          <button className="link" onClick={this.toggleLength}>
-            {buttonText}
-          </button>
-        </p>
+        </Typography>
+        <button className="link" onClick={toggleLength}>
+          {buttonText}
+        </button>
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
+
+export default TextBody;

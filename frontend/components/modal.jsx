@@ -1,15 +1,19 @@
 import React from 'react';
 import NewCheckinForm from './new_checkin_form';
+import EditCheckinForm from './edit_checkin_form';
 import Backdrop from './backdrop';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-export default () => {
+const Modal = () => {
   let component = useSelector(state => state.ui.modal.component);
-  const beer = useSelector(state => state.ui.modal.data);
+  const data = useSelector(state => state.ui.modal.data);
 
   switch (component) {
-    case 'checkinForm':
-      component = <NewCheckinForm beerId={beer.id} />
+    case 'newCheckinForm':
+      component = <NewCheckinForm beerId={data.beerId} />
+      break;
+    case 'editCheckinForm':
+      component = <EditCheckinForm checkinId={data.checkinId} />
       break;
     default:
       component = null;
@@ -18,7 +22,9 @@ export default () => {
   return(
     <React.Fragment>
       <Backdrop isHidden={!component}/>
-      {component}
+      <div className="modal-component-wrapper">{component}</div>
     </React.Fragment>
   )
-}
+};
+
+export default Modal;

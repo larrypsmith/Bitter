@@ -1,0 +1,9 @@
+.App { 
+  font-family: $sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.App > main {
+  padding-top: 1rem;
+}

@@ -1,38 +1,49 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Avatar from './avatar';
+import Button from './button';
+import FlexChild from './flex_child';
+import FlexParent from './flex_parent';
 import TextBody from './text_body';
+import Typography from './typography';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../actions/modal_actions';
 
-export default ({ beer: { id, name, description, beer_type, subtype, profilePictureUrl } }) => {
+const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictureUrl } }) => {
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal('checkinForm', { id }));
+    dispatch(openModal('newCheckinForm', { beerId: id }));
   }
 
   return( 
-    <div className="tile brewery-beer">
-      <div className="header">
-        <div className="left">
-          <Link to={`/beers/${id}`}>
-            <img src={profilePictureUrl} alt={name} className="beer-profile-picture" />
-          </Link>
+    <FlexParent>
+      <FlexChild>
+        <Link to={`/beers/${id}`}>
+          <Avatar
+            src={profilePictureUrl}
+            alt={name}
+            size={100}
+            square
+          />
+        </Link>
+      </FlexChild>
 
-          <hgroup className="text">
-            <h1 className="name">{name}</h1>
-            <h2 className="subtitle">{beer_type} - {subtype}</h2>
-          </hgroup>
-        </div>
+      <FlexChild grow={1}>
+        <Typography size="xl">{name}</Typography>
+        <Typography color="darkGray" size="l">
+          {beer_type} - {subtype}
+        </Typography>
+        <TextBody initialBody={description} cutoffLength={275} />
+      </FlexChild>
 
-        <button className="nav-button" onClick={handleClick}>
-          Check in beer
-        </button>
-      </div>
-
-      <TextBody body={description} cutoffLength={130} />
-    </div>
+      <FlexChild grow={2} align="center">
+        <Button onClick={handleClick}>Check in beer</Button>
+      </FlexChild>
+    </FlexParent>
   )
 }
+
+export default Beer;

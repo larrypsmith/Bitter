@@ -1,32 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Brewery from './brewery';
-import BeerIndex from './beer_index';
+import Container from './container';
+import ListTitle from './list_title';
+import ListItem from './list_item';
+import Beer from './beer';
+import Tile from './tile';
+import { withRouter } from 'react-router-dom';
+import { fetchBrewery } from '../actions/brewery_actions';
+import { useSelector, useDispatch } from 'react-redux';
+import { stateFilter } from '../reducers/selectors';
+import Typography from './typography';
 
-export default class BreweryShow extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const BreweryShow = ({ match: { params: { id } } }) => {
+  const brewery = useSelector(state => state.entities.breweries[id]);
+  const beers = useSelector(state => stateFilter(state, 'beers', 'brewery_id', id));
+  const dispatch = useDispatch();
 
-  componentDidMount() {
-    this.props.fetchBrewery(this.props.match.params.id)
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
-      this.props.fetchBrewery(this.props.match.params.id)
-    }
-  }
-
-  render() {
-    const { brewery, beers } = this.props;
-    if (!brewery) {
-      return null;
-    }
-    return (
-      <div className="brewery-show">
+  useEffect(() => {
+    dispatch(fetchBrewery(id));
+  }, [dispatch, id]);
+  
+  if (!brewery) return null;
+  return (
+    <Container maxWidth="md">
+      <Tile>
         <Brewery brewery={brewery} />
-        <BeerIndex beers={beers} />
-      </div>
-    )
-  }
+      </Tile>
+      <Tile>
+        <ListTitle>
+          <Typography size="xxl">
+            Beer List
+          </Typography>
+        </ListTitle>
+        {
+          beers.map((beer, i) => (
+            <ListItem key={i}>
+              <Beer beer={beer} />
+            </ListItem>
+          ))
+        }
+      </Tile>
+    </Container>
+  )
 }
+
+export default withRouter(BreweryShow);

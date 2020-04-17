@@ -1,44 +1,78 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import Authorized from './authorized';
+import Avatar from './avatar';
+import FlexParent from './flex_parent';
+import FlexChild from './flex_child';
 import Rating from './rating';
+import SpeechBalloon from './speech_balloon';
+import Typography from './typography';
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { openModal } from '../actions/modal_actions'
 
-export default class Checkin extends React.Component {
-  constructor(props) {
-    super(props);
+const Checkin = ({ checkin }) => {
+  const user = useSelector(state => state.entities.users[checkin.user_id]);
+  const beer = useSelector(state => state.entities.beers[checkin.beer_id]);
+  const brewery = useSelector(state => state.entities.breweries[beer.brewery_id]);
+  const dispatch = useDispatch();
+
+  const handleClick = (e, modal) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(openModal(modal, { checkinId: checkin.id }));
   }
 
-  render() {
-    const { user, beer, brewery, checkin } = this.props;
-    return (
-      <li className="tile">
-        <header>
-          <Link to={`users/${user.id}`}>
-            <img src={user.profilePictureUrl} alt="" className="user-profile-picture" />
+  return (
+    <FlexParent>
+      <FlexChild>
+        <Link to={`/users/${user.id}`}>
+          <Avatar src={user.profilePictureUrl} alt={`${user.username}.jpg`}/>
+        </Link>
+      </FlexChild>
+
+      <FlexChild grow={1}>
+        <Typography size="md">
+          <Link
+            to={`/users/${user.id}`}
+            className="link">
+            {user.username}
           </Link>
+          &nbsp;
+          is drinking a {beer.name} from
+          &nbsp;
+          <Link
+            to={`/breweries/${brewery.id}`}
+            className="link">
+            {brewery.name}
+          </Link>
+        </Typography>
 
-          <h1>
-            <Link
-              to={`/users/${user.id}`}
-              className="link">
-              {user.username}
-            </Link> is drinking a {beer.name} from <Link
-              to={`/breweries/${brewery.id}`}
-              className="link">
-              {brewery.name}
-            </Link>
-          </h1>
-
-          <img className="beer-profile-picture" src={beer.profilePictureUrl} alt={`${beer.name}.jpg`}/>
-        </header>
-
-        <ul className="stat-bar">
+        <SpeechBalloon>
           <Rating rating={checkin.rating} />
-        </ul>
+          <Typography size="lg">{checkin.body}</Typography>
+        </SpeechBalloon>
 
-        <p>
-          {/* {checkin.body} */}
-        </p>
-      </li>
-    )
-  }
+        <Authorized userId={user.id}>
+          <Typography size="xs">
+            <button className="link" onClick={e => handleClick(e, 'editCheckinForm')}>
+              Edit Checkin
+            </button>
+            <button className="link" onClick={e => handleClick(e, 'deleteCheckinForm')}>
+              Delete Checkin
+            </button>
+          </Typography>
+        </Authorized>
+      </FlexChild>
+
+      <FlexChild>
+        <Avatar
+          src={beer.profilePictureUrl}
+          alt={`${beer.name}.jpg`}
+          square
+        />
+      </FlexChild>
+    </FlexParent>
+  )
 }
+
+export default Checkin;

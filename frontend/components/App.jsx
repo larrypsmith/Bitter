@@ -7,23 +7,23 @@ import SplashContainer from './splash_container';
 import NavBar from './nav_bar';
 import BreweryIndexContainer from './brewery_index_container';
 import BreweryShowContainer from './brewery_show_container';
-import UserShowContainer from './user_show_container';
-import CheckinIndexContainer from './checkin_index_container';
+import UserShow from './user_show';
+import CheckinIndex from './checkin_index';
 import Modal from './modal';
 
 const App = ({ loggedIn }) => {
   if (loggedIn) {
     return (
-      <div>
+      <div className="App">
         <Modal />
         <NavBar />
 
         <main className="app-main">
           <Switch>
-            <ProtectedRoute path="/users/:id" component={UserShowContainer} />
+            <ProtectedRoute path="/users/:id" component={UserShow} />
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
             <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
-            <ProtectedRoute path="/home" component={CheckinIndexContainer} />
+            <ProtectedRoute path="/home" component={CheckinIndex} />
             <Redirect to="/home" />
           </Switch>
         </main>

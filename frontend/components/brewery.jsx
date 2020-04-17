@@ -1,26 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Avatar from './avatar';
+import Button from './button';
+import FlexChild from './flex_child';
+import FlexParent from './flex_parent';
 import TextBody from './text_body';
+import Typography from './typography';
+import { Link } from 'react-router-dom';
 
-export default ({ brewery: { id, name, city, state, country, description, profilePictureUrl } }) => (
-  <div className="tile brewery-beer">
-    <div className="header">
-      <div className="left">
-        <Link to={`/breweries/${id}`}>
-          <img src={profilePictureUrl} alt={name} className="brewery-profile-picture" />
-        </Link>
-
-        <hgroup className="text">
-          <h1 className="name">{name}</h1>
-          <h2 className="subtitle">{city}, {state} {country}</h2>
-        </hgroup>
-      </div>
-
-      <Link to={`/breweries/${id}`} className="nav-button">
-        View Brewery
+const Brewery = ({ brewery:
+  { id, name, city, state, country, description, profilePictureUrl } }) => (
+  <FlexParent>
+    <FlexChild>
+      <Link to={`/breweries/${id}`}>
+        <Avatar
+          src={profilePictureUrl}
+          alt={name}
+          square
+          size={100}
+        />
       </Link>
-    </div>
+    </FlexChild>
+    
+    <FlexChild grow={1}>
+      <Typography size="xl">{name}</Typography>
+      <Typography size="md" color="darkGray">{city}, {state} {country}</Typography>
+      <TextBody initialBody={description} cutoffLength={165} />
+    </FlexChild>
 
-    <TextBody body={description} cutoffLength={120} />
-  </div>
-)
+    <FlexChild align="center">
+      <Link to={`/breweries/${id}`}>
+        <Button>
+          View Brewery
+        </Button>
+      </Link>
+    </FlexChild>
+  </FlexParent>
+);
+
+export default Brewery;

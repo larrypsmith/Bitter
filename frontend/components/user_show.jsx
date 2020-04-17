@@ -1,54 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from './banner';
 import Checkin from './checkin';
+import Container from './container';
+import List from './list';
+import ListItem from './list_item';
+import ListTitle from './list_title';
+import Tile from './tile';
+import Typography from './typography';
+import { useSelector, useDispatch } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { stateFilter } from '../reducers/selectors';
+import { fetchUser } from '../actions/user_actions';
 
-export default class UserShow extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const UserShow = ({ match: { params: { id } } }) => {
+  const user = useSelector(state => state.entities.users[id]);
+  const checkins = useSelector(state => stateFilter(state, 'checkins', 'user_id', id))
 
-  componentDidMount() {
-    this.props.fetchUser(this.props.match.params.id)
-  }
+  const dispatch = useDispatch();
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.props.fetchUser(this.props.match.params.id)
-    }
-  }
+  useEffect(() => {
+    dispatch(fetchUser(id))
+  }, [dispatch, id])
 
-  render() {
-    const { user, checkins, beers, breweries, fetchUser } = this.props;
-    if (!user) return null;
-    return (
-    <div className="user-show">
-      <Banner
-        user={user}
-        fetchUser={fetchUser}
-      />
-
-      <div className="index">
-        <h1>Recent Checkins</h1>
-
-        <ul>
+  if (!user) return null;
+  return(
+    <Container maxWidth="lg">
+      <Banner user={user} />
+      <Tile>
+        <ListTitle>
+          <Typography size="lg">
+            Recent Checkins
+          </Typography>
+        </ListTitle>
+        
+        <List>
           {
-            checkins.map((checkin, idx) => {
-              const beer = beers[checkin.beer_id];
-              const brewery = breweries[beer.brewery_id]
-              return(
-                <Checkin
-                checkin={checkin}
-                user={user}
-                beer={beer}
-                brewery={brewery}
-                key={idx}
-                />
-                )
-              })
-            }
-        </ul>
-      </div>
-    </div>
-    )
-  }
-}
+            checkins.map((checkin, idx) => (
+              <ListItem key={idx}>
+                <Checkin checkin={checkin} />
+              </ListItem>
+            ))
+          }
+        </List>
+      </Tile>
+    </Container>
+  )
+};
+
+export default withRouter(UserShow);

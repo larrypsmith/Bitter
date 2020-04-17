@@ -1,31 +1,40 @@
-import React from 'react';
-import CheckinContainer from './checkin_container'
+import React, { useEffect } from 'react';
+import Checkin from './checkin';
+import Container from './container';
+import Tile from './tile';
+import ListItem from './list_item';
+import ListTitle from './list_title';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCheckins } from '../actions/checkin_actions';
+import Typography from './typography';
 
-export default class CheckinIndex extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const CheckinIndex = () => {
+  const checkins = useSelector(state => state.entities.checkins);
+  const dispatch = useDispatch();
 
-  componentDidMount() {
-    this.props.fetchCheckins();
-  }
+  useEffect(() => {
+    dispatch(fetchCheckins());
+  }, [dispatch]);
 
-  render() {
-    if (!this.props.checkins) return null;
-    return(
-      <div className="checkin-index index">
-        <h1>Recent Checkins</h1>
-        <ul>
-          {
-            Object.values(this.props.checkins).map((checkin, idx) => (
-              <CheckinContainer
-                checkin={checkin}
-                key={idx}
-              />
-              ))
-            }
-        </ul>
-      </div>
-    )
-  }
-}
+  if (!checkins) return null;
+  return(
+    <Container maxWidth="lg">
+      <Tile>
+        <ListTitle>
+          <Typography size="xxl">
+            Recent Checkins
+          </Typography>
+        </ListTitle>
+        {
+          Object.values(checkins).map((checkin, idx) => (
+            <ListItem key={idx}>
+              <Checkin checkin={checkin} />
+            </ListItem>
+          ))
+        }
+      </Tile>
+    </Container>
+  )
+};
+
+export default CheckinIndex;

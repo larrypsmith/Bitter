@@ -20,9 +20,8 @@
 @import "base/fonts.scss";
 @import "base/lengths.scss";
 
+// Util
+@import "util/*";
+
 // Components
 @import "components/*";
-
-// * {
-//   border: 1px solid red !important;
-// }
