@@ -22,7 +22,7 @@ const BreweryShow = ({ match: { params: { id } } }) => {
   
   if (!brewery) return null;
   return (
-    <Container>
+    <Container maxWidth="md">
       <Tile>
         <Brewery brewery={brewery} />
       </Tile>

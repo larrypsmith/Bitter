@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Button = ({ children, variant }) => {
+const Button = ({ children, variant, onClick }) => {
   const variants = ['contained', 'outlined', 'text'];
   if (!variants.includes(variant)) variant = 'contained';
 
   return(
-    <button className={`Button-${variant}`}>
+    <button className={`Button-${variant}`} onClick={onClick}>
       {children}
     </button>
   )
