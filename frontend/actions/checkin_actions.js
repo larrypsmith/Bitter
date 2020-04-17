@@ -2,6 +2,7 @@ import * as CheckinAPIUtil from '../util/checkin_api_util';
 
 export const RECEIVE_CHECKINS = "RECEIVE_CHECKINS";
 export const RECEIVE_CHECKIN = "RECEIVE_CHECKIN";
+export const REMOVE_CHECKIN = "REMOVE_CHECKIN"
 
 const receiveCheckins = payload => ({
   type: RECEIVE_CHECKINS,
@@ -10,6 +11,11 @@ const receiveCheckins = payload => ({
 
 const receiveCheckin = payload => ({
   type: RECEIVE_CHECKIN,
+  payload
+});
+
+const removeCheckin = payload => ({
+  type: REMOVE_CHECKIN,
   payload
 });
 
@@ -24,3 +30,6 @@ export const createCheckin = checkin => dispatch => (CheckinAPIUtil.createChecki
 
 export const updateCheckin = checkin => dispatch => (CheckinAPIUtil.updateCheckin(checkin))
   .then(payload => dispatch(receiveCheckin(payload)));
+
+export const deleteCheckin = checkinId => dispatch => (CheckinAPIUtil.deleteCheckin(checkinId))
+  .then(payload => dispatch(removeCheckin(payload)));

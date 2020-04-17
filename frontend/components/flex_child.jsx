@@ -1,7 +1,10 @@
 import React from 'react';
 
-const FlexChild = ({ children, grow }) => {
-  const style = { flexGrow: grow };
+const FlexChild = ({ children, grow, align }) => {
+  const style = {
+    flexGrow: grow,
+    alignSelf: align  
+  };
   
   return(
     <div className="FlexChild" style={style}>

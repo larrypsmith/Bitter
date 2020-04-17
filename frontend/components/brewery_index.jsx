@@ -19,10 +19,10 @@ const BreweryIndex = () => {
 
   if (!breweries) return null;
   return(
-    <Container>
+    <Container maxWidth="md">
       <Tile>
         <ListTitle>
-          <Typography size="xxxl">
+          <Typography size="xxl">
             Breweries
           </Typography>
         </ListTitle>

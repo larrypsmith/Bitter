@@ -36,14 +36,12 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
         <Typography color="darkGray" size="l">
           {beer_type} - {subtype}
         </Typography>
-        <TextBody initialBody={description} cutoffLength={130} />
+        <TextBody initialBody={description} cutoffLength={275} />
       </FlexChild>
 
-      <FlexChild grow={2}>
+      <FlexChild grow={2} align="center">
         <Button onClick={handleClick}>Check in beer</Button>
       </FlexChild>
-
-      
     </FlexParent>
   )
 }

@@ -12,6 +12,7 @@
 #               api_checkin GET    /api/checkins/:id(.:format)                                                              api/checkins#show {:format=>:json}
 #                           PATCH  /api/checkins/:id(.:format)                                                              api/checkins#update {:format=>:json}
 #                           PUT    /api/checkins/:id(.:format)                                                              api/checkins#update {:format=>:json}
+#                           DELETE /api/checkins/:id(.:format)                                                              api/checkins#destroy {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :breweries, only: [:index, :show]
     resource :session, only: [:create, :destroy]
-    resources :checkins, only: [:index, :show, :create, :update]
+    resources :checkins, only: [:index, :show, :create, :update, :destroy]
   end
 
   root "static_pages#root"

@@ -21,7 +21,7 @@ const CheckinIndex = () => {
     <Container maxWidth="lg">
       <Tile>
         <ListTitle>
-          <Typography size="lg">
+          <Typography size="xxl">
             Recent Checkins
           </Typography>
         </ListTitle>

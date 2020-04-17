@@ -4,7 +4,7 @@ import EditCheckinForm from './edit_checkin_form';
 import Backdrop from './backdrop';
 import { useSelector } from 'react-redux';
 
-export default () => {
+const Modal = () => {
   let component = useSelector(state => state.ui.modal.component);
   const data = useSelector(state => state.ui.modal.data);
 
@@ -25,4 +25,6 @@ export default () => {
       <div className="modal-component-wrapper">{component}</div>
     </React.Fragment>
   )
-}
+};
+
+export default Modal;

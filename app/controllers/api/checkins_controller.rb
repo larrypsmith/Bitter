@@ -32,6 +32,16 @@ class Api::CheckinsController < ApplicationController
       render json: @checkin.errors.full_messages, status: :unprocessable_entity
     end
   end
+
+  def destroy 
+    @checkin = Checkin.find_by(id: params[:id])
+
+    if @checkin.destroy
+      render :show
+    else
+      render json: @checkin.errors.full_messages, status: :unprocessable_entity
+    end
+  end
   
   private
 

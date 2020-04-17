@@ -25,3 +25,10 @@ export const updateCheckin = checkin => (
     data: { checkin }
   })
 )
+
+export const deleteCheckin = checkinId => (
+  $.ajax({
+    url: `/api/checkins/${checkinId}`,
+    method: 'DELETE'
+  })
+)
