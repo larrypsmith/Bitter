@@ -22,7 +22,7 @@ const BreweryIndex = () => {
     <Container>
       <Tile>
         <ListTitle>
-          <Typography size="lg">
+          <Typography size="xxxl">
             Breweries
           </Typography>
         </ListTitle>
