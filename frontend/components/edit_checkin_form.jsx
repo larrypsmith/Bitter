@@ -1,7 +1,7 @@
 import React from 'react';
-import CheckinForm from './_checkin_form';
 import { useSelector } from 'react-redux';
 import { updateCheckin } from '../actions/checkin_actions';
+import CheckinForm from './_checkin_form';
 
 const EditCheckinForm = ({ checkinId }) => {
   const checkin = useSelector(state => state.entities.checkins[checkinId]);

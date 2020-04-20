@@ -1,0 +1,21 @@
+.ConfirmationForm {
+  box-sizing: border-box;
+  background-color: white;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.ConfirmationForm > *:first-child {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.ConfirmationForm > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 520px) {
+  .ConfirmationForm {
+    min-width: 300px;
+  }
+}

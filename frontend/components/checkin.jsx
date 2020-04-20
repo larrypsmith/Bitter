@@ -1,6 +1,7 @@
 import React from 'react';
 import Authorized from './authorized';
 import Avatar from './avatar';
+import Button from './button';
 import FlexParent from './flex_parent';
 import FlexChild from './flex_child';
 import Rating from './rating';
@@ -54,12 +55,12 @@ const Checkin = ({ checkin }) => {
 
         <Authorized userId={user.id}>
           <Typography size="xs">
-            <button className="link" onClick={e => handleClick(e, 'editCheckinForm')}>
+            <Button variant="text" onClick={e => handleClick(e, 'editCheckinForm')}>
               Edit Checkin
-            </button>
-            <button className="link" onClick={e => handleClick(e, 'deleteCheckinForm')}>
+            </Button>
+            <Button variant="text" onClick={e => handleClick(e, 'deleteCheckinForm')}>
               Delete Checkin
-            </button>
+            </Button>
           </Typography>
         </Authorized>
       </FlexChild>

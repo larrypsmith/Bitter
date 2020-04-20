@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default ( { children }) => (
+const ToolBar = ( { children }) => (
   <div className="Toolbar">
     {children}
   </div>
-)
+);
+
+export default ToolBar;

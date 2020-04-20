@@ -1,13 +1,19 @@
 [class|=Button] {
-  font-size: 16px;
-  padding: .7em;
+  box-sizing: border-box;
+  // padding: .7em;
   border-radius: .3em;
   white-space: nowrap;
+}
+
+[class|=Button]:not(.Button-text) {
+  padding: .7em;
+  font-size: 16px;
 }
 
 .Button-contained {
   background-color: $yellow;
   color: white;
+  border: 1px solid $yellow;
 }
 
 .Button-contained:hover {
@@ -16,10 +22,24 @@
 
 .Button-outlined {
   background-color: white;
-  color: black;
+  color: $yellow;
   border: 1px solid $yellow;
 }
 
 .Button-outlined:hover {
   background-color: #eee;
 }
+
+.Button-text {
+  font-size: 14px;
+  color: $brown;
+}
+
+.Button-text:not(:last-child) {
+  margin-right: 1em;
+}
+
+.Button-text:hover {
+  color: $dark-yellow;
+}
+

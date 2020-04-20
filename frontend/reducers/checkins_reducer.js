@@ -14,10 +14,9 @@ const checkinsReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     case REMOVE_CHECKIN: {
-      debugger
-      let newState = Object.let({}, state);
-      const id = action.payload.id;
-      delete newState.entities.checkins[id];
+      let newState = Object.assign({}, state);
+      const id = (Object.keys(action.payload.checkins))[0];
+      delete newState[id];
       return newState;
     }
     default:
