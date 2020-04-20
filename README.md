@@ -50,34 +50,30 @@ Once the full description is rendered, a `'...Show Less'` button can be clicked 
 The `'...Show More'`/`'...Show Less'` button has an event listener that fires a `toggleLength` function when clicked: 
 
 ```JavaScript
-<button className="link" onClick={this.toggleLength}>
+<button className="link" onClick={toggleLength}>
   {buttonText}
 </button>
 ```
 
-The `toggleLength` function has a conditional statement that checks the current text of the button. If the button says `'...Show More'`, its `buttonText` is changed to `'...Show Less'` and the description `body` is changed to its full length: 
+The `toggleLength` function has a conditional statement that checks the current text of the button. If the button says `'...Show More'`, its `buttonText` is set to `'...Show Less'` and the description `body` is changed to its full length: 
 
 ```JavaScript
-if (this.state.buttonText === '...Show More') {
-  this.setState({
-    buttonText: '...Show Less',
-    body: this.props.body
-  })
+if (buttonText === '...Show More') {
+  setButtonText('...Show Less');
+  setBody(initialBody);
+}
 ```
 
-If the button says `'...Show Less'`, its `buttonText` is changed to `'...Show More'` and the description `body` is cut off at the specified `cutoffLength`: 
+If the button says `'...Show Less'`, its `buttonText` is set to `'...Show More'` and the description `body` is set to its shortened version: 
 
 ```JavaScript
-} else {
-  this.setState({
-    buttonText: '...Show More',
-    body: this.props.body.slice(0, this.props.cutoffLength)
-  })
+else {
+  setButtonText('...Show More');
+  setBody(shortenedBody);
 }
 ```
 
 ## TODO
-* Users can create, edit, and delete checkins
 * Each beer displays its average rating and checkin quantity
 * Each beer has a show page displaying its stats and checkins
 * Users can search for beers from the home page
