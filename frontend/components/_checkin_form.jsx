@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
+import FlexParent from './flex_parent';
+import FlexChild from './flex_child';
 import Slider from './slider';
 import Textarea from './textarea';
 import Toolbar from './toolbar';
+import Typography from './typography';
 
-export default ({
+const CheckinForm = ({
   initialRating = 0,
   initialBody = "",
   beerId,
@@ -55,12 +58,18 @@ export default ({
   }
 
   return(
-    <div className="checkin-form">
+    <div className="CheckinForm">
       <Toolbar>
-        <h3>Check In</h3>
-        <button onClick={handleClick}>
-          <i className="fas fa-times"/>
-        </button>
+        <FlexParent justify='space-between'>
+          <FlexChild>
+            <Typography size="lg" color="white">Check In</Typography>
+          </FlexChild>
+          <FlexChild>
+            <button onClick={handleClick}>
+              <i className="fas fa-times"/>
+            </button>
+          </FlexChild>
+        </FlexParent>
       </Toolbar>
       <form onSubmit={handleSubmit}>
         <Textarea
@@ -73,4 +82,6 @@ export default ({
       </form>
     </div>
   )
-}
+};
+
+export default CheckinForm;

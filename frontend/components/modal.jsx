@@ -1,7 +1,8 @@
 import React from 'react';
-import NewCheckinForm from './new_checkin_form';
-import EditCheckinForm from './edit_checkin_form';
 import Backdrop from './backdrop';
+import DeleteCheckinForm from './delete_checkin_form';
+import EditCheckinForm from './edit_checkin_form';
+import NewCheckinForm from './new_checkin_form';
 import { useSelector } from 'react-redux';
 
 const Modal = () => {
@@ -10,10 +11,13 @@ const Modal = () => {
 
   switch (component) {
     case 'newCheckinForm':
-      component = <NewCheckinForm beerId={data.beerId} />
+      component = <NewCheckinForm beerId={data.beerId} />;
       break;
     case 'editCheckinForm':
-      component = <EditCheckinForm checkinId={data.checkinId} />
+      component = <EditCheckinForm checkinId={data.checkinId} />;
+      break;
+    case 'deleteCheckinForm':
+      component = <DeleteCheckinForm checkinId={data.checkinId} />;
       break;
     default:
       component = null;

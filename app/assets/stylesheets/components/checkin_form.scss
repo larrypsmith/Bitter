@@ -1,22 +1,18 @@
-.checkin-form {
+.CheckinForm {
   width: 100%;
   background-color: white;
   font-family: $sans-serif;
 }
 
-.checkin-form form {
+.CheckinForm form {
   padding: 1em;
 }
 
-.checkin-form form > * {
+.CheckinForm form > *:not(:last-child) {
   margin-bottom: 1em;
 }
 
-.checkin-form form > *:last-child {
-  margin-bottom: 0;
-}
-
-.checkin-form form > button {
+.CheckinForm form > button {
   box-sizing: border-box;
   width: 100%;
   background-color: #ffcc00;
@@ -27,7 +23,7 @@
   font-size: 18px;
 }
 
-.checkin-form form > button:hover {
+.CheckinForm form > button:hover {
   background-color: #f4b800;
 }
 
