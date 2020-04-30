@@ -66,11 +66,13 @@ const Checkin = ({ checkin }) => {
       </FlexChild>
 
       <FlexChild>
-        <Avatar
-          src={beer.profilePictureUrl}
-          alt={`${beer.name}.jpg`}
-          square
-        />
+        <Link to={`/breweries/${brewery.id}`}>
+          <Avatar
+            src={beer.profilePictureUrl}
+            alt={`${beer.name}.jpg`}
+            square
+            />
+        </Link>
       </FlexChild>
     </FlexParent>
   )

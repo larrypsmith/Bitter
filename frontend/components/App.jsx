@@ -32,12 +32,12 @@ const App = ({ loggedIn }) => {
   } else {
     return (
       <div>
-          <Switch>
-            <AuthRoute path="/login" component={LoginFormContainer} />
-            <AuthRoute path="/signup" component={SignupFormContainer} />
-            <AuthRoute path="/" component={SplashContainer} />
-            <Redirect to="/" />
-          </Switch>
+        <Switch>
+          <AuthRoute path="/login" component={LoginFormContainer} />
+          <AuthRoute path="/signup" component={SignupFormContainer} />
+          <AuthRoute path="/" component={SplashContainer} />
+          <Redirect to="/" />
+        </Switch>
       </div>
     )
   }
