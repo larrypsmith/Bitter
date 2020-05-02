@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from './avatar';
 import Button from './button';
+import ConditionalRouteRender from './conditional_route_render';
 import FlexChild from './flex_child';
 import FlexParent from './flex_parent';
 import TextBody from './text_body';
@@ -27,13 +28,15 @@ const Brewery = ({ brewery:
       <TextBody initialBody={description} cutoffLength={165} />
     </FlexChild>
 
-    <FlexChild align="center">
-      <Link to={`/breweries/${id}`}>
-        <Button>
-          View Brewery
-        </Button>
-      </Link>
-    </FlexChild>
+    <ConditionalRouteRender id={id}>
+      <FlexChild align="center">
+        <Link to={`/breweries/${id}`}>
+          <Button>
+            View Brewery
+          </Button>
+        </Link>
+      </FlexChild>
+    </ConditionalRouteRender>
   </FlexParent>
 );
 
