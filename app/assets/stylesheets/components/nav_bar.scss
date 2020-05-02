@@ -1,13 +1,13 @@
-.nav-bar {
+.NavBar {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   background-color: $yellow;
-  height: $nav-bar-height;
+  height: $NavBar-height;
 }
 
-.nav-bar .bitter-logo {
+.NavBar .bitter-logo {
   font-family: $bitter-logo;
   font-size: 40px;
   color: white;
@@ -26,6 +26,6 @@
   color: white;
 }
 
-.nav-bar .Avatar:hover {
+.NavBar .Avatar:hover {
   cursor: pointer;
 }

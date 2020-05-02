@@ -23,7 +23,7 @@ const NavBar = () => {
 
   if (!currentUser) return null;
   return (
-    <nav className="nav-bar">
+    <nav className="NavBar">
       <Link to="/home" className="bitter-logo">BITTER</Link>
 
       <div className="nav-links">
