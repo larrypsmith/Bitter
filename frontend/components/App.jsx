@@ -5,7 +5,7 @@ import LoginFormContainer from './login_form_container'
 import SignupFormContainer from './signup_form_container'
 import SplashContainer from './splash_container';
 import NavBar from './nav_bar';
-import BreweryIndexContainer from './brewery_index_container';
+import BreweryIndex from './brewery_index';
 import BreweryShowContainer from './brewery_show_container';
 import UserShow from './user_show';
 import CheckinIndex from './checkin_index';
@@ -22,7 +22,7 @@ const App = ({ loggedIn }) => {
           <Switch>
             <ProtectedRoute path="/users/:id" component={UserShow} />
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
-            <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
+            <ProtectedRoute path="/breweries" component={BreweryIndex} />
             <ProtectedRoute path="/home" component={CheckinIndex} />
             <Redirect to="/home" />
           </Switch>
