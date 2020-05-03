@@ -26,31 +26,39 @@ const NavBar = () => {
 
   if (!currentUser) return null;
   return (
-    <Container maxWidth="md">
-      <FlexParent>
-        <FlexChild>
-          <Link to="/home" className="bitter-logo">BITTER</Link>
-        </FlexChild>
+    <div className="NavBar">
+      <Container maxWidth="md" >
+        <FlexParent>
+          <FlexChild>
+            <Link to="/home" className="bitter-logo">BITTER</Link>
+          </FlexChild>
 
-        <FlexChild>
-          <NavLink to="/breweries" className="nav-link" activeClassName="active-nav-link">Breweries</NavLink>
-        </FlexChild>
+          <FlexChild align="center">
+            <NavLink
+              to="/breweries"
+              className="nav-link"
+              activeClassName="active-nav-link"
+            >
+              Breweries
+            </NavLink>
+          </FlexChild>
 
-        <FlexChild className="dropdown-parent">
-          <Avatar
-            size={40}
-            onClick={toggleDropdown}
-            src={currentUser.profilePictureUrl}
-            alt={currentUser.username}
+          <FlexChild className="dropdown-parent">
+            <Avatar
+              size={40}
+              onClick={toggleDropdown}
+              src={currentUser.profilePictureUrl}
+              alt={currentUser.username}
             />
-          <Dropdown
-            currentUser={currentUser}
-            isHidden={isDropdownHidden}
-            toggleDropdown={toggleDropdown}
+            <Dropdown
+              currentUser={currentUser}
+              isHidden={isDropdownHidden}
+              toggleDropdown={toggleDropdown}
             />
-        </FlexChild>
-      </FlexParent>
-    </Container>
+          </FlexChild>
+        </FlexParent>
+      </Container>
+    </div>
   )
 }
 

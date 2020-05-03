@@ -1,9 +1,10 @@
 import React from 'react';
 
-const FlexChild = ({ children, grow, align, className = "" }) => {
+const FlexChild = ({ basis, children, grow, align, className = "" }) => {
   const style = {
+    flexBasis: basis,
     flexGrow: grow,
-    alignSelf: align  
+    alignSelf: align,
   };
   
   return(
