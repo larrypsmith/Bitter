@@ -7,7 +7,6 @@ import CheckinIndex from './checkin_index';
 import LoginFormContainer from './login_form_container'
 import Modal from './modal';
 import NavBar from './nav_bar';
-import NewCheckinPage from './new_checkin_page';
 import SignupFormContainer from './signup_form_container'
 import SplashContainer from './splash_container';
 import UserShow from './user_show';
@@ -25,7 +24,6 @@ const App = ({ loggedIn }) => {
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
             <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
             <ProtectedRoute path="/home" component={CheckinIndex} />
-            <ProtectedRoute path="/checkin" component={NewCheckinPage} />
             <Redirect to="/home" />
           </Switch>
         </main>
