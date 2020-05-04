@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUser } from '../actions/user_actions';
 import Avatar from './avatar';
+import Button from './button';
 import Container from './container';
 import Dropdown from './dropdown';
 import FlexParent from './flex_parent';
@@ -41,6 +42,14 @@ const NavBar = () => {
             >
               Breweries
             </NavLink>
+          </FlexChild>
+
+          <FlexChild>
+            <Link to="/checkin">
+              <Button variant="outlined">
+                Check In a Beer
+              </Button>
+            </Link>
           </FlexChild>
 
           <FlexChild className="dropdown-parent">

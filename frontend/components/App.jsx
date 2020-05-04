@@ -1,15 +1,16 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import LoginFormContainer from './login_form_container'
-import SignupFormContainer from './signup_form_container'
-import SplashContainer from './splash_container';
-import NavBar from './nav_bar';
 import BreweryIndexContainer from './brewery_index_container';
 import BreweryShowContainer from './brewery_show_container';
-import UserShow from './user_show';
 import CheckinIndex from './checkin_index';
+import LoginFormContainer from './login_form_container'
 import Modal from './modal';
+import NavBar from './nav_bar';
+import NewCheckinPage from './new_checkin_page';
+import SignupFormContainer from './signup_form_container'
+import SplashContainer from './splash_container';
+import UserShow from './user_show';
 
 const App = ({ loggedIn }) => {
   if (loggedIn) {
@@ -24,6 +25,7 @@ const App = ({ loggedIn }) => {
             <ProtectedRoute path="/breweries/:id" component={BreweryShowContainer} />
             <ProtectedRoute path="/breweries" component={BreweryIndexContainer} />
             <ProtectedRoute path="/home" component={CheckinIndex} />
+            <ProtectedRoute path="/checkin" component={NewCheckinPage} />
             <Redirect to="/home" />
           </Switch>
         </main>
