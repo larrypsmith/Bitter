@@ -1,13 +1,8 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import LoginFormContainer from './login_form_container'
-import SignupFormContainer from './signup_form_container'
-import SplashContainer from './splash_container';
-import NavBar from './nav_bar';
 import BreweryIndex from './brewery_index';
 import BreweryShow from './brewery_show';
-import UserShow from './user_show';
 import CheckinIndex from './checkin_index';
 import LoginFormContainer from './login_form_container'
 import Modal from './modal';
