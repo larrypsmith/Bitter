@@ -1,13 +1,13 @@
 import React from 'react';
 
-const FlexParent = ({ children, justify = "space-between" }) => {
+const FlexParent = ({ children, justify = "space-between", className = "" }) => {
 
   const style = {
-    justifyContent: justify
+    justifyContent: justify,
   };
 
   return(
-    <div className="FlexParent" style={style}>
+    <div className={`FlexParent ${className}`} style={style}>
       {children}
     </div>
   )

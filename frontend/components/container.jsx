@@ -1,30 +1,17 @@
 import React from 'react';
 
-const Container = ({ children, maxWidth = "lg" }) => {
-  let width;
-
-  switch (maxWidth) {
-    case 'xs':
-      width = 600
-      break;
-    case 'sm':
-      width = 768
-      break;
-    case 'md':
-      width = 992
-      break;
-    case 'lg':
-      width = 1200
-      break;
-    default:
-      width = 992
-      break;
+const Container = ({ children, maxWidth, className = "" }) => {
+  const widths = {
+    'xs': 600,
+    'sm': 768,
+    'md': 992,
+    'lg': 1200,
   }
   
-  let style = { maxWidth: width };
+  let style = { maxWidth: widths[maxWidth] || widths['lg'] };
 
   return(
-    <div className="Container" style={style}>
+    <div className={`Container ${className}`} style={style}>
       {children}
     </div>  
   )
