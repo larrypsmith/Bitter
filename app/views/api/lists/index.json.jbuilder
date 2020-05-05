@@ -23,3 +23,13 @@ json.beers do
     end
   end
 end
+
+json.listsBeers do
+  @lists.each do |list|
+    list.lists_beers.each do |lists_beer|
+      json.set! lists_beer.id do
+        json.partial! 'api/lists_beers/lists_beer', lists_beer: lists_beer
+      end
+    end
+  end
+end

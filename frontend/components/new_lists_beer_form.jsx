@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { stateFilter } from '../reducers/selectors';
 import { fetchUserLists } from '../actions/list_actions'
+import { openModal } from '../actions/modal_actions';
+import BeerListList from './beer_list_list';
 import Typography from './typography';
 
-const NewListBeerForm = ({ beerId }) => {
+const NewListsBeerForm = ({ beerId }) => {
   const currentUser = useSelector(state => state.entities.users[state.session.id], shallowEqual);
   const lists = useSelector(state => stateFilter({
     state,
@@ -19,18 +21,22 @@ const NewListBeerForm = ({ beerId }) => {
     dispatch(fetchUserLists(currentUser.id));
   }, [dispatch, currentUser.id]) 
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(openModal('createList', { userId: currentUser.id }))
+  }
+
   if (!lists.length) return null;
   return(
-    <div className="NewListBeerForm">
-      {
-        lists.map(list => (
-          <div className="beer-list" key={list.id}>
-            <Typography>{list.name}</Typography>
-          </div>
-        ))
-      }
+    <div className="NewListsBeerForm">
+      <BeerListList lists={lists} beerId={beerId} />
+      <div className="create-new-list" onClick={handleClick}>
+        <i className="fas fa-plus-circle fa-2x"></i>
+        <Typography bold>Create a New List</Typography>
+      </div>
     </div>
   );
 }
 
-export default NewListBeerForm;
+export default NewListsBeerForm;

@@ -19,6 +19,7 @@
 #                  api_list PATCH  /api/lists/:id(.:format)                                                                 api/lists#update {:format=>:json}
 #                           PUT    /api/lists/:id(.:format)                                                                 api/lists#update {:format=>:json}
 #                           DELETE /api/lists/:id(.:format)                                                                 api/lists#destroy {:format=>:json}
+#           api_lists_beers POST   /api/lists_beers(.:format)                                                               api/lists_beers#create {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
     resources :checkins, only: [:index, :show, :create, :update, :destroy]
     resources :beers, only: [:index]
     resources :lists, only: [:create, :update, :destroy]
+    resources :lists_beers, only: [:create]
   end
 
   root "static_pages#root"

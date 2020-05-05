@@ -4,7 +4,7 @@ import DeleteCheckinForm from './delete_checkin_form';
 import EditCheckinForm from './edit_checkin_form';
 import ModalToolbar from './modal_toolbar';
 import NewCheckinForm from './new_checkin_form';
-import NewListBeerForm from './new_list_beer_form';
+import NewListsBeerForm from './new_lists_beer_form';
 import { useSelector } from 'react-redux';
 
 const Modal = () => {
@@ -25,8 +25,8 @@ const Modal = () => {
       component = <DeleteCheckinForm checkinId={data.checkinId} />;
       title = 'Delete Checkin'
       break;
-    case 'newListBeerForm':
-      component = <NewListBeerForm beerId={data.beerId} />;
+    case 'NewListsBeerForm':
+      component = <NewListsBeerForm beerId={data.beerId} />;
       title = 'Select a List'
       break;
     default:
