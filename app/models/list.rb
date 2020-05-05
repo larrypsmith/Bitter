@@ -5,5 +5,9 @@ class List < ApplicationRecord
 
   belongs_to :user
 
-  has_and_belongs_to_many :beers
+  has_many :lists_beers
+
+  has_many :beers,
+  through: :lists_beers,
+  source: :beer
 end

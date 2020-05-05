@@ -22,4 +22,4 @@ json.beers do
       end
     end
   end
-endg
+end
