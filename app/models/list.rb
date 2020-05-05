@@ -4,4 +4,6 @@ class List < ApplicationRecord
   validates :description, length: { maximum: 300}, allow_nil: true
 
   belongs_to :user
+
+  has_and_belongs_to_many :beers
 end

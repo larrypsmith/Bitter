@@ -13,3 +13,13 @@ json.users do
     end
   end
 end
+
+json.beers do 
+  @lists.each do |list|
+    list.beers.each do |beer|
+      json.set! beer.id do 
+        json.partial! 'api/beers/beer' beer: beer
+      end
+    end
+  end
+endg
