@@ -1,22 +1,23 @@
 import React from 'react';
-import Avatar from './avatar';
-import Button from './button';
-import FlexChild from './flex_child';
-import FlexParent from './flex_parent';
-import IconButton from './icon_button';
-import TextBody from './text_body';
-import Typography from './typography';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../actions/modal_actions';
+import Avatar from './avatar';
+import FlexChild from './flex_child';
+import FlexParent from './flex_parent';
+import NewListsBeerForm from './new_lists_beer_form';
+import NewCheckinForm from './new_checkin_form';
+import IconButton from './icon_button';
+import TextBody from './text_body';
+import Typography from './typography';
 
 const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictureUrl } }) => {
   const dispatch = useDispatch();
 
-  const handleClick = (e, modalType) => {
+  const handleClick = (e, component) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal(modalType, { beerId: id }));
+    dispatch(openModal(component));
   }
 
   return( 
@@ -42,13 +43,13 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
 
       <FlexChild grow={2} align="center">
         <IconButton
-          onClick={(e) => handleClick(e, 'newCheckinForm')}
+          onClick={(e) => handleClick(e, <NewCheckinForm beerId={id} />)}
           icon={<i className="fas fa-check"></i>}
         >
           Check In Beer
         </IconButton>
         <IconButton
-          onClick={(e) => handleClick(e, 'NewListsBeerForm')}
+          onClick={(e) => handleClick(e, <NewListsBeerForm beerId={id} />)}
           icon={<i className="fas fa-plus"></i>}
         >
           Add Beer to List
