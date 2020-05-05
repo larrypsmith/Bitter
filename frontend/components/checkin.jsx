@@ -22,7 +22,27 @@ const Checkin = ({ checkin }) => {
   const handleClick = (e, component) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal(component));
+
+    let data;
+    
+    switch (component) {
+      case 'editCheckinForm':
+        data = {
+          component: <EditCheckinForm checkinId={checkin.id} />,
+          title: 'Edit Checkin'
+        }
+        break;
+      case 'deleteCheckinForm':
+        data = {
+          component: <DeleteCheckinForm checkinId={checkin.id} />,
+          title: 'Delete Checkin'
+        }
+        break;
+      default:
+        break;
+    }
+    
+    dispatch(openModal(data));
   }
 
   return (
@@ -59,13 +79,13 @@ const Checkin = ({ checkin }) => {
           <Typography size="xs">
             <Button
               variant="text"
-              onClick={e => handleClick(e, <EditCheckinForm checkinId={checkin.id} />)}
+              onClick={e => handleClick(e, 'editCheckinForm')}
             >
               Edit Checkin
             </Button>
             <Button
               variant="text"
-              onClick={e => handleClick(e, <DeleteCheckinForm checkinId={checkin.id} />)}
+              onClick={e => handleClick(e, 'deleteCheckinForm')}
             >
               Delete Checkin
             </Button>

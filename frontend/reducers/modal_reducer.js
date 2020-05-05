@@ -1,12 +1,15 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal_actions';
 
-export default (state = { component: null }, action) => {
+const _nullState = { component: null, title: null }
+
+export default (state = _nullState, action) => {
   Object.freeze(state);
+  
   switch (action.type) {
     case OPEN_MODAL:
-      return action;
+      return action.data;
     case CLOSE_MODAL:
-      return { component: null };
+      return _nullState;
     default:
       return state;
   }

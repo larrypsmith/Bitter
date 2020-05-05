@@ -17,7 +17,27 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
   const handleClick = (e, component) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal(component));
+
+    let data;
+
+    switch (component) {
+      case 'newCheckinForm':
+        data = {
+          component: <NewCheckinForm beerId={id} />,
+          title: 'Create Checkin'
+        }
+        break;
+      case 'newListsBeerForm':
+        data = {
+          component: <NewListsBeerForm beerId={id} />,
+          title: 'Select a List'
+        }
+        break;
+      default:
+        break;
+    }
+
+    dispatch(openModal(data));
   }
 
   return( 
@@ -43,13 +63,13 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
 
       <FlexChild grow={2} align="center">
         <IconButton
-          onClick={(e) => handleClick(e, <NewCheckinForm beerId={id} />)}
+          onClick={(e) => handleClick(e, 'newCheckinForm')}
           icon={<i className="fas fa-check"></i>}
         >
           Check In Beer
         </IconButton>
         <IconButton
-          onClick={(e) => handleClick(e, <NewListsBeerForm beerId={id} />)}
+          onClick={(e) => handleClick(e, 'newListsBeerForm')}
           icon={<i className="fas fa-plus"></i>}
         >
           Add Beer to List
