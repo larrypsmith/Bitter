@@ -7,5 +7,5 @@ const receiveLists = (payload) => ({
   payload
 })
 
-export const fetchUserLists = () => (dispatch) => ListAPIUtil.fetchUserLists()
+export const fetchUserLists = (userId) => (dispatch) => ListAPIUtil.fetchUserLists(userId)
   .then(payload => dispatch(receiveLists(payload)));

@@ -1,7 +1,7 @@
 class Api::ListsController < ApplicationController
   def index 
     @lists = List.where(user_id: params[:user_id])
-
+    
     if @lists
       render :index
     else

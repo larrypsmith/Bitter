@@ -12,4 +12,4 @@ export default (state = { component: null, data: null }, action) => {
     default:
       return state;
   }
-}
+};

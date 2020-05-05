@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
-import FlexParent from './flex_parent';
-import FlexChild from './flex_child';
 import Slider from './slider';
 import Textarea from './textarea';
-import Toolbar from './toolbar';
-import Typography from './typography';
+import ModalToolbar from './modal_toolbar';
 
 const CheckinForm = ({
   initialRating = 0,
@@ -51,26 +48,8 @@ const CheckinForm = ({
     dispatch(closeModal());
   }
 
-  const handleClick = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    dispatch(closeModal());
-  }
-
   return(
     <div className="CheckinForm">
-      <Toolbar>
-        <FlexParent justify='space-between'>
-          <FlexChild>
-            <Typography size="lg" color="white">Check In</Typography>
-          </FlexChild>
-          <FlexChild>
-            <button onClick={handleClick}>
-              <i className="fas fa-times"/>
-            </button>
-          </FlexChild>
-        </FlexParent>
-      </Toolbar>
       <form onSubmit={handleSubmit}>
         <Textarea
           placeholder="What did you think?"

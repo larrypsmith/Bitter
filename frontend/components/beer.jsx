@@ -48,7 +48,7 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
           Check In Beer
         </IconButton>
         <IconButton
-          onClick={(e) => handleClick(e, 'addToListForm')}
+          onClick={(e) => handleClick(e, 'newListBeerForm')}
           icon={<i className="fas fa-plus"></i>}
         >
           Add Beer to List

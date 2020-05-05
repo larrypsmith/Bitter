@@ -13,7 +13,12 @@ import Typography from './typography';
 
 const BreweryShow = ({ match: { params: { id } } }) => {
   const brewery = useSelector(state => state.entities.breweries[id]);
-  const beers = useSelector(state => stateFilter(state, 'beers', 'brewery_id', id));
+  const beers = useSelector(state => stateFilter({
+    state,
+    key1: 'beers',
+    key2: 'brewery_id',
+    value: JSON.parse(id)
+  }));
   const dispatch = useDispatch();
 
   useEffect(() => {
