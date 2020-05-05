@@ -5,7 +5,7 @@ export default (state = { component: null, data: null }, action) => {
   switch (action.type) {
     case OPEN_MODAL: {
       const { component, data } = action;
-      return { component, data }
+      return { component, data };
     }
     case CLOSE_MODAL:
       return { component: null, data: null };

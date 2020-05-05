@@ -3,6 +3,7 @@ import Avatar from './avatar';
 import Button from './button';
 import FlexChild from './flex_child';
 import FlexParent from './flex_parent';
+import IconButton from './icon_button';
 import TextBody from './text_body';
 import Typography from './typography';
 import { Link } from 'react-router-dom';
@@ -12,10 +13,10 @@ import { openModal } from '../actions/modal_actions';
 const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictureUrl } }) => {
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
+  const handleClick = (e, modalType) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal('newCheckinForm', { beerId: id }));
+    dispatch(openModal(modalType, { beerId: id }));
   }
 
   return( 
@@ -40,7 +41,18 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
       </FlexChild>
 
       <FlexChild grow={2} align="center">
-        <Button onClick={handleClick}>Check in beer</Button>
+        <IconButton
+          onClick={(e) => handleClick(e, 'newCheckinForm')}
+          icon={<i className="fas fa-check"></i>}
+        >
+          Check In Beer
+        </IconButton>
+        <IconButton
+          onClick={(e) => handleClick(e, 'addToListForm')}
+          icon={<i className="fas fa-plus"></i>}
+        >
+          Add Beer to List
+        </IconButton>
       </FlexChild>
     </FlexParent>
   )

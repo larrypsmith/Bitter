@@ -1,6 +1,7 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_USER } from '../actions/user_actions';
-import { RECEIVE_CHECKINS}  from '../actions/checkin_actions'
+import { RECEIVE_CHECKINS}  from '../actions/checkin_actions';
+import { RECEIVE_LISTS } from '../actions/list_actions';
 
 
 const usersReducer = (state = {}, action) => {
@@ -9,11 +10,13 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, action.payload.users)
     case RECEIVE_USER:
-      return Object.assign({}, state, action.payload.users )
+      return Object.assign({}, state, action.payload.users);
     case LOGOUT_CURRENT_USER:
       return {};
     case RECEIVE_CHECKINS:
       return Object.assign({}, state, action.payload.users);
+    case RECEIVE_LISTS:
+      return {...state, ...action.payload.users};
     default:
       return state;
   }

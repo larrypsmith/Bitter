@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
-import usersReducer from './users_reducer';
-import breweriesReducer from './breweries_reducer';
-import beersReducer from './beers_reducer';
-import checkinsReducer from './checkins_reducer';
+import users from './users_reducer';
+import breweries from './breweries_reducer';
+import beers from './beers_reducer';
+import checkins from './checkins_reducer';
+import lists from './lists_reducer';
 
 const entitiesReducer = combineReducers({
-  users: usersReducer,
-  breweries: breweriesReducer,
-  beers: beersReducer,
-  checkins: checkinsReducer
+  users,
+  breweries,
+  beers,
+  checkins,
+  lists
 })
 
 export default entitiesReducer;

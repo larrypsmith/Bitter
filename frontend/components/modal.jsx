@@ -19,6 +19,9 @@ const Modal = () => {
     case 'deleteCheckinForm':
       component = <DeleteCheckinForm checkinId={data.checkinId} />;
       break;
+    case 'addToListForm':
+      component = <AddToListForm beerId={data.beerId} />;
+      break;
     default:
       component = null;
   }
