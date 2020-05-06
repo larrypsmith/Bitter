@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from './button';
 import Textarea from './textarea';
+import Typography from './typography';
 
 const ListForm = ({
   initialName = '',
@@ -17,21 +18,20 @@ const ListForm = ({
 
   return(
     <div className="ListForm">
-      <label>List Name
-        <input
-          type="text"
-          value={name}
-          onChange={e => setName(e.currentTarget.value)}
-        />
-      </label>
-      <label>Description
-        <Textarea
-          value={description}
-          onChange={e => setDescription(e.currentTarget.value)}
-        />
-      </label>
+      <Typography bold>List Name</Typography>
+      <input
+        type="text"
+        value={name}
+        onChange={e => setName(e.currentTarget.value)}
+        className="Textarea"
+      />
+      <Typography bold>Description</Typography>
+      <Textarea
+        value={description}
+        onChange={e => setDescription(e.currentTarget.value)}
+      />
       <Button onClick={handleSubmit}>Create List</Button>
-      <Button onClick={handleCancel}>Cancel</Button>
+      <Button onClick={handleCancel} variant="text">Cancel</Button>
     </div>
   )
 }

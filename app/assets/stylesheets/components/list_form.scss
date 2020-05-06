@@ -1,3 +1,18 @@
 .ListForm {
   background-color: white;
+  flex-direction: column;
+  min-width: 500px;
+  padding: 1em;
+}
+
+.ListForm > *:not(:last-child) {
+  margin-bottom: .2em;
+}
+
+.ListForm > .Textarea {
+  margin-bottom: 1.5em;
+}
+
+.ListForm button:not(:last-child) {
+  margin-right: 1em;
 }

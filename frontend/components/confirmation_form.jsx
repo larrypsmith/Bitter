@@ -6,7 +6,7 @@ import Typography from './typography';
 import { closeModal } from '../actions/modal_actions';
 import { useDispatch } from 'react-redux';
 
-const ConfirmationForm = ({ onSubmit, header }) => {
+const ConfirmationForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
   
   const handleClick = e => {
@@ -19,8 +19,8 @@ const ConfirmationForm = ({ onSubmit, header }) => {
     <div className="ConfirmationForm">
       <Typography>Are you sure?</Typography>
       <FlexParent justify="flex-end">
-        <FlexChild>
-          <Button variant="outlined" onClick={handleClick}>Cancel</Button>
+        <FlexChild align="center">
+          <Button variant="text" onClick={handleClick}>Cancel</Button>
         </FlexChild>
         <FlexChild>
           <Button onClick={onSubmit}>Confirm</Button>

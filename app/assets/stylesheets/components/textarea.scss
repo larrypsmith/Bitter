@@ -1,7 +1,8 @@
 .Textarea {
-  border: 1px solid gray;
+  border: 1px solid $light-gray;
   border-radius: 5px;
   padding: 0.5em;
+  display: block;
 }
 
 .Textarea:focus {
