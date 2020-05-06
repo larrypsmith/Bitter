@@ -10,7 +10,7 @@ const BeerListList = ({ lists, beerId }) => {
           list={list}
           key={list.id}
           beerId={beerId}
-          />
+        />
       ))
      }
    </ul> 

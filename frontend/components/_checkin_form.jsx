@@ -3,13 +3,12 @@ import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
 import Slider from './slider';
 import Textarea from './textarea';
-import ModalToolbar from './modal_toolbar';
 
 const CheckinForm = ({
   initialRating = 0,
   initialBody = "",
   beerId,
-  submitAction,
+  onSubmitAction,
   checkinId
 }) => {
   const [rating, setRating] = useState(initialRating);
@@ -30,7 +29,6 @@ const CheckinForm = ({
       default:
         return null;
     }
-
   }
 
   const handleSubmit = e => {
@@ -44,7 +42,7 @@ const CheckinForm = ({
       id: checkinId
     }
 
-    dispatch(submitAction(checkin));
+    dispatch(onSubmitAction(checkin));
     dispatch(closeModal());
   }
 
@@ -54,9 +52,9 @@ const CheckinForm = ({
         <Textarea
           placeholder="What did you think?"
           value={body}
-          handleChange={e => handleChange(e, 'body')}
+          onChange={e => handleChange(e, 'body')}
           />
-        <Slider rating={rating} handleChange={e => handleChange(e, 'rating')} />
+        <Slider rating={rating} onChange={e => handleChange(e, 'rating')} />
         <button onClick={handleSubmit}>Confirm</button>
       </form>
     </div>

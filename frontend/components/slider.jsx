@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ rating, handleChange }) => {
+const Slider = ({ rating, onChange }) => {
   let word;
   switch (rating) {
     case 0:
@@ -22,7 +22,7 @@ export default ({ rating, handleChange }) => {
         min="0"
         max="5"
         value={rating}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <div className="readout">
         <div className="rating">{rating}</div>
@@ -30,4 +30,6 @@ export default ({ rating, handleChange }) => {
       </div>
     </div>
   )
-}
+};
+
+export default Slider;

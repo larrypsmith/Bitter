@@ -19,7 +19,6 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
     e.stopPropagation();
 
     let data;
-
     switch (component) {
       case 'newCheckinForm':
         data = {

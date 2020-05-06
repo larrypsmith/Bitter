@@ -12,7 +12,7 @@ const EditCheckinForm = ({ checkinId }) => {
       beerId={beerId}
       initialRating={rating}
       initialBody={body}
-      submitAction={updateCheckin}
+      onSubmitAction={updateCheckin}
       checkinId={checkinId}
     />
   )
