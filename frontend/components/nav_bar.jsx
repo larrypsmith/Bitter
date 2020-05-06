@@ -44,14 +44,6 @@ const NavBar = () => {
             </NavLink>
           </FlexChild>
 
-          <FlexChild>
-            <Link to="/checkin">
-              <Button variant="outlined">
-                Check In a Beer
-              </Button>
-            </Link>
-          </FlexChild>
-
           <FlexChild className="dropdown-parent">
             <Avatar
               size={40}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ToolBar = ( { children }) => (
+const ToolBar = ({ children }) => (
   <div className="Toolbar">
     {children}
   </div>

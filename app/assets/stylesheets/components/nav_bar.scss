@@ -3,7 +3,7 @@
   align-self: center;
   margin: auto;
   background-color: $yellow;
-  padding: .2rem 0;
+  padding: .4rem 0;
 }
 
 .NavBar .bitter-logo {
@@ -22,10 +22,10 @@
   color: white;
 }
 
-// .active-nav-link {
-//   color: white;
-// }
-
 .NavBar .Avatar:hover {
   cursor: pointer;
+}
+
+.NavBar .FlexChild img {
+  margin-bottom: 0;
 }

@@ -1,0 +1,9 @@
+.BeerListListItem {
+  padding: 1.5em;
+  border-bottom: 1px solid $light-gray;
+  list-style: none;
+}
+
+.BeerListListItem > *:not(:last-child) {
+  margin-bottom: .2em;
+}

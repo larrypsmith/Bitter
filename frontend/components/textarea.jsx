@@ -1,13 +1,13 @@
 import React from 'react';
 
-const TextArea = ({ placeholder, value, handleChange }) => (
+const TextArea = ({ placeholder, value, onChange }) => (
   <textarea
     cols="30"
     rows="3"
     className="Textarea"
     placeholder={placeholder}
     value={value}
-    onChange={handleChange}
+    onChange={onChange}
     maxLength={255}
   />
 );

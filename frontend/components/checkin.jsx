@@ -2,6 +2,8 @@ import React from 'react';
 import Authorized from './authorized';
 import Avatar from './avatar';
 import Button from './button';
+import EditCheckinForm from './edit_checkin_form';
+import DeleteCheckinForm from './delete_checkin_form';
 import FlexParent from './flex_parent';
 import FlexChild from './flex_child';
 import Rating from './rating';
@@ -17,10 +19,30 @@ const Checkin = ({ checkin }) => {
   const brewery = useSelector(state => state.entities.breweries[beer.brewery_id]);
   const dispatch = useDispatch();
 
-  const handleClick = (e, modal) => {
+  const handleClick = (e, component) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(openModal(modal, { checkinId: checkin.id }));
+
+    let data;
+    
+    switch (component) {
+      case 'editCheckinForm':
+        data = {
+          component: <EditCheckinForm checkinId={checkin.id} />,
+          title: 'Edit Checkin'
+        }
+        break;
+      case 'deleteCheckinForm':
+        data = {
+          component: <DeleteCheckinForm checkinId={checkin.id} />,
+          title: 'Delete Checkin'
+        }
+        break;
+      default:
+        break;
+    }
+    
+    dispatch(openModal(data));
   }
 
   return (
@@ -55,10 +77,16 @@ const Checkin = ({ checkin }) => {
 
         <Authorized userId={user.id}>
           <Typography size="xs">
-            <Button variant="text" onClick={e => handleClick(e, 'editCheckinForm')}>
+            <Button
+              variant="text"
+              onClick={e => handleClick(e, 'editCheckinForm')}
+            >
               Edit Checkin
             </Button>
-            <Button variant="text" onClick={e => handleClick(e, 'deleteCheckinForm')}>
+            <Button
+              variant="text"
+              onClick={e => handleClick(e, 'deleteCheckinForm')}
+            >
               Delete Checkin
             </Button>
           </Typography>

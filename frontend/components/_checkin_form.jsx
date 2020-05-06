@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
-import FlexParent from './flex_parent';
-import FlexChild from './flex_child';
 import Slider from './slider';
 import Textarea from './textarea';
-import Toolbar from './toolbar';
-import Typography from './typography';
 
 const CheckinForm = ({
   initialRating = 0,
   initialBody = "",
   beerId,
-  submitAction,
+  onSubmitAction,
   checkinId
 }) => {
   const [rating, setRating] = useState(initialRating);
@@ -33,7 +29,6 @@ const CheckinForm = ({
       default:
         return null;
     }
-
   }
 
   const handleSubmit = e => {
@@ -47,37 +42,19 @@ const CheckinForm = ({
       id: checkinId
     }
 
-    dispatch(submitAction(checkin));
-    dispatch(closeModal());
-  }
-
-  const handleClick = e => {
-    e.preventDefault();
-    e.stopPropagation();
+    dispatch(onSubmitAction(checkin));
     dispatch(closeModal());
   }
 
   return(
     <div className="CheckinForm">
-      <Toolbar>
-        <FlexParent justify='space-between'>
-          <FlexChild>
-            <Typography size="lg" color="white">Check In</Typography>
-          </FlexChild>
-          <FlexChild>
-            <button onClick={handleClick}>
-              <i className="fas fa-times"/>
-            </button>
-          </FlexChild>
-        </FlexParent>
-      </Toolbar>
       <form onSubmit={handleSubmit}>
         <Textarea
           placeholder="What did you think?"
           value={body}
-          handleChange={e => handleChange(e, 'body')}
+          onChange={e => handleChange(e, 'body')}
           />
-        <Slider rating={rating} handleChange={e => handleChange(e, 'rating')} />
+        <Slider rating={rating} onChange={e => handleChange(e, 'rating')} />
         <button onClick={handleSubmit}>Confirm</button>
       </form>
     </div>

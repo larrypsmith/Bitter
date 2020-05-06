@@ -1,0 +1,23 @@
+.NewListsBeerForm {
+  min-width: 500px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.NewListsBeerForm:hover {
+  cursor: pointer;
+}
+
+.create-new-list {
+  padding: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+.create-new-list > *:not(:last-child) {
+  margin-right: .5em;
+}
+
+.create-new-list i {
+  color: $yellow;
+}

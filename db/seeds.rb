@@ -21,7 +21,7 @@ the_home_brewer    = User.create!(username: "the_home_brewer",    password: "the
 bird_dog423        = User.create!(username: "bird_dog423",        password: "bird_dog423")
 beer_a_day         = User.create!(username: "beer_a_day",         password: "beer_a_day")
 
-demo_user_img          = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/demo.jpeg")
+demo_user_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/demo.jpeg")
 beer_lover12_img       = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/beer_lover12.jpeg")
 the_beer_snob_img      = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/the_beer_snob.jpeg")
 cider_rules_img        = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/cider_rules.jpeg")
@@ -154,3 +154,10 @@ Checkin.create!(user_id: bird_dog423.id, beer_id: pliny_the_younger.id, rating: 
 Checkin.create!(user_id: beer_a_day.id, beer_id: anchor_steam.id, rating: 4, body: "Great!")
 Checkin.create!(user_id: beer_a_day.id, beer_id: liberty_ale.id, rating: 2, body: "Pretty bad.")
 Checkin.create!(user_id: beer_a_day.id, beer_id: pliny_the_elder.id, rating: 5, body: "I love it!")
+
+List.delete_all
+demo_user_wish_list = List.create!(user_id: demo_user.id, name: "Wish List", description: "Beers I want to try")
+
+ListsBeer.delete_all
+ListsBeer.create!(list_id: demo_user_wish_list.id, beer_id: pliny_the_younger.id)
+ListsBeer.create!(list_id: demo_user_wish_list.id, beer_id: racer_5.id)
