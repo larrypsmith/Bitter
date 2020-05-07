@@ -1,4 +1,5 @@
 import * as CheckinAPIUtil from '../util/checkin_api_util';
+import { openSnackbar } from './snackbar_actions';
 
 export const RECEIVE_CHECKINS = "RECEIVE_CHECKINS";
 export const RECEIVE_CHECKIN = "RECEIVE_CHECKIN";
@@ -26,10 +27,16 @@ export const fetchCheckin = checkinId => dispatch => (CheckinAPIUtil.fetchChecki
   .then(payload => dispatch(receiveCheckin(payload)));
 
 export const createCheckin = checkin => dispatch => (CheckinAPIUtil.createCheckin(checkin))
-  .then(payload => dispatch(receiveCheckin(payload)));
+  .then(payload => {
+    dispatch(receiveCheckin(payload));
+    dispatch(openSnackbar('Checkin created!'));
+  });
 
 export const updateCheckin = checkin => dispatch => (CheckinAPIUtil.updateCheckin(checkin))
   .then(payload => dispatch(receiveCheckin(payload)));
 
 export const deleteCheckin = checkinId => dispatch => (CheckinAPIUtil.deleteCheckin(checkinId))
-  .then(payload => dispatch(removeCheckin(payload)));
+  .then(payload => {
+    dispatch(removeCheckin(payload));
+    dispatch(openSnackbar('Checkin deleted!'));
+  });

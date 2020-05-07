@@ -1,0 +1,20 @@
+.Snackbar {
+  position: fixed;
+  background-color: $yellow;
+  min-width: 400px;
+  left: 30px;
+  bottom: 30px;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px -2px $light-gray;
+  margin: auto;
+  z-index: 200;
+  height: 0px;
+  padding: 0 1em;
+  transition: height .3s;
+  transition: padding .3s;
+}
+
+.Snackbar.opened {
+  height: auto;
+  padding: 1em;
+}

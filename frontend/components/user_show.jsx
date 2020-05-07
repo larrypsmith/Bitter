@@ -40,11 +40,13 @@ const UserShow = ({ match: { params: { id } } }) => {
         
         <List>
           {
-            checkins.map((checkin, idx) => (
-              <ListItem key={idx}>
-                <Checkin checkin={checkin} />
-              </ListItem>
-            ))
+            checkins
+              .reverse()
+              .map((checkin, idx) => (
+                <ListItem key={idx}>
+                  <Checkin checkin={checkin} />
+                </ListItem>
+              ))
           }
         </List>
       </Tile>
