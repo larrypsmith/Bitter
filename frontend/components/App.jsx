@@ -3,7 +3,7 @@ import { Switch, Redirect } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import BreweryIndex from './brewery_index';
 import BreweryShow from './brewery_show';
-import CheckinIndex from './checkin_index';
+import Home from './home';
 import LoginFormContainer from './login_form_container'
 import Modal from './modal';
 import NavBar from './nav_bar';
@@ -23,7 +23,7 @@ const App = ({ loggedIn }) => {
             <ProtectedRoute path="/users/:id" component={UserShow} />
             <ProtectedRoute path="/breweries/:id" component={BreweryShow} />
             <ProtectedRoute path="/breweries" component={BreweryIndex} />
-            <ProtectedRoute path="/home" component={CheckinIndex} />
+            <ProtectedRoute path="/home" component={Home} />
             <Redirect to="/home" />
           </Switch>
         </main>

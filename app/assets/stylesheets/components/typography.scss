@@ -1,55 +1,63 @@
-.black {
+// .Typography {
+//   line-height: 1.5rem;
+// }
+
+.Typography.black {
   color: black;
 }
 
-.brown {
+.Typography.brown {
   color: #cc6600;
 }
 
-.lightGray {
+.Typography.lightGray {
   color: #999999;
 }
 
-.darkGray {
+.Typography.darkGray {
   color: #666666;
 }
 
-.white {
+.Typography.white {
   color: white;
 }
 
-.orange {
+.Typography.orange {
   color: #ff9933
 }
 
-.xs {
+.Typography.xs {
   font-size: 12px;
 }
 
-.sm {
+.Typography.sm {
   font-size: 16px;
 }
 
-.md {
+.Typography.md {
   font-size: 18px;
 }
 
-.lg {
+.Typography.lg {
   font-size: 20px;
 }
 
-.xl {
+.Typography.xl {
   font-size: 22px;
 }
 
-.xxl {
+.Typography.xxl {
   font-size: 32px;
 }
 
-.xxxl {
+.Typography.xxxl {
   font-size: 40px;
 }
 
-.bold {
+.Typography.bold {
   font-weight: bold;
+}
+
+.Typography.gutterBottom {
+  margin-bottom: 1rem;
 }

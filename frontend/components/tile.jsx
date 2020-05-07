@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Tile = ({ children }) => (
-  <div className="Tile">
+const Tile = ({ children, className }) => (
+  <div className={`Tile ${className}`}>
     {children}
   </div>
 )

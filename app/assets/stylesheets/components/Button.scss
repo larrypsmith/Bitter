@@ -1,44 +1,59 @@
-[class|=Button] {
+.Button {
   box-sizing: border-box;
   border-radius: .3em;
   white-space: nowrap;
 }
 
-[class|=Button]:not(.Button-text) {
+.Button.contained, .Button.primary {
   padding: .7em 1em;
-  font-size: 16px;
 }
 
-.Button-contained {
+.Button.contained {
   background-color: $yellow;
   color: white;
   border: 1px solid $yellow;
 }
 
-.Button-contained:hover {
+.Button.contained:hover {
   background-color: $dark-yellow;
 }
 
-.Button-outlined {
+.Button.outlined {
   background-color: white;
   color: $yellow;
   border: 1px solid $yellow;
 }
 
-.Button-outlined:hover {
+.Button.outlined:hover {
   background-color: #eee;
 }
 
-.Button-text {
+.Button.text {
   font-size: 14px;
   color: $brown;
 }
 
-.Button-text:not(:last-child) {
+.Button.text:not(:last-child) {
   margin-right: 1em;
 }
 
-.Button-text:hover {
+.Button.text:hover {
   color: $dark-yellow;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.Button.sm {
+  font-size: 12px;
+}
+
+.Button.md {
+  font-size: 16px;
+}
+
+.Button.lg {
+  font-size: 20px;
 }
 

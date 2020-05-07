@@ -1,11 +1,11 @@
 import React from 'react';
 import Avatar from './avatar';
-import Button from './button';
 import ConditionalRouteRender from './conditional_route_render';
 import FlexChild from './flex_child';
 import FlexParent from './flex_parent';
 import TextBody from './text_body';
 import Typography from './typography';
+import ViewBreweryButton from './view_brewery_button';
 import { Link } from 'react-router-dom';
 
 const Brewery = ({ brewery:
@@ -30,11 +30,7 @@ const Brewery = ({ brewery:
 
     <ConditionalRouteRender id={id}>
       <FlexChild align="center">
-        <Link to={`/breweries/${id}`}>
-          <Button>
-            View Brewery
-          </Button>
-        </Link>
+        <ViewBreweryButton id={id} />
       </FlexChild>
     </ConditionalRouteRender>
   </FlexParent>

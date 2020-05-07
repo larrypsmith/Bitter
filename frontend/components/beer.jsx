@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../actions/modal_actions';
+import AddToListButton from './add_to_list_button';
 import Avatar from './avatar';
+import CheckInButton from './check_in_button';
 import FlexChild from './flex_child';
 import FlexParent from './flex_parent';
 import NewListsBeerForm from './new_lists_beer_form';
 import NewCheckinForm from './new_checkin_form';
-import IconButton from './icon_button';
 import TextBody from './text_body';
 import Typography from './typography';
 
@@ -61,18 +62,8 @@ const Beer = ({ beer: { id, name, description, beer_type, subtype, profilePictur
       </FlexChild>
 
       <FlexChild grow={2} align="center">
-        <IconButton
-          onClick={(e) => handleClick(e, 'newCheckinForm')}
-          icon={<i className="fas fa-check"></i>}
-        >
-          Check In Beer
-        </IconButton>
-        <IconButton
-          onClick={(e) => handleClick(e, 'newListsBeerForm')}
-          icon={<i className="fas fa-plus"></i>}
-        >
-          Add Beer to List
-        </IconButton>
+        <CheckInButton onClick={(e) => handleClick(e, 'newCheckinForm')} />
+        <AddToListButton onClick={(e) => handleClick(e, 'newListsBeerForm')} />
       </FlexChild>
     </FlexParent>
   )

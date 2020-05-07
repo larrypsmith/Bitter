@@ -57,15 +57,26 @@ const Checkin = ({ checkin }) => {
         <Typography size="md">
           <Link
             to={`/users/${user.id}`}
-            className="link">
+            className="link"
+          >
             {user.username}
           </Link>
           &nbsp;
-          is drinking a {beer.name} from
+          is drinking a
           &nbsp;
           <Link
             to={`/breweries/${brewery.id}`}
-            className="link">
+            className="link"
+          >
+            {beer.name}
+          </Link>
+          &nbsp;
+          from
+          &nbsp;
+          <Link
+            to={`/breweries/${brewery.id}`}
+            className="link"
+          >
             {brewery.name}
           </Link>
         </Typography>
