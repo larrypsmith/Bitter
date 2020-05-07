@@ -24,11 +24,14 @@ const CheckinIndex = () => {
         </Typography>
       </ListTitle>
       {
-        Object.values(checkins).map((checkin, idx) => (
-          <ListItem key={idx}>
-            <Checkin checkin={checkin} />
-          </ListItem>
-        ))
+        Object
+          .values(checkins)
+          .reverse()
+          .map((checkin, idx) => (
+            <ListItem key={idx}>
+              <Checkin checkin={checkin} />
+            </ListItem>
+          ))
       }
     </Tile>
   )

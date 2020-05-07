@@ -1,4 +1,5 @@
 import * as ListApiUtil from '../util/list_api_util';
+import { openSnackbar } from './snackbar_actions';
 
 export const RECEIVE_LISTS = 'RECEIVE_LISTS';
 export const RECEIVE_LIST = 'RECEIVE_LIST';
@@ -17,4 +18,7 @@ export const fetchUserLists = (userId) => (dispatch) => ListApiUtil.fetchUserLis
   .then(payload => dispatch(receiveLists(payload)));
 
 export const createList = (list) => (dispatch) => ListApiUtil.createList(list)
-  .then(payload => dispatch(receiveList(payload)));
+  .then(payload => {
+    dispatch(receiveList(payload));
+    dispatch(openSnackbar('List created!'));
+  });

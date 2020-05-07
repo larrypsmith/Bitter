@@ -8,6 +8,7 @@ import LoginFormContainer from './login_form_container'
 import Modal from './modal';
 import NavBar from './nav_bar';
 import SignupFormContainer from './signup_form_container'
+import Snackbar from './snackbar'
 import SplashContainer from './splash_container';
 import UserShow from './user_show';
 
@@ -17,6 +18,7 @@ const App = ({ loggedIn }) => {
       <div className="App">
         <Modal />
         <NavBar />
+        <Snackbar />
 
         <main className="app-main">
           <Switch>
