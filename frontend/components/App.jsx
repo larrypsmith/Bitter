@@ -17,8 +17,8 @@ const App = ({ loggedIn }) => {
     return (
       <div className="App">
         <Modal />
-        <NavBar />
         <Snackbar />
+        <NavBar />
 
         <main className="app-main">
           <Switch>

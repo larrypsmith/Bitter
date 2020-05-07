@@ -1,5 +1,7 @@
 [Bitter Home Page](https://bitterapp.herokuapp.com/#/)
 
+![home-page](https://user-images.githubusercontent.com/55966501/81262215-3dce2880-8ff2-11ea-895f-50f019f92a0e.png)
+
 # Bitter 
 
 Bitter is a clone of [Untappd](https://untappd.com/), a social media app where users review and discuss beer.
@@ -18,6 +20,81 @@ When drinking a beer, a user posts a review, or `checkin`, and rates the beer be
 * **Redux**: application state management
 
 ## Feature Highlights
+
+### Snackbars
+
+When a user creates, changes, or deletes a `Checkin` or `List`, a brief message, or `Snackbar`, appears at the bottom left of the screen. A CSS transition draws the user's attention to the `Snackbar`:
+
+![feedback-notification](https://user-images.githubusercontent.com/55966501/81263643-e67d8780-8ff4-11ea-985a-0b87c0a66e44.gif)
+
+The `Snackbar`'s position is fixed and a high z-index places it above all other components. It's default height is 0px, making it invisible: 
+
+```CSS
+.Snackbar {
+  position: fixed;
+  background-color: $yellow;
+  min-width: 400px;
+  left: 30px;
+  bottom: 30px;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px -2px $light-gray;
+  margin: auto;
+  z-index: 200;
+  height: 0px;
+  padding: 0 1em;
+  transition: height .3s;
+  transition: padding .3s;
+}
+```
+
+When the backend server sends a response as the result of a `CRUD` action, an `openSnackbar` action is dispatched alongside it. The `openSnackbar` action takes a message as an argument and adds it to the Redux state:
+
+```JavaScript
+export const createCheckin = checkin => dispatch => (CheckinAPIUtil.createCheckin(checkin))
+  .then(payload => {
+    dispatch(receiveCheckin(payload));
+    dispatch(openSnackbar('Checkin created!'));
+  });
+```
+
+The `Snackbar` component listens to the corresponding slice of Redux state:
+
+```JavaScript
+const Snackbar = () => {
+  const message = useSelector(state => state.ui.snackbar);
+```
+
+When a new message is detected, an `opened` class is added to the component, setting its `height` to `auto` and making it visible:
+
+```JavaScript
+let opened = message ? 'opened' : '';
+
+  return(
+    <div className={`Snackbar ${opened}`}>
+      <Typography size="md" color="white">
+        {message}
+      </Typography>
+    </div>
+  )
+```
+
+```CSS
+.Snackbar.opened {
+  height: auto;
+  padding: 1em;
+}
+```
+
+A three-second timer is started, after which an action is dispatched to close the `Snackbar`:
+
+```JavaScript
+useEffect(() => {
+    if (message) {
+      setTimeout(() => dispatch(closeSnackbar()), 3000);
+    }
+  }, [message, dispatch])
+```
+
 
 ### Beer Rating Bar 
 
