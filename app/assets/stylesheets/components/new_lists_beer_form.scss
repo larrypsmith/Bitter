@@ -4,10 +4,6 @@
   background-color: white;
 }
 
-.NewListsBeerForm:hover {
-  cursor: pointer;
-}
-
 .create-new-list {
   padding: 1.5em;
   display: flex;
@@ -16,6 +12,10 @@
 
 .create-new-list > *:not(:last-child) {
   margin-right: .5em;
+}
+
+.create-new-list:hover {
+  cursor: pointer;
 }
 
 .create-new-list i {

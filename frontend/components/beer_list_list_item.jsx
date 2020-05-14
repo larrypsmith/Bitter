@@ -13,6 +13,9 @@ const BeerListListItem = ({ list, beerId }) => {
     value: list.id
   }))
 
+  const beerIdsInList = Object.values(listsBeers)
+    .map(listsBeer => listsBeer.beer_id);
+
   const dispatch = useDispatch();
 
   const count = listsBeers.length;
@@ -28,8 +31,11 @@ const BeerListListItem = ({ list, beerId }) => {
     dispatch(closeModal());
   }
 
+  let classNames = ['BeerListListItem'];
+  if (beerIdsInList.includes(beerId)) classNames.push('inactive');
+
   return(
-    <li className="BeerListListItem" onClick={handleClick}>
+    <li className={classNames.join(' ')} onClick={handleClick}>
       <Typography size="md">{list.name}</Typography>
       <Typography color="lightGray">{count} {word}</Typography>
     </li>
