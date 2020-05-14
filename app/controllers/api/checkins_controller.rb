@@ -1,6 +1,6 @@
 class Api::CheckinsController < ApplicationController
   def index
-    @checkins = Checkin.limit(10)
+    @checkins = Checkin.order(created_at: :desc).limit(10)
   end
 
   def show 
