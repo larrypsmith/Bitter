@@ -26,7 +26,7 @@ const CheckinIndex = () => {
       {
         Object
           .values(checkins)
-          // .reverse()
+          .reverse()
           .map((checkin, idx) => (
             <ListItem key={idx}>
               <Checkin checkin={checkin} />
