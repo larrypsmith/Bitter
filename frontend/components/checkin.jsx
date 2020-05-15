@@ -6,7 +6,7 @@ import EditCheckinForm from './edit_checkin_form';
 import DeleteCheckinForm from './delete_checkin_form';
 import FlexParent from './flex_parent';
 import FlexChild from './flex_child';
-import Rating from './rating';
+import StarBar from './star_bar';
 import SpeechBalloon from './speech_balloon';
 import Typography from './typography';
 import { Link } from 'react-router-dom'
@@ -82,7 +82,7 @@ const Checkin = ({ checkin }) => {
         </Typography>
 
         <SpeechBalloon>
-          <Rating rating={checkin.rating} />
+          <StarBar rating={checkin.rating} disabled />
           <Typography size="lg">{checkin.body}</Typography>
         </SpeechBalloon>
 

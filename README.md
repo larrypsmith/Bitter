@@ -1,27 +1,25 @@
+# Bitter
+
 [Bitter Home Page](https://bitterapp.herokuapp.com/#/)
 
 ![home-page](https://user-images.githubusercontent.com/55966501/81262215-3dce2880-8ff2-11ea-895f-50f019f92a0e.png)
 
-# Bitter 
-
 Bitter is a clone of [Untappd](https://untappd.com/), a social media app where users review and discuss beer.
-When drinking a beer, a user posts a review, or `checkin`, and rates the beer between one and five points.
+When drinking a beer, a user posts a review, or `Checkin`, and rates the beer between one and five points.
 
-## Technologies 
+# Technologies 
 
 ### Back End
-* **Ruby**
-* **Rails**: server-side framework
+* **Ruby on Rails**: server-side framework
 * **PostgreSQL**: database management
 
 ### Front End
-* **JavaScript**
 * **React**: UI framework
 * **Redux**: application state management
 
-## Feature Highlights
+# Feature Highlights
 
-### Snackbars
+## Snackbars
 
 When a user creates, changes, or deletes a `Checkin` or `List`, a brief message, or `Snackbar`, appears at the bottom left of the screen. A CSS transition draws the user's attention to the `Snackbar`:
 
@@ -95,26 +93,78 @@ useEffect(() => {
   }, [message, dispatch])
 ```
 
+## Beer Rating Bar
 
-### Beer Rating Bar 
+When a user checks in a beer, the user can submit their thoughts on the beer and rate it between one and five stars:
 
-When a user rates a beer, the rating is rendered as a row of 'bottle cap' icons, where each orange icon represents one point:
+![rating](https://user-images.githubusercontent.com/55966501/82093940-f5c59a80-96b0-11ea-9271-9a390cf3a584.png)
 
-![rating](https://user-images.githubusercontent.com/55966501/76643665-c066ca00-6512-11ea-84a7-48e5ec4cee72.png)
-
-The rating is a JS array, `caps`, that contains five `img` elements, one for each 'bottle cap' icon. The array is filled with the quantity of orange caps that corresponds to the beer's rating. The gray caps are added by subtracting the quantity of orange caps from five: 
+The stars are rendered as an array of `Star` React components, and each `Star` renders an `SVG` element containing a `path` that draws the star shape:
 
 ```JavaScript
-let caps = [];
-for (let i = 1; i <= rating; i++) {
-  caps.push(<img className="cap" src="cap-100.png" alt="cap-0" key={i}/>)
-}
-for (let i = rating + 1; i <= 5; i++ ) {
-    caps.push(<img className="cap" src="cap-0.png" alt="cap-0" key={i}/>)
-}
+return(
+    <svg
+      onClick={onClick}
+      className={className}
+      width={starWidth}
+      height={starWidth}
+    >
+      <path
+        d="
+          M 15.000 22.500
+          L 23.817 27.135
+          L 22.133 17.318
+          L 29.266 10.365
+          L 19.408 8.932
+          L 15.000 0.000
+          L 10.592 8.932
+          L 0.734 10.365
+          L 7.867 17.318
+          L 6.183 27.135
+          L 15.000 22.500
+        "
+        fill={color}
+      />
+    </svg>
+  )
 ```
 
-### Toggle-able Description Length
+Each `Star` receives a boolean `filled` prop that renders the star as yellow when `filled === true` and gray when `filled === false`:
+
+```JavaScript
+const Star = ({ filled, onClick, order }) => {
+  const color = filled ? '#FFC000' : '#999999';
+```
+
+Each `Star` is also given a callback frunction, `onStarClick`, that is fired when the `Star` is clicked. `onStarClick` is passed down from the `CheckinForm` component, which also contains the form's input fields, the `Submit` button, and stateful logic for re-rendering the inputs when changed by the user:
+
+```JavaScript
+const CheckinForm = ({
+  initialRating = 0,
+  initialBody = "",
+  beerId,
+  onSubmitAction,
+  checkinId
+}) => {
+  const [rating, setRating] = useState(initialRating);
+  const [body, setBody] = useState(initialBody);
+  const dispatch = useDispatch();
+```
+
+When a `Star` is clicked, `onStarClick` is fired, updating the React component's local `rating` state to the point value of the `Star` that was clicked:
+
+```JavaScript
+const handleRatingChange = (e) => {
+    e.stopPropagation();
+    
+    const activeStarClassName = e.currentTarget.className.baseVal;
+    let newRating = activeStarClassName.split('-')[1];
+    if (rating === newRating) newRating = 0;
+    setRating(newRating);
+  }
+```
+
+## Toggle-able Description Length
 
 Each brewery and beer has a description. Many descriptions exceed 1000 characters. To reduce the amount of space it occupies on the page, each description is initially rendered as only its first 120 characters. A `'...Show More'` button can be clicked to expand the description to it's full length:
 
@@ -150,7 +200,9 @@ else {
 }
 ```
 
-## TODO
-* Each beer displays its average rating and checkin quantity
-* Each beer has a show page displaying its stats and checkins
-* Users can search for beers from the home page
+# TODO
+
+- [ ] Each beer displays its average rating and checkin quantity
+- [ ] Each beer has its own page displaying its stats and a feed of recent checkins
+- [x] Users can save beers to lists for later viewing
+- [x] Snackbar notifications for common CRUD actions

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
-import Slider from './slider';
+import FlexParent from './flex_parent';
+import FlexChild from './flex_child';
+import StarBar from './star_bar';
+import StarBarReadout from './star_bar_readout';
 import Textarea from './textarea';
 
 const CheckinForm = ({
@@ -15,20 +18,20 @@ const CheckinForm = ({
   const [body, setBody] = useState(initialBody);
   const dispatch = useDispatch();
 
-  const handleChange = (e, field) => {
+  const handleBodyChange = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    switch (field) {
-      case 'body':
-        setBody(e.currentTarget.value)
-        break;
-      case 'rating':
-        setRating(e.currentTarget.value);
-        break;
-      default:
-        return null;
-    }
+    setBody(e.currentTarget.value)
+  }
+
+  const handleRatingChange = (e) => {
+    e.stopPropagation();
+    
+    const activeStarClassName = e.currentTarget.className.baseVal;
+    let newRating = activeStarClassName.split('-')[1];
+    if (rating === newRating) newRating = 0;
+    setRating(newRating);
   }
 
   const handleSubmit = e => {
@@ -52,10 +55,19 @@ const CheckinForm = ({
         <Textarea
           placeholder="What did you think?"
           value={body}
-          onChange={e => handleChange(e, 'body')}
-          />
-        <Slider rating={rating} onChange={e => handleChange(e, 'rating')} />
-        <button onClick={handleSubmit}>Confirm</button>
+          onChange={handleBodyChange}
+        />
+
+        <FlexParent justify="flex-start">
+          <FlexChild>
+            <StarBar rating={rating} onStarClick={handleRatingChange} />
+          </FlexChild>
+          <FlexChild>
+            <StarBarReadout rating={rating} />
+          </FlexChild>
+        </FlexParent>
+
+        <button>Confirm</button>
       </form>
     </div>
   )
