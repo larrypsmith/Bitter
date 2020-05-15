@@ -2,26 +2,29 @@ import React from 'react';
 
 const Star = ({ filled, onClick, order }) => {
   const color = filled ? '#FFC000' : '#999999';
+  const starWidth = 30;
+
+  const className = `Star-${order}`;
   
   return(
     <svg
       onClick={onClick}
-      className={order}
-      width='100'
-      height='100'>
+      className={className}
+      width={starWidth}
+      height={starWidth}>
       <path
         d="
-          M 50.000 75.000
-          L 79.389 90.451
-          L 73.776 57.725
-          L 97.553 34.549
-          L 64.695 29.775
-          L 50.000 0.000
-          L 35.305 29.775
-          L 2.447 34.549
-          L 26.224 57.725
-          L 20.611 90.451
-          L 50.000 75.000
+          M 15.000 22.500
+          L 23.817 27.135
+          L 22.133 17.318
+          L 29.266 10.365
+          L 19.408 8.932
+          L 15.000 0.000
+          L 10.592 8.932
+          L 0.734 10.365
+          L 7.867 17.318
+          L 6.183 27.135
+          L 15.000 22.500
         "
         fill={color}
       />

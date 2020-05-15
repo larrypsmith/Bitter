@@ -6,13 +6,17 @@ const StarBar = ({ initialRating, disabled }) => {
   
   const handleClick = (e) => {
     e.stopPropagation();
-    setRating(parseInt(e.currentTarget.className.baseVal));
+
+    const activeStarClassName = e.currentTarget.className.baseVal;
+    let newRating = activeStarClassName.split('-')[1];
+    if (rating === newRating) newRating = 0;
+    setRating(newRating);
   }
 
+  const starArray = new Array(5).fill(null);
+  
   const classNames = ['StarBar'];
   if (disabled) classNames.push('disabled');
-
-  const starArray = new Array(5).fill(null);
 
   return(
     <div className={classNames}>
