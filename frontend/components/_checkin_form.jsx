@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
 import Slider from './slider';
+import StarBar from './star_bar';
 import Textarea from './textarea';
 
 const CheckinForm = ({
@@ -54,7 +55,8 @@ const CheckinForm = ({
           value={body}
           onChange={e => handleChange(e, 'body')}
           />
-        <Slider rating={rating} onChange={e => handleChange(e, 'rating')} />
+        {/* <Slider rating={rating} onChange={e => handleChange(e, 'rating')} /> */}
+        <StarBar initialRating={rating} />
         <button onClick={handleSubmit}>Confirm</button>
       </form>
     </div>
