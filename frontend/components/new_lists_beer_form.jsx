@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { fetchUserLists } from '../actions/list_actions'
+import { fetchUserLists, createList } from '../actions/list_actions'
 import { openModal } from '../actions/modal_actions';
 import BeerListList from './beer_list_list';
 import NewListForm from './new_list_form';
@@ -15,21 +15,33 @@ const NewListsBeerForm = ({ beerId }) => {
     dispatch(fetchUserLists(currentUser.id));
   }, [dispatch, currentUser.id]);
 
-  const onCancelNewList = (e) => {
-    e.stopPropagation();
-
-    dispatch(openModal({
-      component: <NewListsBeerForm beerId={beerId} />,
-      title: 'Select a List'
-    }))
-  }
-
   const openNewListForm = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
+    const onCancelNewList = (e) => {
+      e.stopPropagation();
+
+      dispatch(openModal({
+        component: <NewListsBeerForm beerId={beerId} />,
+        title: 'Select a List'
+      }))
+    }
+
+    const onSubmitNewList = (e, list) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      dispatch(createList(list))
+
+      dispatch(openModal({
+        component: <NewListsBeerForm beerId={beerId} />,
+        title: 'Select a List'
+      }))
+    }
+
     dispatch(openModal({
-      component: <NewListForm onCancel={onCancelNewList} />,
+      component: <NewListForm onCancel={onCancelNewList} onSubmit={onSubmitNewList} />,
       title: 'Create New List'
     }));
   }

@@ -7,7 +7,8 @@ const ListForm = ({
   initialName = '',
   initialDescription = '',
   onSubmit,
-  onCancel: handleCancel
+  onCancel,
+  submitButtonText
 }) => {
   const [name, setName] = useState(initialName);
   const [description, setDescription] = useState(initialDescription);
@@ -15,6 +16,10 @@ const ListForm = ({
   const handleSubmit = e => {
     onSubmit(e, { name, description });
   };
+
+  const handleCancel = (e) => {
+    onCancel(e)
+  }
 
   return(
     <div className="ListForm">
@@ -30,7 +35,7 @@ const ListForm = ({
         value={description}
         onChange={e => setDescription(e.currentTarget.value)}
       />
-      <Button onClick={handleSubmit}>Create List</Button>
+      <Button onClick={handleSubmit}>{submitButtonText}</Button>
       <Button onClick={handleCancel} variant="text">Cancel</Button>
     </div>
   )
