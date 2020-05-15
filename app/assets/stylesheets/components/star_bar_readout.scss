@@ -1,0 +1,19 @@
+.StarBarReadout {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  background-color: #a0a0a0;;
+  padding: .2em;
+  border-radius: .3em;
+  text-align: center;
+}
+
+.StarBarReadout .rating {
+  font-size: 20px;
+  display: inline;
+}
+
+.StarBarReadout .word {
+  font-size: 11px;
+  display: inline;
+}
