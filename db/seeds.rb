@@ -157,6 +157,7 @@ Checkin.create!(user_id: beer_a_day.id, beer_id: pliny_the_elder.id, rating: 5, 
 
 List.delete_all
 demo_user_wish_list = List.create!(user_id: demo_user.id, name: "Wish List", description: "Beers I want to try")
+demo_user_favorite_beers = List.create!(user_id: demo_user.id, name: "My Favorite Beers", description: "These are my favorite beers")
 
 ListsBeer.delete_all
 ListsBeer.create!(list_id: demo_user_wish_list.id, beer_id: pliny_the_younger.id)
