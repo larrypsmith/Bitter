@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ListItem = ({ children }) => (
-  <li className="ListItem">
+  <div className="ListItem">
     {children}
-  </li>
+  </div>
 );
 
 export default ListItem;

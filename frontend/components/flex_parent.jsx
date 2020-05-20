@@ -1,9 +1,14 @@
 import React from 'react';
 
-const FlexParent = ({ children, justify = "space-between", className = "" }) => {
-
+const FlexParent = ({
+  children,
+  justify = "space-between",
+  align = "stretch",
+  className = ""
+}) => {
   const style = {
     justifyContent: justify,
+    alignItems: align
   };
 
   return(

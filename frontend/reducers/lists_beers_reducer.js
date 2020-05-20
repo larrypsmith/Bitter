@@ -1,4 +1,4 @@
-import { RECEIVE_LISTS } from '../actions/list_actions';
+import { RECEIVE_LISTS, RECEIVE_LIST } from '../actions/list_actions';
 import { RECEIVE_LISTS_BEER } from '../actions/lists_beer_actions';
 
 const listsBeersReducer = (state = {}, action) => {
@@ -7,6 +7,8 @@ const listsBeersReducer = (state = {}, action) => {
     case RECEIVE_LISTS:
       return { ...state, ...action.payload.listsBeers };
     case RECEIVE_LISTS_BEER:
+      return { ...state, ...action.payload.listsBeers };
+    case RECEIVE_LIST:
       return { ...state, ...action.payload.listsBeers };
     default:
       return state;

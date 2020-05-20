@@ -12,6 +12,12 @@ export const createList = (list) => (
   })
 );
 
+export const fetchList = (listId) => (
+  $.ajax({
+    url: `api/lists/${listId}`
+  })
+)
+
 // export const deleteList = (listId) => (
 //   $.ajax({
 //     url: `api/lists/${listId}`,

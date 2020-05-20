@@ -22,3 +22,8 @@ export const createList = (list) => (dispatch) => ListApiUtil.createList(list)
     dispatch(receiveList(payload));
     dispatch(openSnackbar('List created!'));
   });
+
+export const fetchList = (listId) => (dispatch) => ListApiUtil.fetchList(listId)
+  .then(payload => {
+    dispatch(receiveList(payload));
+  })

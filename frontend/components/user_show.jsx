@@ -1,9 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { stateFilter } from '../reducers/selectors';
+import { fetchUser } from '../actions/user_actions';
+import { fetchUserLists } from '../actions/list_actions';
 import Banner from './banner';
-import BeerListList from './beer_list_list';
 import Checkin from './checkin';
 import Container from './container';
 import FlexParent from './flex_parent';
@@ -13,9 +14,11 @@ import ListItem from './list_item';
 import ListTitle from './list_title';
 import Tile from './tile';
 import Typography from './typography';
+import UserShowBeerLists from './user_show_beer_lists';
 
 const UserShow = ({ match: { params: { id } } }) => {
   const user = useSelector(state => state.entities.users[id]);
+
   const checkins = useSelector(state => stateFilter({
     state,
     key1: 'checkins',
@@ -23,11 +26,18 @@ const UserShow = ({ match: { params: { id } } }) => {
     value: JSON.parse(id)
   }));
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser(id));
+    dispatch(fetchUserLists(id));
+  }, [dispatch, id])
+
   if (!user) return null;
   return(
     <Container maxWidth="lg">
       <Banner user={user} />
-
+      
       <FlexParent>
         <FlexChild>
           <Tile>
@@ -53,7 +63,7 @@ const UserShow = ({ match: { params: { id } } }) => {
 
         <FlexChild>
           <Tile>
-            <BeerListList userId={id} />
+            <UserShowBeerLists />
           </Tile>
         </FlexChild>
       </FlexParent>
