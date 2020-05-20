@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :checkins
+  
   has_one_attached :profile_picture
   has_one_attached :cover_photo
 

@@ -1,18 +1,9 @@
 import React, { useEffect } from 'react';
-import { Switch, Redirect } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUser } from '../actions/user_actions';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import BreweryIndex from './brewery_index';
-import BreweryShow from './brewery_show';
-import Home from './home';
-import LoginFormContainer from './login_form_container'
-import Modal from './modal';
-import NavBar from './nav_bar';
-import SignupFormContainer from './signup_form_container'
-import Snackbar from './snackbar'
-import SplashContainer from './splash_container';
-import UserShow from './user_show';
+import AuthApp from './auth_app';
+import ProtectedApp from './protected_app';
+
 
 const App = () => {
   const currentUserId = useSelector(state => state.session.id);
@@ -21,39 +12,10 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchUser(currentUserId))
-  }, [dispatch, currentUserId])
+    if (isLoggedIn) dispatch(fetchUser(currentUserId))
+  }, [dispatch, currentUserId, isLoggedIn])
   
-  if (isLoggedIn) {
-    return (
-      <div className="App">
-        <Modal />
-        <Snackbar />
-        <NavBar />
-
-        <main className="app-main">
-          <Switch>
-            <ProtectedRoute path="/users/:id" component={UserShow} />
-            <ProtectedRoute path="/breweries/:id" component={BreweryShow} />
-            <ProtectedRoute path="/breweries" component={BreweryIndex} />
-            <ProtectedRoute path="/home" component={Home} />
-            <Redirect to="/home" />
-          </Switch>
-        </main>
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <Switch>
-          <AuthRoute path="/login" component={LoginFormContainer} />
-          <AuthRoute path="/signup" component={SignupFormContainer} />
-          <AuthRoute path="/" component={SplashContainer} />
-          <Redirect to="/" />
-        </Switch>
-      </div>
-    )
-  }
+  return isLoggedIn ? <ProtectedApp /> : <AuthApp />
 }
 
 export default App;
