@@ -19,6 +19,16 @@ class Api::ListsController < ApplicationController
     end
   end
 
+  def show
+    @list = List.find_by(id: params[:id])
+
+    if @list
+      render :show
+    else
+      render json: ['Invalid List ID']
+    end
+  end
+
   def update 
     @list = List.find_by(id: params[:id])
 

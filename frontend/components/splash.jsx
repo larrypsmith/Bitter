@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import AuthBackground from './auth_background';
 
-export default ({ loginDemoUser }) => (
+const Splash = ({ loginDemoUser }) => (
   <div className="splash">
     <AuthBackground />
 
@@ -25,4 +25,6 @@ export default ({ loginDemoUser }) => (
     </main>
 
   </div>
-)
+);
+
+export default Splash;

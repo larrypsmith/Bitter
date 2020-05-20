@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchUser } from '../actions/user_actions';
+import { useSelector } from 'react-redux';
 import Avatar from './avatar';
-import Button from './button';
 import Container from './container';
 import Dropdown from './dropdown';
 import FlexParent from './flex_parent';
@@ -13,11 +11,6 @@ const NavBar = () => {
   const [isDropdownHidden, setDropdownHidden] = useState(true);
   const currentUserId = useSelector(state => state.session.id);
   const currentUser = useSelector(state => state.entities.users[currentUserId]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUser(currentUserId))
-  }, [dispatch, currentUserId]);
 
   const toggleDropdown = e => {
     e.preventDefault();

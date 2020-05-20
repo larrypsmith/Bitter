@@ -16,10 +16,12 @@
 #                           DELETE /api/checkins/:id(.:format)                                                              api/checkins#destroy {:format=>:json}
 #                 api_beers GET    /api/beers(.:format)                                                                     api/beers#index {:format=>:json}
 #                 api_lists POST   /api/lists(.:format)                                                                     api/lists#create {:format=>:json}
-#                  api_list PATCH  /api/lists/:id(.:format)                                                                 api/lists#update {:format=>:json}
+#                  api_list GET    /api/lists/:id(.:format)                                                                 api/lists#show {:format=>:json}
+#                           PATCH  /api/lists/:id(.:format)                                                                 api/lists#update {:format=>:json}
 #                           PUT    /api/lists/:id(.:format)                                                                 api/lists#update {:format=>:json}
 #                           DELETE /api/lists/:id(.:format)                                                                 api/lists#destroy {:format=>:json}
 #           api_lists_beers POST   /api/lists_beers(.:format)                                                               api/lists_beers#create {:format=>:json}
+#            api_lists_beer DELETE /api/lists_beers/:id(.:format)                                                           api/lists_beers#destroy {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -36,8 +38,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :checkins, only: [:index, :show, :create, :update, :destroy]
     resources :beers, only: [:index]
-    resources :lists, only: [:create, :update, :destroy]
-    resources :lists_beers, only: [:create]
+    resources :lists, only: [:create, :show, :update, :destroy]
+    resources :lists_beers, only: [:create, :destroy]
   end
 
   root "static_pages#root"

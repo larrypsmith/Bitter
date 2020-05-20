@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Redirect } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUser } from '../actions/user_actions';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import BreweryIndex from './brewery_index';
 import BreweryShow from './brewery_show';
@@ -12,8 +14,17 @@ import Snackbar from './snackbar'
 import SplashContainer from './splash_container';
 import UserShow from './user_show';
 
-const App = ({ loggedIn }) => {
-  if (loggedIn) {
+const App = () => {
+  const currentUserId = useSelector(state => state.session.id);
+  const isLoggedIn = Boolean(currentUserId);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser(currentUserId))
+  }, [dispatch, currentUserId])
+  
+  if (isLoggedIn) {
     return (
       <div className="App">
         <Modal />
