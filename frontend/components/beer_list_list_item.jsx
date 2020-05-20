@@ -1,6 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { stateFilter } from '../reducers/selectors';
+import { deleteList } from '../actions/list_actions';
+import { openModal, closeModal } from '../actions/modal_actions';
+import ConfirmationForm from './confirmation_form';
+import FlexParent from './flex_parent';
+import FlexChild from './flex_child';
+import TrashIcon from './trash_icon';
 import Typography from './typography';
 
 const BeerListListItem = ({ list, beerId, onClick }) => {
@@ -10,6 +16,24 @@ const BeerListListItem = ({ list, beerId, onClick }) => {
     key2: 'list_id',
     value: list.id
   }))
+
+  const dispatch = useDispatch();
+
+  const onClickTrashIcon = (e) => {
+    e.stopPropagation();
+
+    const onSubmitDelete = (e) => {
+      e.stopPropagation();
+
+      dispatch(deleteList(list.id))
+      dispatch(closeModal())
+    }
+
+    dispatch(openModal({
+      component: <ConfirmationForm onSubmit={onSubmitDelete}/>,
+      title: 'Delete List'
+    }))
+  }
 
   const beerIdsInList = Object.values(listsBeers)
     .map(listsBeer => listsBeer.beer_id);
@@ -22,8 +46,16 @@ const BeerListListItem = ({ list, beerId, onClick }) => {
 
   return(
     <li className={classNames.join(' ')} onClick={onClick}>
-      <Typography size="md">{list.name}</Typography>
-      <Typography color="lightGray">{count} {word}</Typography>
+      <FlexParent>
+        <FlexChild>
+          <Typography size="md">{list.name}</Typography>
+          <Typography color="lightGray">{count} {word}</Typography>
+        </FlexChild>
+
+        <FlexChild align="center">
+          <TrashIcon onClick={onClickTrashIcon}/>
+        </FlexChild>
+      </FlexParent>
     </li>
   )
 };

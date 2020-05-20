@@ -18,10 +18,10 @@ export const fetchList = (listId) => (
   })
 )
 
-// export const deleteList = (listId) => (
-//   $.ajax({
-//     url: `api/lists/${listId}`,
-//     method: 'DELETE',
-//   })
-// );
+export const deleteList = (listId) => (
+  $.ajax({
+    url: `api/lists/${listId}`,
+    method: 'DELETE',
+  })
+);
 
