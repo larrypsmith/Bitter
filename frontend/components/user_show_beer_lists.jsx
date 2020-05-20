@@ -34,17 +34,15 @@ const UserShowBeerLists = ({ match: { params: { id } } }) => {
         <Typography size="lg">Lists</Typography>
       </ListTitle>
 
-      <ListItem>
-        {
-          lists.map(list => (
-            <BeerListListItem
-              list={list}
-              key={list.id}
-              onClick={e => handleListItemClick(e, list)}
-            />
-          ))
-        }
-      </ListItem>
+      {
+        lists.map(list => (
+          <BeerListListItem
+            list={list}
+            key={list.id}
+            onClick={e => handleListItemClick(e, list)}
+          />
+        ))
+      }
     </React.Fragment>
   )
 };
