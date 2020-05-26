@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ApplicationRecord
   attr_reader :password
 
