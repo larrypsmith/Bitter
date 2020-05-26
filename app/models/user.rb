@@ -43,6 +43,21 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def attach_profile_picture(photo_url) 
+    img = open(photo_url)
+    self.profile_picture.attach(io: img, filename: 'profile-picture')
+  end
+
+  def attach_cover_photo(photo_url)
+    img = open(photo_url)
+    self.cover_photo.attach(io: img, filename: 'cover-photo')
+  end
+
+  def attach_default_pictures
+    self.attach_profile_picture("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/user-avatar.jpg")
+    self.attach_cover_photo("https://bitter-seeds.s3-us-west-1.amazonaws.com/app/cover_default.jpg")
+  end
+
   private
 
   def ensure_session_token
