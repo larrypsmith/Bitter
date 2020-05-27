@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { stateFilter } from '../reducers/selectors'
 import { fetchList } from '../actions/list_actions';
 import BeerListItem from './beer_list_item';
+import FlexParent from './flex_parent';
+import FlexChild from './flex_child';
+import ListItem from './list_item';
 
 
 const BeerList = ({ list }) => {
@@ -19,7 +22,16 @@ const BeerList = ({ list }) => {
     dispatch(fetchList(list.id))
   }, [dispatch, list.id]);
   
-  if (!listsBeers) return null;
+  if (!listsBeers.length) return (
+    <ListItem>
+      <FlexParent justify="center">
+        <FlexChild>
+          No beers in thist list yet!
+        </FlexChild>
+      </FlexParent>
+    </ListItem>
+  );
+
   return(
     <div className="BeerList">
       {
