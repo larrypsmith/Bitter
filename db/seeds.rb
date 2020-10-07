@@ -22,9 +22,9 @@ bird_dog423        = User.create!(username: "bird_dog423",        password: "bir
 beer_a_day         = User.create!(username: "beer_a_day",         password: "beer_a_day")
 
 demo_user_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/demo.jpeg")
-beer_lover12_img       = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/beer_lover12.jpeg")
-the_beer_snob_img      = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/the_beer_snob.jpeg")
-cider_rules_img        = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/cider_rules.jpeg")
+beer_lover12_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/beer_lover12.jpeg")
+the_beer_snob_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/the_beer_snob.jpeg")
+cider_rules_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/cider_rules.jpeg")
 bay_area_beer_luvr_img = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/bay_area_beer_luvr.jpeg")
 i_love_beer_img        = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/i_love_beer.jpeg")
 warriors_fan22_img     = open("https://bitter-seeds.s3-us-west-1.amazonaws.com/users/warriors_fan22.jpeg")
